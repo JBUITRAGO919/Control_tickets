@@ -243,7 +243,7 @@
                                     
                                 </div>
                                 <div class="card-body">  
-                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                   <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
                             <asp:Label ID="Label7" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
@@ -336,7 +336,7 @@
                                     <i class="fa fa-pie-chart"></i>Empresas
                                 </div>
                                 <div class="card-body">
-                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                    <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
                             <asp:Label ID="Label10" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
@@ -415,7 +415,7 @@
                                     <i class="fa fa-pie-chart"></i>Estados 
                                 </div>
                                 <div class="card-body">
-                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                    <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
                             <asp:Label ID="Label12" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
@@ -496,7 +496,7 @@
                                     
                                 </div>
                                 <div class="card-body">
-                                   iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                   <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
                             <asp:Label ID="Label14" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
