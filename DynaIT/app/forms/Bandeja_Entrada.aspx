@@ -517,7 +517,7 @@
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server" />
+                                            <asp:Button Text="Buscar" runat="server" id="Btn_Buscar_creditos" OnClick="Btn_Buscar_creditos_Click"/>
                                         </div>
                                     </div>
                                     <asp:GridView ID="Grilla_creditos_tickets" runat="server" AutoGenerateColumns="False" DataSourceID="N_creditos_consultor" CssClass="table table-head-fixed text-nowrap" CellPadding="4" ForeColor="#333333" GridLines="None">
