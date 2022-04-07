@@ -242,7 +242,31 @@
                                     <i class="fa fa-pie-chart"></i>Tickets trabajados
                                     
                                 </div>
-                                <div class="card-body">    
+                                <div class="card-body">  
+                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                        <div class="">
+                        <div style="">
+                            <asp:Label ID="Label7" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
+
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date3" type="date" runat="server" style="font-size: medium" />
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div style="">
+                            <asp:Label ID="Label8" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date4" type="date" runat="server" style="font-size: Medium" />
+                        </div>
+
+                    </div>
+                                        <div> 
+                                            <asp:Button Text="Buscar" runat="server" />
+                                        </div>
+                                    </div>
                                     <asp:Chart ID="Chart4" runat="server" DataSourceID="Tickets_trabajados" Width="532px">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="nombre_usuario" YValueMembers="N_tickets"></asp:Series>
@@ -312,6 +336,30 @@
                                     <i class="fa fa-pie-chart"></i>Empresas
                                 </div>
                                 <div class="card-body">
+                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                        <div class="">
+                        <div style="">
+                            <asp:Label ID="Label10" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
+
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date5" type="date" runat="server" style="font-size: medium" />
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div style="">
+                            <asp:Label ID="Label11" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date6" type="date" runat="server" style="font-size: Medium" />
+                        </div>
+
+                    </div>
+                                        <div> 
+                                            <asp:Button Text="Buscar" runat="server" />
+                                        </div>
+                                    </div>
                                     <asp:Chart ID="Chart1" runat="server" DataSourceID="tabla_ticket_estados" Palette="Bright" Height="342px" Width="500px">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="Nombre_Empresa" YValueMembers="N_tickets" YValuesPerPoint="4"></asp:Series>
@@ -367,6 +415,30 @@
                                     <i class="fa fa-pie-chart"></i>Estados 
                                 </div>
                                 <div class="card-body">
+                                    iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                        <div class="">
+                        <div style="">
+                            <asp:Label ID="Label12" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
+
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date7" type="date" runat="server" style="font-size: medium" />
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div style="">
+                            <asp:Label ID="Label13" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date8" type="date" runat="server" style="font-size: Medium" />
+                        </div>
+
+                    </div>
+                                        <div> 
+                                            <asp:Button Text="Buscar" runat="server" />
+                                        </div>
+                                    </div>
                                     <asp:Chart ID="Chart2" runat="server" DataSourceID="ticket_estados_" Height="342px" Width="500px" ImageType="Jpeg" ImageStorageMode="UseImageLocation" ViewStateMode="Enabled">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="estado_Ticket" YValueMembers="N_tickets"></asp:Series>
@@ -424,7 +496,30 @@
                                     
                                 </div>
                                 <div class="card-body">
-                                   
+                                   iv style="display:flex; justify-content: space-around;  margin-bottom:20px;">
+                                        <div class="">
+                        <div style="">
+                            <asp:Label ID="Label14" runat="server" Text="Fecha inicio" Font-Size="Medium"></asp:Label>
+
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date9" type="date" runat="server" style="font-size: medium" />
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div style="">
+                            <asp:Label ID="Label15" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
+                        </div>
+                        <div style="display: flex; padding: 0;">
+                            <input id="Date10" type="date" runat="server" style="font-size: Medium" />
+                        </div>
+
+                    </div>
+                                        <div> 
+                                            <asp:Button Text="Buscar" runat="server" />
+                                        </div>
+                                    </div>
                                     <asp:GridView ID="Grilla_creditos_tickets" runat="server" AutoGenerateColumns="False" DataSourceID="N_creditos_consultor" CssClass="table table-head-fixed text-nowrap" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
