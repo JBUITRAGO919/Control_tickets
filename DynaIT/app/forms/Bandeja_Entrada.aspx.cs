@@ -192,5 +192,10 @@ namespace DynaIT.app.forms
             Response.End();
             Grilla_Ticket_trabajado_fecha.Visible = false;
         }
+
+        protected void Btn_Buscar_creditos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
