@@ -3,7 +3,6 @@ using System;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -29,7 +28,7 @@ namespace DynaIT.app.forms
         {
             Btn_Editar.Visible = false;
             String expresion;
-                        
+
             expresion = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
             if (Regex.IsMatch(Txt_CorreoUsuario.Text, expresion))
             {
@@ -241,12 +240,12 @@ namespace DynaIT.app.forms
 
                     if (myValidaciones.Existe_usuario_vinculado_aTicket(Convert.ToInt32(Txt_Id_Usuario.Text)) == true)
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El usuario tiene tickets asignados', confirmButtonText: 'Ok' })  ", true);
                     }
                     else
                     {
-                        myParametro.Id_usuario =Convert.ToInt32(Txt_Id_Usuario.Text);
+                        myParametro.Id_usuario = Convert.ToInt32(Txt_Id_Usuario.Text);
 
                         Gestion_Datos.Actualizar_usuario_des_Habilitado(myParametro);
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Usuario eliminado', confirmButtonText: 'Ok' })  ", true);
@@ -307,56 +306,56 @@ namespace DynaIT.app.forms
 
 
                                 Txt_Contraseña.Text = Txt_Contraseña.Text.TrimStart();
-                                    if (string.IsNullOrWhiteSpace(Txt_Contraseña.Text))      // me valida si el campo Txt_Contraseña esta vacio si lo esta me muestra un cuadro de dialogo
+                                if (string.IsNullOrWhiteSpace(Txt_Contraseña.Text))      // me valida si el campo Txt_Contraseña esta vacio si lo esta me muestra un cuadro de dialogo
+                                {
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: '  El campo contraseña  esta vacio', confirmButtonText: 'Ok' })  ", true);
+                                }
+                                else
+                                {
+                                    myParametro.Id_usuario = Convert.ToInt32(Txt_Id_Usuario.Text);
+                                    myParametro.Nombre_Usuario = Txt_NombreUsuario.Text;
+                                    myParametro.Correo_Usuario = Txt_CorreoUsuario.Text;
+                                    myParametro.Rol_usuario = rol;
+                                    myParametro.Prefijo_Usuario = Txt_Usuario.Text;
+                                    myParametro.fk_area_id_area = Convert.ToInt32(Txt_Grupo.SelectedValue);
+                                    myParametro.Contraseña_Usuario = Txt_Contraseña.Text;
+
+                                    if (!Gestion_Datos.editar_Usuario(myParametro))
                                     {
-                                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: '  El campo contraseña  esta vacio', confirmButtonText: 'Ok' })  ", true);
+                                        myValidaciones.actualizar_editar_contra_usuario(Txt_CorreoUsuario.Text, Txt_Contraseña.Text, Txt_NombreUsuario.Text);
+
+                                        //DialogResult listbox_enBlanco = MessageBox.Show("Se actualizaron los datos correctamente", " ACTUALIZACION DE DATOS ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', title: 'Usuario actualizado', confirmButtonText: 'Ok' })  ", true);
+                                        Txt_NombreUsuario.Text = "";
+                                        Txt_CorreoUsuario.Text = "";
+                                        List_Rol.Text = "--Seleccionar--";
+                                        Txt_Contraseña.Text = "";
+                                        Txt_Usuario.Text = "";
+                                        Txt_Grupo.SelectedValue = "1";
+                                        Grilla_Crear_Usuario.DataBind();
+
+                                        Btn_Editar.Visible = false;
+                                        Btn_CrearUsuario.Visible = true;
+                                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_usuario').modal('hide');", true);
                                     }
                                     else
+
                                     {
-                                        myParametro.Id_usuario = Convert.ToInt32(Txt_Id_Usuario.Text);
-                                        myParametro.Nombre_Usuario = Txt_NombreUsuario.Text;
-                                        myParametro.Correo_Usuario = Txt_CorreoUsuario.Text;
-                                        myParametro.Rol_usuario = rol;
-                                        myParametro.Prefijo_Usuario = Txt_Usuario.Text;
-                                        myParametro.fk_area_id_area = Convert.ToInt32(Txt_Grupo.SelectedValue);
-                                        myParametro.Contraseña_Usuario = Txt_Contraseña.Text;
 
-                                        if (!Gestion_Datos.editar_Usuario(myParametro))
-                                        {
-                                            myValidaciones.actualizar_editar_contra_usuario(Txt_CorreoUsuario.Text, Txt_Contraseña.Text, Txt_NombreUsuario.Text);
-
-                                            //DialogResult listbox_enBlanco = MessageBox.Show("Se actualizaron los datos correctamente", " ACTUALIZACION DE DATOS ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-
-                                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', title: 'Usuario actualizado', confirmButtonText: 'Ok' })  ", true);
-                                            Txt_NombreUsuario.Text = "";
-                                            Txt_CorreoUsuario.Text = "";
-                                            List_Rol.Text = "--Seleccionar--";
-                                            Txt_Contraseña.Text = "";
-                                            Txt_Usuario.Text = "";
-                                            Txt_Grupo.SelectedValue = "1";
-                                            Grilla_Crear_Usuario.DataBind();
-
-                                            Btn_Editar.Visible = false;
-                                            Btn_CrearUsuario.Visible = true;
-                                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_usuario').modal('hide');", true);
-                                        }
-                                        else
-
-                                        {
-
-                                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'ERROR AL ENVIAR', text:'Se genero un error en la base de datos al ingresar los datos', confirmButtonText: 'Ok' })  ", true);
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'ERROR AL ENVIAR', text:'Se genero un error en la base de datos al ingresar los datos', confirmButtonText: 'Ok' })  ", true);
 
 
 
 
 
-                                        }
                                     }
-                                
+                                }
+
                             }
                         }
 
-                        
+
 
                     }
 
@@ -411,7 +410,7 @@ namespace DynaIT.app.forms
 
             if (Txt_Id_Usuario.Text == "id_usuario")
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text:'No se ha seleccionado un usuario a reestablecer', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -462,7 +461,7 @@ namespace DynaIT.app.forms
 
                                     Gestion_Datos.Actualizar_usuario_Habilitado(myParametro);
                                     myValidaciones.recuperar_contraseña_cliente(Txt_CorreoUsuario.Text);
-                                    
+
                                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', title: 'Usuario habilitado', confirmButtonText: 'Ok' })  ", true);
                                     Grilla_Crear_Usuario.DataBind();
 

@@ -5,6 +5,8 @@ namespace DynaIT.Clases
     public class Visualizar_Tickets
     {
         public int N_Ticket { get; set; }
+        public int N_Tickets { get; set; }
+
         public string tipo_ticket { get; set; }
         public DateTime Fecha_creacion { get; set; }
         public string Resumen_Problema { get; set; }
@@ -13,6 +15,7 @@ namespace DynaIT.Clases
         public string nombre_empresa { get; set; }
         public string Nombre_Cliente { get; set; }
         public string Nombre_usuario { get; set; }
+
         public string estado_ticket { get; set; }
         public string Ticket_Creado_por { get; set; }
         public int TiempoDesarrollo { get; set; }
@@ -74,7 +77,13 @@ namespace DynaIT.Clases
         public int Tlp_id_prioridad { get; set; }
         public string Tlp_prioridad { get; set; }
 
-
+        //------------------------parametros de la grfica de creados ------------------------
+        public string Nombre_usuario_grfica_creados { get; set; }
+        public int N_Ticket_grafica_creados { get; set; }
+        //------------------------parametros de la grfica de trabajados ------------------------
+        public string Nombre_usuario_grfica_trabajados { get; set; }
+        public int N_Ticket_grafica_trabajados { get; set; }
+        public int N_creditos { get; set; }
 
     }
 

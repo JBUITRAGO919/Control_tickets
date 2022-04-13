@@ -26,7 +26,7 @@ namespace DynaIT.app.forms
             //setTimeout("()", 100);
 
             Grilla_actas.Columns[0].Visible = false;
-            
+
 
         }
         protected void btn_limpiar_Click(object sender, EventArgs e)
@@ -595,7 +595,7 @@ namespace DynaIT.app.forms
                 }
                 else
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'No se encontraron actas creadas por el agente seleccionado  ', confirmButtonText: 'Ok' })  ", true);
                 }
             }
@@ -617,7 +617,7 @@ namespace DynaIT.app.forms
                     }
                     else
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'No se encontraron actas creadas para la empresa selecionada y el consultor seleccionado ', confirmButtonText: 'Ok' })  ", true);
                     }
                 }
@@ -657,7 +657,7 @@ namespace DynaIT.app.forms
                             }
                             else
                             {
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' No se encontraron actas creadas para la empresa selecionada y el consultor seleccionado   ', confirmButtonText: 'Ok' })  ", true);
                             }
                         }
@@ -665,7 +665,7 @@ namespace DynaIT.app.forms
                         {
                             if (List_empresas.SelectedValue == "1" && Txt_fecha_inicio.Value != "" && Txt_fecha_fin.Value == "" && List_estados.SelectedValue == "1")
                             {
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: '  Seleccione una fecha final para completar el rango de busqueda  ', confirmButtonText: 'Ok' })  ", true);
 
                             }
@@ -673,28 +673,28 @@ namespace DynaIT.app.forms
                             {
                                 if (List_empresas.SelectedValue == "1" && Txt_fecha_inicio.Value == "" && Txt_fecha_fin.Value != "" && List_estados.SelectedValue == "1")
                                 {
-                                    
+
                                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Seleccione una fecha inicial para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                 }
                                 else
                                 {
                                     if (List_empresas.SelectedValue != "1" && Txt_fecha_inicio.Value == "" && Txt_fecha_fin.Value != "" && List_estados.SelectedValue == "1")
                                     {
-                                        
+
                                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Seleccione una fecha inicial para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                     }
                                     else
                                     {
                                         if (List_empresas.SelectedValue != "1" && Txt_fecha_inicio.Value != "" && Txt_fecha_fin.Value == "" && List_estados.SelectedValue == "1")
                                         {
-                                            
+
                                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Seleccione una fecha final para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                         }
                                         else
                                         {
                                             if (List_empresas.SelectedValue != "1" && Txt_fecha_inicio.Value != "" && Txt_fecha_fin.Value == "" && List_estados.SelectedValue != "1")
                                             {
-                                                
+
                                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Seleccione una fecha final para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                             }
                                             else
@@ -703,14 +703,14 @@ namespace DynaIT.app.forms
                                                 {
 
 
-                                                    
+
                                                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Seleccione una fecha de inicio para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                                 }
                                                 else
                                                 {
                                                     if (List_empresas.SelectedValue == "1" && Txt_fecha_inicio.Value != "" && Txt_fecha_fin.Value == "" && List_estados.SelectedValue != "1")
                                                     {
-                                                        
+
 
                                                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Seleccione una fecha inicial para completar el rango de busqueda', confirmButtonText: 'Ok' })  ", true);
                                                     }
@@ -718,7 +718,7 @@ namespace DynaIT.app.forms
                                                     {
                                                         if (List_empresas.SelectedValue == "1" && Txt_fecha_inicio.Value == "" && Txt_fecha_fin.Value != "" && List_estados.SelectedValue != "1")
                                                         {
-                                                            
+
                                                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Seleccione una fecha final para completar el rango de busqueda  ', confirmButtonText: 'Ok' })  ", true);
                                                         }
                                                         else
@@ -760,7 +760,7 @@ namespace DynaIT.app.forms
                                                                     }
                                                                     else
                                                                     {
-                                                                        
+
                                                                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' No se encontraron actas registrasdas de la empresa seleccionada, el agente selecionado y el rango de fecha seleccionado ', confirmButtonText: 'Ok' })  ", true);
                                                                     }
                                                                 }
@@ -783,7 +783,7 @@ namespace DynaIT.app.forms
                                                                         else
                                                                         {
 
-                                                                            
+
                                                                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'No se encontraron actas registrasdas de la empresa seleccionada, el agente selecionado, el estado seleccionado y el rango de fecha seleccionado ', confirmButtonText: 'Ok' })  ", true);
                                                                             //asasa
                                                                         }

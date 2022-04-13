@@ -160,8 +160,7 @@
                     <div style="overflow: auto; align-content: center; height: 84vh; width: 100%;">
                         <asp:UpdatePanel runat="server">
                             <ContentTemplate>
-                                <form
-                                <asp:GridView ID="Grilla_actas" CssClass="table table-head-fixed text-nowrap" runat="server" AutoGenerateColumns="False" DataKeyNames="id_acta" DataSourceID="tabla_actas" CellPadding="0" ForeColor="#333333" GridLines="None" Width="97%" Font-Size="Smaller" HorizontalAlign="Left" OnRowEditing="Grilla_actas_RowEditing" Height="124px" OnSelectedIndexChanged="Grilla_actas_SelectedIndexChanged" OnRowCancelingEdit="Grilla_actas_RowCancelingEdit" OnRowUpdating="Grilla_actas_RowUpdating" OnRowCommand="Grilla_actas_RowCommand" OnRowUpdated="Grilla_actas_RowUpdated">
+                               <asp:GridView ID="Grilla_actas" CssClass="table table-head-fixed text-nowrap" runat="server" AutoGenerateColumns="False" DataKeyNames="id_acta" DataSourceID="tabla_actas" CellPadding="0" ForeColor="#333333" GridLines="None" Width="97%" Font-Size="Smaller" HorizontalAlign="Left" OnRowEditing="Grilla_actas_RowEditing" Height="124px" OnSelectedIndexChanged="Grilla_actas_SelectedIndexChanged" OnRowCancelingEdit="Grilla_actas_RowCancelingEdit" OnRowUpdating="Grilla_actas_RowUpdating" OnRowCommand="Grilla_actas_RowCommand" OnRowUpdated="Grilla_actas_RowUpdated">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="id_acta" HeaderText="idactas" InsertVisible="False" ReadOnly="True" SortExpression="id_acta" />

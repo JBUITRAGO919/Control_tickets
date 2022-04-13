@@ -3,7 +3,6 @@ using DynaIT.Clases;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -34,7 +33,7 @@ namespace DynaIT.app.forms
 
             if (string.IsNullOrWhiteSpace(Txt_EstadosTicket.Text))      // me valida si el campo Txt_Contraseña esta vacio si lo esta me muestra un cuadro de dialogo
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: ' El campo estado esta vacio', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -53,7 +52,7 @@ namespace DynaIT.app.forms
 
                     if (!Gestion_Datos.Actualizar_Estados_ticket(myparameters))
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' Estado actualizado', confirmButtonText: 'Ok' })  ", true);
 
                         Txt_EstadosTicket.Text = "";
@@ -69,7 +68,7 @@ namespace DynaIT.app.forms
                     else
 
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'Error', text: ' Error al actualizar estado', confirmButtonText: 'Ok' })  ", true);
 
                     }
@@ -78,7 +77,7 @@ namespace DynaIT.app.forms
                 else
                 {
 
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El estado ya esta registrado', confirmButtonText: 'Ok' })  ", true);
 
 
@@ -153,7 +152,7 @@ namespace DynaIT.app.forms
 
             if (string.IsNullOrWhiteSpace(Txt_EstadosTicket.Text))
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'No se ha seleccionado un registro a recuperar', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -172,7 +171,7 @@ namespace DynaIT.app.forms
                 Txt_EstadosTicket.Text = "";
                 Lbl_Recuperar.Text = "No";
 
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se recupero el registro correctamente', confirmButtonText: 'Ok' })  ", true);
 
 
@@ -206,7 +205,7 @@ namespace DynaIT.app.forms
             }
             Txt_EstadosTicket.Text = "";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_estado').modal();", true);
-            
+
         }
 
 
@@ -263,7 +262,7 @@ namespace DynaIT.app.forms
 
                     if (!Gestion_Datos.Insertar_EstadosTicket(myparameters))
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Estado creado correctamente', confirmButtonText: 'Ok' })  ", true);
 
                         Grilla_Estados_Ticket.DataBind();
@@ -273,7 +272,7 @@ namespace DynaIT.app.forms
                     }
                     else
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error al insertar en la base de datos', confirmButtonText: 'Ok' })  ", true);
                         Txt_EstadosTicket.Text = "";
                     }
@@ -281,7 +280,7 @@ namespace DynaIT.app.forms
                 }
                 else
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El estado ya se encuentra registrado', confirmButtonText: 'Ok' })  ", true);
                     Txt_EstadosTicket.Text = "";
                 }
@@ -289,7 +288,7 @@ namespace DynaIT.app.forms
             }
             else
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Campo se encuentra vacio', confirmButtonText: 'Ok' })  ", true);
                 Txt_EstadosTicket.Text = "";
             }
@@ -324,13 +323,13 @@ namespace DynaIT.app.forms
             myparameters = Gestion_Datos.Traer__id_estados_grupo(Txt_id_estados_ticket.Text);
             Txt_id_estados_ticket.Text = Convert.ToString(myparameters.Id_Estados_tickets);
             Txt_EstadosTicket.Text = myparameters.Estados_tickets;
-            
+
 
             if (!validaciones.Existe_ticket_vinculado_estado(Txt_id_estados_ticket.Text))
             {
                 Lbl_Recuperar.Text = "No";
                 myparameters.Id_Estados_tickets = Convert.ToInt32(Txt_id_estados_ticket.Text);
-                myparameters.Estados_tickets = Txt_EstadosTicket.Text;                
+                myparameters.Estados_tickets = Txt_EstadosTicket.Text;
                 myparameters.estado_Habilitado = Lbl_Recuperar.Text;
 
                 if (!Gestion_Datos.Actualizar_Estados_ticket_Habilitado(myparameters))
@@ -346,7 +345,7 @@ namespace DynaIT.app.forms
             else
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Hay ticket creados los cuales estan en este estado ', confirmButtonText: 'Ok' })  ", true);
-                
+
             }
         }
     }

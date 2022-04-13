@@ -18,7 +18,7 @@ namespace DynaIT.app.forms
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
         static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
         static DateTime nuevaFecha;
-        static string Empresa_cliente,  Adjuntos_ticket, nombre_cliente, n_usuario, correo_usuario, nombre_usuario;
+        static string Empresa_cliente, Adjuntos_ticket, nombre_cliente, n_usuario, correo_usuario, nombre_usuario;
 
         static int id_cliente, rol, id_usuario2;
         static int posicion;
@@ -311,10 +311,10 @@ namespace DynaIT.app.forms
                                                 catch (Exception)
                                                 {
 
-                                                    id_ticket= 1;
+                                                    id_ticket = 1;
                                                 }
 
-                                                
+
 
                                                 var pathCarpetaDestino = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
                                                 var carpetaDestino = new System.IO.DirectoryInfo(pathCarpetaDestino);
@@ -473,9 +473,9 @@ namespace DynaIT.app.forms
                     id_ticket = 1;
                 }
 
-                
 
-                
+
+
                 var pathCarpetaDestino1 = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
                 var carpetaDestino1 = new System.IO.DirectoryInfo(pathCarpetaDestino1);
                 if (!carpetaDestino1.Exists)

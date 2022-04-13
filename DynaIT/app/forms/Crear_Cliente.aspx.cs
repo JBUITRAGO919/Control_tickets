@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -162,13 +161,13 @@ namespace DynaIT.app.forms
                                         }
                                         else
                                         {
-                                            
+
                                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'El correo ya se encuentra registrado para un usuario', confirmButtonText: 'Ok' })  ", true);
                                         }
                                     }
                                     else
                                     {
-                                        
+
                                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'El correo ya se encuentra registrado para un cliente', confirmButtonText: 'Ok' })  ", true);
                                     }
 
@@ -182,7 +181,7 @@ namespace DynaIT.app.forms
             }
             else
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'la direccion de correo no es valida', confirmButtonText: 'Ok' })  ", true);
             }
         }
@@ -246,7 +245,7 @@ namespace DynaIT.app.forms
                     myParametro.Id_cliente = Lbl_id_cliente.Text;
                     myParametro.cliente_habilitado = "No";
 
-                    
+
                     if (!Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se elimino el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
@@ -258,7 +257,7 @@ namespace DynaIT.app.forms
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error al eliminar', confirmButtonText: 'Ok' })  ", true);
                     }
-                    
+
 
                 }
                 else
@@ -280,14 +279,14 @@ namespace DynaIT.app.forms
 
                             Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro);
 
-                            
+
                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se restauro el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
                             Grilla_Cliente.DataBind();
                             cargar_datos_sesion();
                         }
                         else
                         {
-                            
+
                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'La empresa a la cual pertenece el cliente se encuentra desHabilitada', confirmButtonText: 'Ok' })  ", true);
                         }
 
@@ -319,7 +318,7 @@ namespace DynaIT.app.forms
 
             if (List_Empresa.SelectedValue == "1")         // me valida si en el campo Txt_empresa se ha seleccionado una empresa
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Seleccione la empresa a la cual pertenece el cliente ', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -327,7 +326,7 @@ namespace DynaIT.app.forms
 
                 if (string.IsNullOrWhiteSpace(Txt_NombreCliente.Text))     // me valida si el campo Txt_nombre cliente esta vacio si lo esta me muestra un cuadro de dialogo
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'Campos sin completar', text: 'Campo nombre del cliente esta vacio', confirmButtonText: 'Ok' })  ", true);
                 }
                 else
@@ -335,16 +334,16 @@ namespace DynaIT.app.forms
 
                     if (string.IsNullOrWhiteSpace(Txt_CorreoCliente.Text))      // me valida si el campo Txt_CorreoCliente esta vacio si lo esta me muestra un cuadro de dialogo
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'Campos sin completar', text: 'Campo correo esta vacio', confirmButtonText: 'Ok' })  ", true);
-                        
+
                     }
                     else
                     {
 
                         if (string.IsNullOrWhiteSpace(Txt_TelefonoCliente.Text))      // me valida si el campo Txt_TelefonoCliente esta vacio si lo esta me muestra un cuadro de dialogo
                         {
-                            
+
                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'Campos sin completar', text: 'Campo telefono esta vacio', confirmButtonText: 'Ok' })  ", true);
                         }
                         else

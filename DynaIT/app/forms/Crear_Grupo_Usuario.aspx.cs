@@ -3,7 +3,6 @@ using DynaIT.Clases;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 
@@ -31,7 +30,7 @@ namespace DynaIT.app.forms
 
                     if (!Gestion_Datos.Insertar_GruposUsuario(myparameters))
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Área creada correctamente', confirmButtonText: 'Ok' })  ", true);
 
                         Grilla_Grupo_usuario.DataBind();
@@ -40,7 +39,7 @@ namespace DynaIT.app.forms
                     }
                     else
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error en la base de datos campos vacios', confirmButtonText: 'Ok' })  ", true);
                         Txt_Grupo_usuario.Text = "";
                     }
@@ -48,7 +47,7 @@ namespace DynaIT.app.forms
                 }
                 else
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El área se encuentra registrado', confirmButtonText: 'Ok' })  ", true);
                     Txt_Grupo_usuario.Text = "";
 
@@ -57,7 +56,7 @@ namespace DynaIT.app.forms
             }
             else
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo se encuentra vacio', confirmButtonText: 'Ok' })  ", true);
                 Txt_Grupo_usuario.Text = "";
             }
@@ -132,7 +131,7 @@ namespace DynaIT.app.forms
 
             if (string.IsNullOrWhiteSpace(Txt_Grupo_usuario.Text))      // me valida si el campo Txt_Contraseña esta vacio si lo esta me muestra un cuadro de dialogo
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo se encuentra vacio', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -171,7 +170,7 @@ namespace DynaIT.app.forms
                 }
                 else
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El área ya se encuentra registrada', confirmButtonText: 'Ok' })  ", true);
 
 
@@ -259,7 +258,7 @@ namespace DynaIT.app.forms
             if (validaciones.Existe_usuario_vinculado(Convert.ToInt32(Lbl_id_grupo_habilita.Text)) == true)
             {
 
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'No se puede eliminar el grupo porque tiene usuario activos y vinculados en este momento ', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -269,7 +268,7 @@ namespace DynaIT.app.forms
                 myparameters.Tabla_Grupos_Habilitado = "No";
 
                 Gestion_Datos.Actualizar_Grupos_Habilitado(myparameters);
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Área eliminada correctamente ', confirmButtonText: 'Ok' })  ", true);
 
             }

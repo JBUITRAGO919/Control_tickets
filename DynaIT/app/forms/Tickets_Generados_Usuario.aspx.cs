@@ -131,7 +131,7 @@ namespace DynaIT.app.forms
             Grilla_Tickets_generados_usuario.DataSource = visualizar_Tickets;
             Grilla_Tickets_generados_usuario.DataBind();
         }
-       
+
 
         private void cargar_grilla_por_empresa()
         {
@@ -1917,7 +1917,7 @@ namespace DynaIT.app.forms
 
         protected void Grilla_Tickets_generados_usuario_Load(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -2086,11 +2086,11 @@ namespace DynaIT.app.forms
                     }
                 }
 
-                        
+
 
             }
 
-    
+
         }
 
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -2201,7 +2201,7 @@ namespace DynaIT.app.forms
 
         protected void Grilla_Tickets_generados_usuario_DataBound(object sender, EventArgs e)
         {
-            
+
 
 
 
@@ -2216,22 +2216,22 @@ namespace DynaIT.app.forms
             {
 
                 DateTime fecha_actual = DateTime.Now;
-                DateTime fecha_Ticket_cierre = t_tickets.Fecha_cierre_ticket; 
+                DateTime fecha_Ticket_cierre = t_tickets.Fecha_cierre_ticket;
 
                 int n_tic = t_tickets.N_Ticket;
 
-                    
-                    int id_estado = t_tickets.estado_idEstadoticket;
 
-                if (DateTime.Compare(fecha_actual, fecha_Ticket_cierre) > 0 )
+                int id_estado = t_tickets.estado_idEstadoticket;
+
+                if (DateTime.Compare(fecha_actual, fecha_Ticket_cierre) > 0)
                 {
 
 
-                    if (id_estado  == 5)
+                    if (id_estado == 5)
                     {
                         myparametro.No_ticket = n_tic;
                         gestion_Datos.cerrar_ticket(myparametro);
-                        
+
                     }
 
 

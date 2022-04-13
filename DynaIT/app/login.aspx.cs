@@ -12,7 +12,7 @@ namespace DynaIT
         static string var1 = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
 
             Session["rol_cliente"] = var1;
             Session["rol_usuario"] = var1;
@@ -28,14 +28,14 @@ namespace DynaIT
 
             if (Tex_correo.Text == "")
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title:'Campo vacio', text: 'El campo correo esta vacio', confirmButtonText: 'Ok' })  ", true);
             }
             else
             {
                 if (Text_password.Text == "")
                 {
-                
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title:'Campo vacio', text: 'El campo contraseña esta vacio', confirmButtonText: 'Ok' })  ", true);
 
                 }
@@ -76,7 +76,7 @@ namespace DynaIT
                             }
                             else
                             {
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Correo o credenciales invalidas', confirmButtonText: 'Ok' })  ", true);
                             }
 
@@ -89,7 +89,7 @@ namespace DynaIT
                     }
                     else
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Correo o credenciales invalidas', confirmButtonText: 'Ok' })  ", true);
 
                     }
@@ -102,7 +102,7 @@ namespace DynaIT
 
         }
 
-        
+
     }
 
 }

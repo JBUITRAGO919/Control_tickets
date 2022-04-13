@@ -114,31 +114,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Control Lbl_N_Cerrados.
+        /// Control list_top_cerrados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_N_Cerrados;
-
-        /// <summary>
-        /// Control lbl_fecha_dia_anterior_ini.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fecha_dia_anterior_ini;
-
-        /// <summary>
-        /// Control lbl_fecha_dia_anterior_fin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fecha_dia_anterior_fin;
+        protected global::System.Web.UI.WebControls.DropDownList list_top_cerrados;
 
         /// <summary>
         /// Control lbl_fecha_inicio.
@@ -150,40 +132,49 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label lbl_fecha_inicio;
 
         /// <summary>
-        /// Control Txt_fecha_inicio.
+        /// Control inp_fec_ini_cerrados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Txt_fecha_inicio;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fec_ini_cerrados;
 
         /// <summary>
-        /// Control lbl_fecha_fin.
+        /// Control lbl_fec_fin_empresas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fecha_fin;
+        protected global::System.Web.UI.WebControls.Label lbl_fec_fin_empresas;
 
         /// <summary>
-        /// Control Txt_fecha_fin.
+        /// Control inp_fec_fin_cerrados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Txt_fecha_fin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fec_fin_cerrados;
 
         /// <summary>
-        /// Control grafica_empresas.
+        /// Control Btn_cerrados_agente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart grafica_empresas;
+        protected global::System.Web.UI.WebControls.Button Btn_cerrados_agente;
+
+        /// <summary>
+        /// Control grafica_cerrados_agente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart grafica_cerrados_agente;
 
         /// <summary>
         /// Control Grilla_cerrados_por_consultor.
@@ -195,22 +186,22 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.GridView Grilla_cerrados_por_consultor;
 
         /// <summary>
-        /// Control tablas_empresas_grafica.
+        /// Control Grafica_cerrados_agente_grafica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource tablas_empresas_grafica;
+        protected global::System.Web.UI.WebControls.SqlDataSource Grafica_cerrados_agente_grafica;
 
         /// <summary>
-        /// Control tablas_empresas_griv.
+        /// Control tablas_cerrados_por_consultor_griv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource tablas_empresas_griv;
+        protected global::System.Web.UI.WebControls.SqlDataSource tablas_cerrados_por_consultor_griv;
 
         /// <summary>
         /// Control lbl_fecha.
@@ -249,6 +240,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label lbl_fecha_dia_hoy_fin;
 
         /// <summary>
+        /// Control List_creados_asignados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList List_creados_asignados;
+
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -258,13 +258,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control Date1.
+        /// Control Inp_fe_ini_creado_asignados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Inp_fe_ini_creado_asignados;
 
         /// <summary>
         /// Control Label6.
@@ -276,22 +276,31 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control Date2.
+        /// Control Inp_fe_fin_creado_asignados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Inp_fe_fin_creado_asignados;
 
         /// <summary>
-        /// Control Chart3.
+        /// Control Btn_buscar_creados_asignados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart3;
+        protected global::System.Web.UI.WebControls.Button Btn_buscar_creados_asignados;
+
+        /// <summary>
+        /// Control Grafica_abiertos_asignados_agente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafica_abiertos_asignados_agente;
 
         /// <summary>
         /// Control Grilla_tickets_creados.
@@ -303,6 +312,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.GridView Grilla_tickets_creados;
 
         /// <summary>
+        /// Control Tickets_creados_asignados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Tickets_creados_asignados;
+
+        /// <summary>
         /// Control tickets_creados_y_asignados.
         /// </summary>
         /// <remarks>
@@ -310,15 +328,6 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource tickets_creados_y_asignados;
-
-        /// <summary>
-        /// Control tickets_creados_y_asignados_griv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource tickets_creados_y_asignados_griv;
 
         /// <summary>
         /// Control Btn_exportar_tickets_creados.
@@ -330,6 +339,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Button Btn_exportar_tickets_creados;
 
         /// <summary>
+        /// Control List_tickets_trabajados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList List_tickets_trabajados;
+
+        /// <summary>
         /// Control Label7.
         /// </summary>
         /// <remarks>
@@ -339,13 +357,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Control Date3.
+        /// Control inp_trabajados_ini.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_trabajados_ini;
 
         /// <summary>
         /// Control Label8.
@@ -357,22 +375,40 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control Date4.
+        /// Control inp_trabajados_fin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_trabajados_fin;
 
         /// <summary>
-        /// Control Chart4.
+        /// Control Btn_buscar_trabajados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart4;
+        protected global::System.Web.UI.WebControls.Button Btn_buscar_trabajados;
+
+        /// <summary>
+        /// Control Grafica_Ticket_trabajados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafica_Ticket_trabajados;
+
+        /// <summary>
+        /// Control tickets_trabajados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource tickets_trabajados;
 
         /// <summary>
         /// Control Grilla_Ticket_trabajado_fecha.
@@ -382,15 +418,6 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Grilla_Ticket_trabajado_fecha;
-
-        /// <summary>
-        /// Control Tickets_trabajados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Tickets_trabajados;
 
         /// <summary>
         /// Control Tickets_trabajados_driv.
@@ -429,6 +456,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Panel panel1;
 
         /// <summary>
+        /// Control List_tick_empresas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList List_tick_empresas;
+
+        /// <summary>
         /// Control Label10.
         /// </summary>
         /// <remarks>
@@ -438,13 +474,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// Control Date5.
+        /// Control inp_fecha_ini_empresas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_ini_empresas;
 
         /// <summary>
         /// Control Label11.
@@ -456,22 +492,31 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
-        /// Control Date6.
+        /// Control inp_fecha_fin_empresas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date6;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_fin_empresas;
 
         /// <summary>
-        /// Control Chart1.
+        /// Control Btn_buscar_empresas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
+        protected global::System.Web.UI.WebControls.Button Btn_buscar_empresas;
+
+        /// <summary>
+        /// Control Grafica_tickets_por_empresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafica_tickets_por_empresa;
 
         /// <summary>
         /// Control grilla_tickets_por_empresa.
@@ -483,22 +528,22 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.GridView grilla_tickets_por_empresa;
 
         /// <summary>
-        /// Control tabla_ticket_estados.
+        /// Control tabla_ticket_empresa_graf.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource tabla_ticket_estados;
+        protected global::System.Web.UI.WebControls.SqlDataSource tabla_ticket_empresa_graf;
 
         /// <summary>
-        /// Control tabla_ticket_estados_grid.
+        /// Control tabla_ticket_empresa_grid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource tabla_ticket_estados_grid;
+        protected global::System.Web.UI.WebControls.SqlDataSource tabla_ticket_empresa_grid;
 
         /// <summary>
         /// Control Label1.
@@ -528,13 +573,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label12;
 
         /// <summary>
-        /// Control Date7.
+        /// Control inp_fecha_ini_estados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date7;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_ini_estados;
 
         /// <summary>
         /// Control Label13.
@@ -546,22 +591,31 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label13;
 
         /// <summary>
-        /// Control Date8.
+        /// Control inp_fecha_fin_estados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date8;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_fin_estados;
 
         /// <summary>
-        /// Control Chart2.
+        /// Control Btn_buscar_estados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart2;
+        protected global::System.Web.UI.WebControls.Button Btn_buscar_estados;
+
+        /// <summary>
+        /// Control Grafica_tickets_por_estado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafica_tickets_por_estado;
 
         /// <summary>
         /// Control Grilla_por_estados.
@@ -609,6 +663,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Button Btn_exportar_tickets_estados;
 
         /// <summary>
+        /// Control List_creditos_consult.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList List_creditos_consult;
+
+        /// <summary>
         /// Control Label14.
         /// </summary>
         /// <remarks>
@@ -618,13 +681,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label14;
 
         /// <summary>
-        /// Control Date9.
+        /// Control inp_fecha_ini_creditos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date9;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_ini_creditos;
 
         /// <summary>
         /// Control Label15.
@@ -636,13 +699,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label15;
 
         /// <summary>
-        /// Control Date10.
+        /// Control inp_fecha_fin_creditos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Date10;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inp_fecha_fin_creditos;
 
         /// <summary>
         /// Control Btn_Buscar_creditos.
@@ -663,6 +726,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.GridView Grilla_creditos_tickets;
 
         /// <summary>
+        /// Control Grilla_creditos_tickets2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Grilla_creditos_tickets2;
+
+        /// <summary>
         /// Control N_creditos_consultor.
         /// </summary>
         /// <remarks>
@@ -670,6 +742,15 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource N_creditos_consultor;
+
+        /// <summary>
+        /// Control N_creditos_consultor2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource N_creditos_consultor2;
 
         /// <summary>
         /// Control Label3.
@@ -681,13 +762,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control lblnombres.
+        /// Control Btn_creditos_por_consultor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnombres;
+        protected global::System.Web.UI.WebControls.Button Btn_creditos_por_consultor;
 
         /// <summary>
         /// Control panel_grilla.

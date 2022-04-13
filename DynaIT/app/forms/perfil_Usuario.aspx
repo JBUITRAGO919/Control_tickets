@@ -32,7 +32,8 @@
                             </a>
                         </li>
                         <li><asp:Label ID="lbl_nombre_usuario" runat="server" Text="nombre usuario"></asp:Label></li>
-                        <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small"></asp:Label></li>
+                        <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small" Visible="false"></asp:Label></li>
+                        <li> <asp:Label ID="Lbl_cargo_tex" runat="server" Text="cargo usuario" Font-Size="Small" ></asp:Label></li>
                         <li id="Li_Dashboard" runat="server"> <a href="Bandeja_Entrada.aspx" target="eliframe" >Dashboard</a></li>
                         <asp:Label ID="lbl_correo_usuario" runat="server" Text="lbl_correo_usuario" Visible="False"></asp:Label>
                         <asp:Label ID="lbl_correo_cliente" runat="server" Text="lbl_correo_cliente" Visible="False"></asp:Label>

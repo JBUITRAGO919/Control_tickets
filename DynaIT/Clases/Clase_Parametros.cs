@@ -62,6 +62,7 @@ namespace DynaIT.Clases
         public string Correo_Cliente { get; set; }
         public string Telefono_Cliente { get; set; }
         public int Rol_Cliente { get; set; }
+        public string Rol_Cli { get; set; }
         public string cliente_habilitado { get; set; }
         public int Id_Empresa_cliente { get; set; }
 
@@ -75,6 +76,7 @@ namespace DynaIT.Clases
         public string Nombre_Usuario { get; set; }
         public string Correo_Usuario { get; set; }
         public int Rol_usuario { get; set; }
+        public string Rol_usu_tex { get; set; }
         public string Usuario { get; set; }    /*aaaaaaaaaaaaa*/
         public int fk_area_id_area { get; set; }    /*aaaaaaaaaaaaa*/
         public string Prefijo_Usuario { get; set; }

@@ -4,8 +4,8 @@
     {
         public correo_recuperacion()
         {
-            senderMail = "micjbuitragov@gmail.com";
-            password = "Zafiro1020";
+            senderMail = "pruebadynamics23@gmail.com";
+            password = "C2824*$jj";
             host = "smtp.gmail.com";
             port = 587;
             ssl = true;

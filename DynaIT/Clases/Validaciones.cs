@@ -170,7 +170,7 @@ namespace DynaIT.Clases
 
 
 
-        
+
 
         //      validar si existe un estado de ticket 
         public Boolean Existe_Estado_Ticket(string estado_ticket)
@@ -724,7 +724,7 @@ namespace DynaIT.Clases
 
 
 
-        public void Notificar_vencimienot_caso (string correo_consultor, string name_consultor, int n_ticket, string titu_ticket, string nom_empresa)
+        public void Notificar_vencimienot_caso(string correo_consultor, string name_consultor, int n_ticket, string titu_ticket, string nom_empresa)
         {
             string bodys =
                 "<body>" +
@@ -732,7 +732,7 @@ namespace DynaIT.Clases
                     "<p>" + " Con titulo " + "</p>" +
                     "<p>" + titu_ticket + "</p>" +
                     "<p>" + "Se encuentra vencido " + "</p>" +
-                    
+
                     "<hr>" + " Seguira recibiendo notificaciones durante la gestión del ticket. " + "</hr>" +
 
                 "</body> ";

@@ -3,7 +3,6 @@ using DynaIT.Clases;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -65,8 +64,8 @@ namespace DynaIT.app.forms
 
             }
             else
-            {                
-               ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo esta vacio', confirmButtonText: 'Ok' })  ", true);
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo esta vacio', confirmButtonText: 'Ok' })  ", true);
                 Txt_Tipos_Tckets.Text = "";
             }
         }
@@ -86,11 +85,11 @@ namespace DynaIT.app.forms
             Txt_Tipos_Tckets.Text = Txt_Tipos_Tckets.Text.TrimStart();
             txt_horas_respuesta.Value = txt_horas_respuesta.Value.TrimStart();
 
-            
-                
+
+
             if (string.IsNullOrWhiteSpace(Txt_Tipos_Tckets.Text))      // me valida si el campo Txt_Contraseña esta vacio si lo esta me muestra un cuadro de dialogo
             {
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo esta vacio', confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -216,7 +215,7 @@ namespace DynaIT.app.forms
             if (validaciones.Existe_ticket_vinculado_tipo(Convert.ToInt32(txt_id_tipo_ticket.Text)))
             {
 
-                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Hay ticket creados de este tipo los cuales estan en revisión ', confirmButtonText: 'Ok' })  ", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' Hay ticket creados de este tipo los cuales estan en revisión ', confirmButtonText: 'Ok' })  ", true);
             }
             else
             {
@@ -232,8 +231,8 @@ namespace DynaIT.app.forms
             }
 
 
-            
-            
+
+
 
         }
 
@@ -277,7 +276,7 @@ namespace DynaIT.app.forms
                 Btn_Editar_tipo_ticket.Visible = false;
                 Grilla_Tipos_Ticket.DataBind();
                 Txt_Tipos_Tckets.Text = "";
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se recupero el registro correctamente', confirmButtonText: 'Ok' })  ", true);
 
             }
@@ -342,7 +341,7 @@ namespace DynaIT.app.forms
             Txt_Tipos_Tckets.Text = "";
         }
 
-       
+
     }
 
 
