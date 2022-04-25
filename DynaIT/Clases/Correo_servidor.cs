@@ -39,9 +39,9 @@ namespace DynaIT.Clases
                 mailMessage.Priority = MailPriority.Normal;
                 smtpClient.Send(mailMessage);
             }
-            catch (Exception ex) 
+            catch (Exception)
             {
-
+                return;
             }
             finally
             {

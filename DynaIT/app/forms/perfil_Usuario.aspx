@@ -6,8 +6,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>DynamicsIT</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link href="../style/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -31,8 +31,10 @@
                                 </div>
                             </a>
                         </li>
-                        <li><asp:Label ID="lbl_nombre_usuario" runat="server" Text="nombre usuario"></asp:Label></li>
-                        <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small"></asp:Label></li>
+                        <li> <button type="button" class="btn btn" data-toggle="modal" data-target="#adjuntos_ticket" style="padding: 0; font-size: 100%;" id="Btn_crear_cliente"><asp:Label ID="lbl_nombre_usuario" runat="server" Text="nombre usuario"></asp:Label></button></li>
+                            
+                        <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small" Visible="false"></asp:Label></li>
+                        <li> <asp:Label ID="Lbl_cargo_tex" runat="server" Text="cargo usuario" Font-Size="Small" ></asp:Label></li>
                         <li id="Li_Dashboard" runat="server"> <a href="Bandeja_Entrada.aspx" target="eliframe" >Dashboard</a></li>
                         <asp:Label ID="lbl_correo_usuario" runat="server" Text="lbl_correo_usuario" Visible="False"></asp:Label>
                         <asp:Label ID="lbl_correo_cliente" runat="server" Text="lbl_correo_cliente" Visible="False"></asp:Label>
@@ -86,8 +88,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding:0;">
                                     <a class="dropdown-item" href="Crear_Usuario.aspx " target="eliframe">Usuario</a>
-                                    <a class="dropdown-item" href="Crear_Grupo_Usuario.aspx" target="eliframe">Areas</a>
-                                    
+                                    <a class="dropdown-item" href="Crear_Grupo_Usuario.aspx" target="eliframe">Areas</a>                                   
                                 </div>
                             </div>
                           </li>
@@ -123,6 +124,34 @@
 
         </div>
     </div>
+        <!-- Modal para el boton del ticket  el cual carga los adjuntos del ticket -->
+                                <div class="modal fade" id="adjuntos_ticket" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Archivos adjuntos del ticket</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                 <div class="modal_picture" style="width:90%; margin: 0 auto; max-width: 40px; margin-bottom: 2rem;">
+                                                    <%--<img src="../img/Dynamicsimg.png" />--%>
+                                                    </div>
+                                                 <h2 class="modal_title">¡Buen dia ! <spam class=" modal_title-bold"><asp:Label id="lbl_nombre_usu_modal" runat="server" /></spam>
+                                                    </h2><p class="modal_paragraph">Contraseña nueva:  </p>
+                                                    <div>
+                                                        <input class="textbox1" type="text"/>
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <asp:Button Text="Actializar" runat="server" ID="Btn_actualizar_datos" OnClick="Btn_actualizar_datos_Click" />   
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    <%--fin del modal--%>
 
     </form>
 </body>

@@ -64,9 +64,9 @@
                                                         <asp:Label class="mr-sm-2" ID="Label4" runat="server" Text="Rol"></asp:Label><br />
                                                         <%--<asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Cargo" runat="server" Height="22px" Style="margin-top: 0px" ></asp:TextBox>--%>
                                                         <asp:DropDownList ID="List_Rol" runat="server">
-                                                            <asp:ListItem>--Seleccionar--</asp:ListItem>
-                                                            <asp:ListItem>Agente</asp:ListItem>
-                                                            <asp:ListItem>Administrador</asp:ListItem>
+                                                            <asp:ListItem Value="1">--Seleccionar--</asp:ListItem>
+                                                            <asp:ListItem Value="3">Agente</asp:ListItem>
+                                                            <asp:ListItem Value="2">Administrador</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="col">
@@ -149,25 +149,17 @@
                         </Triggers>
 
                         <ContentTemplate>
-                                <asp:GridView ID="Grilla_Crear_Usuario" CssClass="table table-bordered table-striped" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id_Usuario" DataSourceID="usuario_habilitado_grupos_habilitados" ForeColor="#333333" GridLines="None" AllowSorting="True" OnRowCommand="Grilla_Crear_Usuario_RowCommand" Width="100%" OnRowDeleted="Grilla_Crear_Usuario_RowDeleted" OnRowDeleting="Grilla_Crear_Usuario_RowDeleting" ValidateRequestMode="Enabled" OnSelectedIndexChanged="Grilla_Crear_Usuario_SelectedIndexChanged">
+                                <asp:GridView ID="Grilla_Crear_Usuario" CssClass="table table-bordered table-striped" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id_usuario" DataSourceID="usuario_habilitado_grupos_habilitados" ForeColor="#333333" GridLines="None" AllowSorting="True" OnRowCommand="Grilla_Crear_Usuario_RowCommand" Width="100%" OnRowDeleted="Grilla_Crear_Usuario_RowDeleted" OnRowDeleting="Grilla_Crear_Usuario_RowDeleting" ValidateRequestMode="Enabled" OnSelectedIndexChanged="Grilla_Crear_Usuario_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="id_Usuario" HeaderText="idUsuario" InsertVisible="False" ReadOnly="True" SortExpression="idUsuario" Visible="False"></asp:BoundField>
-                            <asp:BoundField DataField="nombre_usuario" HeaderText="Nombres" SortExpression="Nombres"></asp:BoundField>
-                            <asp:BoundField DataField="correo_usu" HeaderText="Correo" SortExpression="Correo"></asp:BoundField>
-                            <asp:BoundField DataField="rol_id" HeaderText="Rol" SortExpression="Rol_usuario"></asp:BoundField>
-                            <asp:BoundField DataField="Usuario_Habilitado" HeaderText="Habilitado" SortExpression="Usuario_Habilitado"></asp:BoundField>
-                            <asp:BoundField DataField="area" HeaderText="Area" SortExpression="area_usuario"></asp:BoundField>
-                            <asp:BoundField DataField="prefijo_usuario" HeaderText="Usuario" SortExpression="Usuario"></asp:BoundField>
-                            <asp:TemplateField HeaderText="contrasena_usu" SortExpression="Contrasena" Visible="False">
-                                <EditItemTemplate>
-                                    <asp:TextBox ID="txt_contraseña_grilla" runat="server" Text='<%# Bind("contrasena_usu") %>'></asp:TextBox>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("contrasena_usu") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:ButtonField CommandName="Select" Text="Editar" />
+                            <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" Visible="false"></asp:BoundField>
+                            <asp:BoundField DataField="nombre_usuario" HeaderText="Nombres" SortExpression="nombre_usuario"></asp:BoundField>
+                            <asp:BoundField DataField="correo_usu" HeaderText="Correo" SortExpression="correo_usu"></asp:BoundField>
+                            <asp:BoundField DataField="rol" HeaderText="Rol" SortExpression="rol"></asp:BoundField>
+                            <asp:BoundField DataField="usuario_Habilitado" HeaderText="usuario_Habilitado" SortExpression="usuario_Habilitado" Visible="false"></asp:BoundField>
+                            <asp:BoundField DataField="area" HeaderText="Area" SortExpression="area"></asp:BoundField>
+                            <asp:BoundField DataField="prefijo_usuario" HeaderText="Usuario" SortExpression="prefijo_usuario"></asp:BoundField>
+                             <asp:ButtonField CommandName="Select" Text="Editar" />
                             <asp:ButtonField CommandName="Delete" Text="Eliminar" />
                             
                         </Columns>
@@ -183,7 +175,9 @@
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                     
-                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, usuario.rol_id, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario, usuario.contrasena_usu FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area  WHERE (usuario.Usuario_Habilitado = @Usuario_Habilitado) order by usuario.id_Usuario desc" DeleteCommand="Select * from ticket ">
+                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
+					 FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area INNER JOIN rol ON rol.id_rol =usuario.rol_id  
+					 WHERE (usuario.Usuario_Habilitado = @Usuario_Habilitado) order by usuario.id_Usuario desc" DeleteCommand="Select * from ticket ">
                        
                         <SelectParameters>
                             <asp:ControlParameter ControlID="lbl_habilitado" Name="Usuario_Habilitado" PropertyName="Text" />

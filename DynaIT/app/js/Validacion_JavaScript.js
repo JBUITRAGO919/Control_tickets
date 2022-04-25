@@ -70,9 +70,8 @@ function agregar_creditos()
     $("#Editar_credito").modal("show");
 }
 
-function ver_adjuntos()
-{
-    
-    alert('ayudaaaaa');
-    //$("#adjunto_nota").modal("show");
+
+function negrita() {
+
+    document.execCommand()
 }

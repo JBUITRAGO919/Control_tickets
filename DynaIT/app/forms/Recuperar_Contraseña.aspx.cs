@@ -1,7 +1,6 @@
 ﻿using DynaIT.Clases;
 using System;
 using System.Web.UI;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -29,7 +28,7 @@ namespace DynaIT.app.forms
 
                     Response.Redirect("../login.aspx");
 
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'succes', text: 'Se enviaron las credenciales del usuario al correo', confirmButtonText: 'Ok' })  ", true);
 
 
@@ -47,7 +46,7 @@ namespace DynaIT.app.forms
                     else
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El correo ingresado no se encuentra registrado ', confirmButtonText: 'Ok' })  ", true);
-                        
+
                     }
                 }
 

@@ -12,7 +12,7 @@ namespace DynaIT.Clases
         public string Tipo_ticket { get; set; }
         public string Resumen { get; set; }
         public string Descripcion { get; set; }
-        public string Prioridad { get; set; }
+        public int Prioridad { get; set; }
         public DateTime tiempo_Respuesta { get; set; }
         public string Ticket_Creado_por { get; set; }
         public string Adjuntos_ticket { get; set; }
@@ -62,6 +62,7 @@ namespace DynaIT.Clases
         public string Correo_Cliente { get; set; }
         public string Telefono_Cliente { get; set; }
         public int Rol_Cliente { get; set; }
+        public string Rol_Cli { get; set; }
         public string cliente_habilitado { get; set; }
         public int Id_Empresa_cliente { get; set; }
 
@@ -75,6 +76,7 @@ namespace DynaIT.Clases
         public string Nombre_Usuario { get; set; }
         public string Correo_Usuario { get; set; }
         public int Rol_usuario { get; set; }
+        public string Rol_usu_tex { get; set; }
         public string Usuario { get; set; }    /*aaaaaaaaaaaaa*/
         public int fk_area_id_area { get; set; }    /*aaaaaaaaaaaaa*/
         public string Prefijo_Usuario { get; set; }
@@ -103,7 +105,7 @@ namespace DynaIT.Clases
         public int horas_respuesta_tipos_tickets { get; set; }
 
         public string Tipo_Ticket_Habilitado { get; set; }
-        public int Ttt_Horas_respuesta { get; set; }
+        public int Tttipo_Horas_respuesta { get; set; }
 
 
         // ***********************[traer contadores de los tickets abietos pendientes resueltos y cerrados]
@@ -121,7 +123,7 @@ namespace DynaIT.Clases
         public int Usuario_idUsuario_nota { get; set; }
         public int cliente_idCliente_nota { get; set; }
         public int estado_idEstado_nota { get; set; }
-        public string nota_creada_por { get; set; }
+        public int nota_creada_por { get; set; }
         public string nota_interna { get; set; }
         public string Adjuntos_nota { get; set; }
 
@@ -142,5 +144,7 @@ namespace DynaIT.Clases
         public int nota_idNota_compartida { get; set; }
         public string usuario_idUsuario_compartida { get; set; }
 
+        //*****************tabla prioridad **************************
+        public int Tprioridad_Horas_respuesta { get; set; }
     }
 }

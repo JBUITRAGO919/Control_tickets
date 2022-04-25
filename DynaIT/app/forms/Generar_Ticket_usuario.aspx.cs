@@ -18,9 +18,9 @@ namespace DynaIT.app.forms
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
         static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
         static DateTime nuevaFecha;
-        static string Empresa_cliente,  Adjuntos_ticket, nombre_cliente, n_usuario, correo_usuario, nombre_usuario;
+        static string Empresa_cliente, Adjuntos_ticket, nombre_cliente, n_usuario, correo_usuario, nombre_usuario;
 
-        static int id_cliente, rol, id_usuario2;
+        static int id_cliente, rol, id_usuario2, id_prioridad;
         static int posicion;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace DynaIT.app.forms
 
                         if (!IsPostBack)
                         {
-                            List_Prioridad.SelectedValue = "1";
+
                             List_EmpresaCliente.Enabled = false;
                             List_NombreCliente.Enabled = false;
                             Div_prioridad.Visible = false;
@@ -82,6 +82,7 @@ namespace DynaIT.app.forms
 
                             if (!IsPostBack)
                             {
+
                                 List_EmpresaCliente.Enabled = false;
                                 List_NombreCliente.Enabled = false;
                                 List_NombreCliente.SelectedValue = Convert.ToString(id_cliente);
@@ -91,7 +92,6 @@ namespace DynaIT.app.forms
                                 div_lista_grupo.Visible = true;
                                 div_lista_agente.Visible = false;
                                 Div_prioridad.Visible = false;
-                                List_Prioridad.SelectedValue = "1";
 
                             }
                         }
@@ -143,19 +143,12 @@ namespace DynaIT.app.forms
 
             if (List_TemaConsultoria.SelectedValue == "1")         // me valida si el campo Txt_NombreUsuario esta vacio si lo esta me muestra un cuadro de dialogo
             {
-
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'Seleccione el tipo de ticket', confirmButtonText: 'Ok' })  ", true);
-
-
-
             }
             else
             {
-
                 myParametro = Gestion_Datos.cargar_horas_Tipos_tickes(List_TemaConsultoria.SelectedValue);
-
-
-                nuevaFecha = nuevaFecha.AddHours(myParametro.Ttt_Horas_respuesta);
+                nuevaFecha = nuevaFecha.AddHours(myParametro.Tttipo_Horas_respuesta);
 
                 if (List_EmpresaCliente.SelectedValue == "1")      // me valida si el campo Txt_Cargo esta vacio si lo esta me muestra un cuadro de dialogo
                 {
@@ -176,40 +169,19 @@ namespace DynaIT.app.forms
                         }
                         else
                         {
-
-
-
-                            if (List_Prioridad.SelectedValue == "1")
+                            try
                             {
-
-
-                                nuevaFecha = nuevaFecha.AddHours(24);
+                                id_prioridad = Convert.ToInt32(List_Prioridad.SelectedValue);
 
                             }
-                            else
+                            catch (Exception)
                             {
-                                if (List_Prioridad.SelectedValue == "2")
-                                {
-                                    nuevaFecha = nuevaFecha.AddHours(12);
-                                }
-                                else
-                                {
-                                    if (List_Prioridad.SelectedValue == "3")
-                                    {
-                                        nuevaFecha = nuevaFecha.AddHours(6);
-                                    }
-                                    else
-                                    {
-                                        if (List_Prioridad.SelectedValue == "4")
-                                        {
-                                            nuevaFecha = nuevaFecha.AddHours(3);
 
-                                        }
-
-                                    }
-                                }
+                                id_prioridad = 2;
                             }
 
+                            myParametro = Gestion_Datos.cargar_horas_Prioridad(id_prioridad);
+                            nuevaFecha = nuevaFecha.AddHours(myParametro.Tprioridad_Horas_respuesta);
 
 
                             if (List_Grupo.SelectedValue == "1")      // me valida si el campo Txt_Grupo esta vacio si lo esta me muestra un cuadro de dialogo
@@ -233,6 +205,7 @@ namespace DynaIT.app.forms
                                     else
                                     {
                                         Txt_DetallesProblema.Text = Txt_DetallesProblema.Text.TrimStart();
+
                                         if (string.IsNullOrWhiteSpace(Txt_DetallesProblema.Text))      // me valida si el campo Txt_Grupo esta vacio si lo esta me muestra un cuadro de dialogo
                                         {
                                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'El campo descripción del ticket esta vacio', confirmButtonText: 'Ok' })  ", true);
@@ -256,7 +229,7 @@ namespace DynaIT.app.forms
                                                         myParametro.Resumen = Txt_Resumen.Text;
                                                         myParametro.Descripcion = Txt_DetallesProblema.Text;
                                                         myParametro.Estado = List_Estado.SelectedValue;
-                                                        myParametro.Prioridad = List_Prioridad.Text;
+                                                        myParametro.Prioridad = id_prioridad;
                                                         myParametro.tiempo_Respuesta = nuevaFecha;
                                                         myParametro.Ticket_Creado_por = Lbl_correo_inicio_sesion.Text;
                                                         myParametro.Adjuntos_ticket = Adjuntos_ticket;
@@ -311,10 +284,10 @@ namespace DynaIT.app.forms
                                                 catch (Exception)
                                                 {
 
-                                                    id_ticket= 1;
+                                                    id_ticket = 1;
                                                 }
 
-                                                
+
 
                                                 var pathCarpetaDestino = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
                                                 var carpetaDestino = new System.IO.DirectoryInfo(pathCarpetaDestino);
@@ -328,7 +301,7 @@ namespace DynaIT.app.forms
                                                 myParametro.Resumen = Txt_Resumen.Text;
                                                 myParametro.Descripcion = Txt_DetallesProblema.Text;
                                                 myParametro.Estado = List_Estado.SelectedValue;
-                                                myParametro.Prioridad = List_Prioridad.Text;
+                                                myParametro.Prioridad = id_prioridad;
                                                 myParametro.tiempo_Respuesta = nuevaFecha;
                                                 myParametro.Ticket_Creado_por = Lbl_correo_inicio_sesion.Text;
                                                 myParametro.Adjuntos_ticket = Adjuntos_ticket;
@@ -473,9 +446,9 @@ namespace DynaIT.app.forms
                     id_ticket = 1;
                 }
 
-                
 
-                
+
+
                 var pathCarpetaDestino1 = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
                 var carpetaDestino1 = new System.IO.DirectoryInfo(pathCarpetaDestino1);
                 if (!carpetaDestino1.Exists)

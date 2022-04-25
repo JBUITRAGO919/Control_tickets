@@ -242,8 +242,7 @@
     <Content Include="app\forms\Recuperar_Contraseña.aspx" />
     <Content Include="app\forms\Tickets_Generados_Usuario.aspx" />
     <Content Include="app\img\dynamics.jpg" />
-    <Content Include="app\plantilla.html" />
-    <Content Include="app\Plantilla_usuario.html" />
+    <Content Include="app\img\Dynamicsimg.png" />
     <Content Include="app\style\Style.css" />
     <Content Include="app\style\style_login.css" />
     <Content Include="Contact.aspx" />
@@ -251,7 +250,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="libman.json" />
-    <Content Include="app\index.html" />
     <Content Include="app\login.aspx" />
     <Content Include="app\js\Validacion_JavaScript.js" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />

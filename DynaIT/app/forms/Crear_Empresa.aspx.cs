@@ -3,7 +3,6 @@ using DynaIT.Clases;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace DynaIT.app.forms
 {
@@ -30,7 +29,7 @@ namespace DynaIT.app.forms
 
                 if (string.IsNullOrWhiteSpace(Txt_Nit.Text))     // me valida si el campo Txt_Nit esta vacio si lo esta me muestra un cuadro de dialogo
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: ' El campo nit empresa esta vacio', confirmButtonText: 'Ok' })  ", true);
                 }
                 else
@@ -38,7 +37,7 @@ namespace DynaIT.app.forms
 
                     if (string.IsNullOrWhiteSpace(Txt_TelefonoEmpresa.Text))      // me valida si el campo Txt_TelefonoEmpresa esta vacio si lo esta me muestra un cuadro de dialogo
                     {
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: ' El campo Telefono empresa esta vacio', confirmButtonText: 'Ok' })  ", true);
                     }
                     else
@@ -112,7 +111,7 @@ namespace DynaIT.app.forms
             if (Validaciones.Existe_cliente_vinculado(Lbl_id_Empresa.Text) == true)
             {
 
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text:'No se puede eliminar la empresa porque tiene clientes activos y vinculadosen este momento' , confirmButtonText: 'Ok' })  ", true);
             }
             else
@@ -150,7 +149,7 @@ namespace DynaIT.app.forms
 
                 myParametro.id_Empresa = Convert.ToInt32(Lbl_id_Empresa.Text);
                 Gestion_Datos.Actualizar_Empresa_habilitada(myParametro);
-                
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text:'Empresa habilitada' , confirmButtonText: 'Ok' })  ", true);
                 Grilla_crear_empresa.DataBind();
 
@@ -289,13 +288,13 @@ namespace DynaIT.app.forms
                             {
                                 Grilla_crear_empresa.DataBind();
 
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', title: 'Datos actualizados', confirmButtonText: 'Ok' })  ", true);
                                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_empresa", "$('#modal_crear_empresa').modal('hide');", true);
                             }
                             else
                             {
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'ERROR AL ENVIAR ', text:'Se genero un error en la base de datos al ingresar los datos' confirmButtonText: 'Ok' })  ", true);
                             }
                         }

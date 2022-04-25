@@ -268,6 +268,8 @@
                                                         <asp:LinkButton  runat="server" id="id_ticket_duscado"/>
                                                         <asp:Label  runat="server" id="lbl_titulo_t_buscado"/>
                                                         <asp:Label runat="server" id="lbl_descripcion_buscado" />
+                                                        <asp:Label runat="server" id="lbl_estado_buscado" />
+
 
                                                     </div>
                                                     <div class="modal-footer">
