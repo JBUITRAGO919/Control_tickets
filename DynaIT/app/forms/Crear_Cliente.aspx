@@ -7,19 +7,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>DynamicsIT</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/Validacion_JavaScript.js"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <link href="../style/Style.css" rel="stylesheet" />
+    <script src="../../js/Validacion_JavaScript.js"></script>
 </head>
 <body>
     <form id="crearCliente" runat="server">
@@ -149,8 +142,7 @@
                                             <asp:BoundField DataField="nombre_cliente" HeaderText="Nombres" SortExpression="NombreCliente" />
                                             <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono" SortExpression="Telefono" />
                                             <asp:BoundField DataField="correo_cli" HeaderText="Correo" SortExpression="Correo" />
-                                            <asp:BoundField DataField="rol_id" HeaderText="Rol Cliente" SortExpression="Rol_Cliente" />
-                                            <asp:BoundField DataField="Contrasena_cli" HeaderText="Contraseña" SortExpression="Contraseña" Visible="False" />
+                                            <asp:BoundField DataField="rol" HeaderText="Rol" SortExpression="rol" />
                                             <asp:BoundField DataField="Nombre_Empresa" HeaderText="Empresa " SortExpression="Nombre_Empresa" />
                                             <asp:ButtonField CommandName="Select" Text="Editar" />
                                             <asp:ButtonField CommandName="Eliminar" Text="Eliminar" />
@@ -167,7 +159,9 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, cliente.rol_id, cliente.Contrasena_cli, empresa.nombre_empresa FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc" DeleteCommand="UPDATE cliente SET Cliente_Habilitado = 'No' WHERE (id_Cliente = @idCliente)">
+                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, empresa.nombre_empresa 
+					 FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa inner join rol on rol.id_rol = cliente.rol_id
+					 WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc" DeleteCommand="UPDATE cliente SET Cliente_Habilitado = 'No' WHERE (id_Cliente = @idCliente)">
                                         <DeleteParameters>
                                             <asp:Parameter Name="idCliente" />
                                         </DeleteParameters>

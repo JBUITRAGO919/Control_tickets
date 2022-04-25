@@ -34,20 +34,20 @@ namespace DynaIT.Clases
         public int idnotas { get; set; }
         public DateTime FechaNota { get; set; }
         public string descripcionNota { get; set; }
-        public string nota_creada_por { get; set; }
+        public int nota_creada_por { get; set; }
         public string nota_interna { get; set; }
         public string Adjuntos_nota { get; set; }
 
         //------------------------Parametros de nota Cliente------------------------
 
 
-        public int idCliente { get; set; }
-        public string NombreCliente { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public string Rol_Cliente { get; set; }
-        public string Contraseña { get; set; }
-        public string Nombre_Empresa_Cliente { get; set; }
+        public int id_Cliente { get; set; }
+        public string nombre_cliente { get; set; }
+        public string Telefono_cliente { get; set; }
+        public string correo_cli { get; set; }
+        public string Rol { get; set; }
+        public string Contrasena_cli { get; set; }
+        public string Nombre_Empresa { get; set; }
 
 
 

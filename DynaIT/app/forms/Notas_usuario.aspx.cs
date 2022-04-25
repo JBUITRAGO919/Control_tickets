@@ -1019,13 +1019,19 @@ namespace DynaIT.app.forms
                 myparametro.descripcionNota = Txt_descripcion_nota.Value;
                 myparametro.FechaNota = Convert.ToDateTime(lbl_fecha_nota.Text);
                 myparametro.Ticket_idTicket_nota = Lbl_id_ticket.Text;
-                myparametro.nota_creada_por = lbl_correo_sesion.Text;
+                myparametro.nota_creada_por = id_usuario_sesion;
                 myparametro.nota_interna = nota_interna;
                 myparametro.Adjuntos_nota = Adjuntos_nota;
 
-                gestion_Datos.insertarNotas(myparametro);
+                if (gestion_Datos.insertarNotas(myparametro))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "", "Swal.fire('Se agrego la nota correctamente');", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "", "Swal.fire('Error en la base de datos');", true);
+                }
 
-                ScriptManager.RegisterStartupScript(this, GetType(), "", "Swal.fire('Se agrego la nota correctamente');", true);
 
 
                 cargar_datos_ticket();
@@ -1274,7 +1280,7 @@ namespace DynaIT.app.forms
                 lbl_nombre.Style["Font-Size"] = "10pt";
                 lbl_nombre.Style["width"] = "50%";
                 lbl_nombre.Style["padding"] = "5px";
-                lbl_nombre.Text = item.nota_creada_por;
+                lbl_nombre.Text = Convert.ToString(item.nota_creada_por);
                 Panel1.Controls.Add(lbl_nombre);
 
 

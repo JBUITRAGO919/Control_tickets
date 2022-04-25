@@ -168,7 +168,7 @@
                                         <asp:BoundField DataField="tipo_ticket" ReadOnly="true" HeaderText="Tipo de ticket" Visible="true"></asp:BoundField>
                                         <asp:BoundField DataField="Tlp_prioridad" ReadOnly="true" HeaderText="Prioridad" Visible="true"></asp:BoundField>
                                         <asp:BoundField DataField="nombre_empresa" ReadOnly="true" HeaderText="Empresa"></asp:BoundField>
-                                        <asp:BoundField DataField="Nombre_Cliente" ReadOnly="true" HeaderText="Cliente solicitante: " Visible="false"></asp:BoundField>
+                                        <asp:BoundField DataField="Nombre_Cliente" ReadOnly="true" HeaderText="Cliente solicitante: " Visible="true"></asp:BoundField>
                                         <asp:BoundField DataField="Nombre_usuario" ReadOnly="true" HeaderText="Consultor asignado:"></asp:BoundField>
                                         <asp:BoundField DataField="Ticket_Creado_por" ReadOnly="true" HeaderText="Creado por:" Visible="false"></asp:BoundField>
                                         <asp:BoundField DataField="TiempoDesarrollo" ReadOnly="true" HeaderText="Creditos:"></asp:BoundField>

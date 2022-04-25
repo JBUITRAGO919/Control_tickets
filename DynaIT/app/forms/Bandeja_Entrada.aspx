@@ -302,8 +302,8 @@
 
 
                                     <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket 
-                 inner join usuario on usuario.id_usuario = ticket.usuario_id 
-                 inner join nota on nota.id_ticket = ticket.id_ticket 
+  inner join nota on nota.id_ticket = ticket.id_ticket
+  inner join usuario on usuario.id_usuario = nota.nota_creada_por
                  where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="List_tickets_trabajados" DbType="Int32" DefaultValue="5" Name="top_trabajados" PropertyName="SelectedValue" />
@@ -335,8 +335,8 @@
                                     
 
                                     <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket
-  inner join usuario on usuario.id_usuario = ticket.usuario_id
   inner join nota on nota.id_ticket = ticket.id_ticket
+  inner join usuario on usuario.id_usuario = nota.nota_creada_por
   where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" Name="fecha_inicio" PropertyName="Text" />

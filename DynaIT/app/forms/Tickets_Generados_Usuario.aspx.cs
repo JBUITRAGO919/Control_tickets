@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace DynaIT.app.forms
 {
 
@@ -1918,7 +1917,21 @@ namespace DynaIT.app.forms
         protected void Grilla_Tickets_generados_usuario_Load(object sender, EventArgs e)
         {
 
+            //foreach (DataGridViewRow rowp in dgvLineaCompra.Rows)
+            //{
+            //    int kia = rowp.Index;
 
+            //    if (kia == p)
+            //    {
+            //        dgvLineaCompra.Rows[p].DefaultCellStyle.BackColor = Color.Yellow;
+            //    }
+
+
+            //    else if (kia != p)
+            //    {
+            //        dgvLineaCompra.Rows[kia].DefaultCellStyle.BackColor = Color.White;
+            //    }
+            //}
         }
 
         protected void List_clientes_TextChanged(object sender, EventArgs e)
@@ -2082,8 +2095,9 @@ namespace DynaIT.app.forms
                     int id_ticket_grilla = Convert.ToInt32(e.Row.RowIndex);
                     if (id_ticket_vencido == id_ticket_grilla)
                     {
-                        e.Row.BackColor = Color.Magenta;
+                        e.Row.BackColor = Color.FromArgb(250, 83, 83);
                     }
+
                 }
 
 
@@ -2091,8 +2105,34 @@ namespace DynaIT.app.forms
             }
 
 
+
+
         }
 
+        protected void Grilla_Tickets_generados_usuario_DataBinding(object sender, EventArgs e)
+        {
+            //List<Visualizar_Tickets> Tickets_vencidos = gestion_Datos.tickets_vencidos();
+            //foreach (var l_vencido in Tickets_vencidos)
+            //{
+            //    int id_ticket = l_vencido.N_Ticket;
+
+            //    foreach (DataGrid rowp in Grilla_Tickets_generados_usuario.Rows)
+            //    {
+            //        int index = Convert.ToInt32(e.CommandArgument)
+            //        int ticket_id = rowp.DataKeys[index].Value;
+            //        if (ticket_id == id_ticket)
+            //        {
+
+            //            rowp.ControlStyle.BackColor = Color.Red;
+            //        }
+
+            //    }
+
+
+
+
+            //}
+        }
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
 
@@ -2174,30 +2214,6 @@ namespace DynaIT.app.forms
 
         }
 
-        protected void Grilla_Tickets_generados_usuario_DataBinding(object sender, EventArgs e)
-        {
-            //List<Visualizar_Tickets> Tickets_vencidos = gestion_Datos.tickets_vencidos();
-            //foreach (var l_vencido in Tickets_vencidos)
-            //{
-            //    int id_ticket = l_vencido.N_Ticket;
-
-            //    foreach (DataGrid rowp in Grilla_Tickets_generados_usuario.Rows)
-            //    {
-            //        int index = Convert.ToInt32(e.CommandArgument)
-            //        int ticket_id = rowp.DataKeys[index].Value;
-            //        if (ticket_id == id_ticket)
-            //        {
-
-            //            rowp.ControlStyle.BackColor = Color.Red;
-            //        }
-
-            //    }
-
-
-
-
-            //}
-        }
 
         protected void Grilla_Tickets_generados_usuario_DataBound(object sender, EventArgs e)
         {

@@ -71,7 +71,7 @@ namespace DynaIT.app.forms
             Lbl_NResueltos.Text = Convert.ToString(myparametro.N_Resueltos);
 
         }
-       
+
 
         protected void Enproceso_Load(object sender, EventArgs e)
         {
@@ -202,10 +202,10 @@ namespace DynaIT.app.forms
 
 
 
-            
+
         }
 
-       
+
 
         protected void Btn_creditos_por_consultor_Click(object sender, EventArgs e)
         {
@@ -510,7 +510,7 @@ namespace DynaIT.app.forms
 
         protected void Btn_buscar_empresas_Click(object sender, EventArgs e)
         {
-            
+
             tickets_por_empresas();
         }
 
@@ -576,7 +576,7 @@ namespace DynaIT.app.forms
             {
                 Creditos_por_consultor();
             }
-            
+
         }
-    }    
+    }
 }

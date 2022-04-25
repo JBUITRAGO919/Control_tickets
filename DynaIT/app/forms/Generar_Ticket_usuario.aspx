@@ -12,17 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="../style/chat_ticket_bs4.min.css" rel="stylesheet" />
-    <link href="../style/font_awesome_all.min.css" rel="stylesheet" />
-    <script src="https://cdn.tiny.cloud/1/ru8su9eg3n8dv236yckfxc61kwnikz0wsx7altpwsplujhmi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/ru8su9eg3n8dv236yckfxc61kwnikz0wsx7altpwsplujhmi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>   
      <script>
              tinymce.init({
                  selector: '#Txt_DetallesProblema'
       });
-     </script>
-     
-
-</head>
+     </script>   
+    </head>
 <body>
     <form id="form1" runat="server">
         
@@ -62,10 +58,10 @@
                             <div class="col-md" id="Div_prioridad" runat="server">
                                 <div class="form-group">
                                     <asp:Label class="" ID="lbl_prioridad" runat="server" Text="Prioridad"></asp:Label>
-                                    <asp:DropDownList class="form-control select2" ID="List_Prioridad" runat="server" OnSelectedIndexChanged="Txt_Prioridad_SelectedIndexChanged" DataSourceID="tabla_prioridad" DataTextField="Prioridad" DataValueField="id_prioridad">
+                                    <asp:DropDownList class="form-control select2" ID="List_Prioridad" runat="server" OnSelectedIndexChanged="Txt_Prioridad_SelectedIndexChanged" DataSourceID="tabla_prioridad" DataTextField="prioridad" DataValueField="id_prioridad">
                                         
                                     </asp:DropDownList>
-                                    <asp:SqlDataSource ID="tabla_prioridad" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_prioridad, Prioridad from prioridad"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="tabla_prioridad" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_prioridad, prioridad from prioridad where prioridad_habilitada = 'Si' or id_prioridad = 1"></asp:SqlDataSource>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +120,6 @@
                                 <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Resumen" runat="server" Width="50%"></asp:TextBox>
                                 <asp:Label ID="Label11" runat="server" Text="Descripción "></asp:Label>
                                 <br />
-                                
 
                                 <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_DetallesProblema" runat="server" Height="500px" TextMode="MultiLine" Width="100%" ValidateRequestMode="Disabled"></asp:TextBox>
                                 <%--<div class="form-control mb-2 mr-sm-2" id="Txt_DetallesProblema" runat="server" style="height:auto">  </div>--%>
@@ -156,21 +151,9 @@
 
                 <%---------------------------------------%>
             </div>
-
         </div>
-                                
-
-
         <%----------------------------------------%>
     </form>
-    <script src="../js/chat_ticket_bs4.min.js"></script>
-   <link href="../style/chat_ticket_bs4.min.css" rel="stylesheet" />
-     <%--<script>
-  $(function () {
-    //Add text editor
-      $('#Txt_DetallesProblema').summernote()
-  })
-    </script>--%>
-</body>
   
+</body>  
 </html>

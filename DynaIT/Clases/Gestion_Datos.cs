@@ -54,19 +54,20 @@ namespace DynaIT.Clases
             Boolean estado = false;
             try
             {
+                //string sql = " insert into usuario ( nombre_usuario, correo_usu, rol_id, area_id, contrasena_usu, prefijo_usuario ) " +
+                //    " values ( @Nombres, @Correo, @Rol_usuario, @area_idarea, @Contrasena, @Usuario  )";
 
-                string sql = " insert into usuario ( nombre_usuario, correo_usu, rol_id, area_id, contrasena_usu, prefijo_usuario ) " +
-                    " values ( @Nombres, @Correo, @Rol_usuario, @area_idarea, @Contrasena, @Usuario  )";
-                SqlCommand cmd = new SqlCommand(sql, conexion);
+                string patron = "Dynamics1", cliente_habilitado = "Si";
+                SqlCommand cmd = new SqlCommand("Sp_pass_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-
-
-                cmd.Parameters.AddWithValue("@Nombres", myParametro.Nombre_Usuario);
-                cmd.Parameters.AddWithValue("@Correo", myParametro.Correo_Usuario);
-                cmd.Parameters.AddWithValue("@Rol_usuario", myParametro.Rol_usuario);
-                cmd.Parameters.AddWithValue("@area_idarea", myParametro.Tabla_Grupos_Usuario);
-                cmd.Parameters.AddWithValue("@Contrasena", myParametro.Contraseña_Usuario);
-                cmd.Parameters.AddWithValue("@Usuario", myParametro.Usuario);
+                cmd.Parameters.AddWithValue("@nombre_usuario", myParametro.Nombre_Usuario);
+                cmd.Parameters.AddWithValue("@correo_usu", myParametro.Correo_Usuario);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_usuario);
+                cmd.Parameters.AddWithValue("@area_id", myParametro.Tabla_Grupos_Usuario);
+                cmd.Parameters.AddWithValue("@contrasena_usu", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@prefijo_usuario", myParametro.Usuario);
+                cmd.Parameters.AddWithValue("@usuario_Habilitado", cliente_habilitado);
+                cmd.Parameters.AddWithValue("@Patron", patron);
 
 
                 cmd.ExecuteNonQuery();
@@ -182,20 +183,22 @@ namespace DynaIT.Clases
             Boolean estado = false;
             try
             {
+                string patron = "Dynamics1", usuario_habilitado = "Si";
 
-                string sql = (" UPDATE usuario SET nombre_usuario = @Nombres, " +
-                    " correo_usu = @Correo, rol_id = @Rol_usuario, prefijo_usuario = @Usuario, area_id = @area_idarea," +
-                    " contrasena_usu = @Contrasena WHERE id_usuario = @idUsuario ");
-                SqlCommand cmd = new SqlCommand(sql, conexion);
+                //string sql = (" UPDATE usuario SET nombre_usuario = @Nombres, " +
+                //    " correo_usu = @Correo, rol_id = @Rol_usuario, prefijo_usuario = @Usuario, area_id = @area_idarea," +
+                //    " contrasena_usu = @Contrasena WHERE id_usuario = @idUsuario ");
+                SqlCommand cmd = new SqlCommand("Sp_update_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-                cmd.Parameters.AddWithValue("@idUsuario", myParametro.Id_usuario);
-
-                cmd.Parameters.AddWithValue("@Nombres", myParametro.Nombre_Usuario);
-                cmd.Parameters.AddWithValue("@Correo", myParametro.Correo_Usuario);
-                cmd.Parameters.AddWithValue("@Rol_usuario", myParametro.Rol_usuario);
-                cmd.Parameters.AddWithValue("@Usuario", myParametro.Prefijo_Usuario);
-                cmd.Parameters.AddWithValue("@area_idarea", myParametro.fk_area_id_area);
-                cmd.Parameters.AddWithValue("@Contrasena", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@id_usuario", myParametro.Id_usuario);
+                cmd.Parameters.AddWithValue("@nombre_usuario", myParametro.Nombre_Usuario);
+                cmd.Parameters.AddWithValue("@correo_usu", myParametro.Correo_Usuario);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_usuario);
+                cmd.Parameters.AddWithValue("@prefijo_usuario", myParametro.Prefijo_Usuario);
+                cmd.Parameters.AddWithValue("@area_id", myParametro.fk_area_id_area);
+                cmd.Parameters.AddWithValue("@contrasena_usu", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@usuario_Habilitado", usuario_habilitado);
+                cmd.Parameters.AddWithValue("@Patron", patron);
 
                 cmd.ExecuteNonQuery();
 
@@ -215,21 +218,23 @@ namespace DynaIT.Clases
             Boolean estado = false;
             try
             {
+                //string sql = (" UPDATE cliente SET nombre_cliente = @NombreCliente, correo_cli = @Correo, Telefono_cliente = @Telefono, rol_id = @Rol_Cliente, " +
+                //    " Contrasena_cli = @Contraseña, empresa_id = @Id_Empresa " +
+                //    " WHERE(id_Cliente = @idCliente) ");
 
-                string sql = (" UPDATE cliente SET nombre_cliente = @NombreCliente, correo_cli = @Correo, Telefono_cliente = @Telefono, rol_id = @Rol_Cliente, " +
-                    " Contrasena_cli = @Contraseña, empresa_id = @Id_Empresa " +
-                    " WHERE(id_Cliente = @idCliente) ");
+                string patron = "Dynamics1", cliente_habilitado = "Si";
+                SqlCommand cmd = new SqlCommand("Sp_update_cli", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-                SqlCommand cmd = new SqlCommand(sql, conexion);
+                cmd.Parameters.AddWithValue("@id_Cliente", myParametro.Id_cliente);
 
-                cmd.Parameters.AddWithValue("@idCliente", myParametro.Id_cliente);
-
-                cmd.Parameters.AddWithValue("@NombreCliente", myParametro.Nombre_Cliente);
-                cmd.Parameters.AddWithValue("@Correo", myParametro.Correo_Cliente);
-                cmd.Parameters.AddWithValue("@Telefono", myParametro.Telefono_Cliente);
-                cmd.Parameters.AddWithValue("@Rol_Cliente", myParametro.Rol_Cliente);
-                cmd.Parameters.AddWithValue("@Contraseña", myParametro.Contraseña);
-                cmd.Parameters.AddWithValue("@Id_Empresa", myParametro.Fk_Empresa);
+                cmd.Parameters.AddWithValue("@nombre_cliente", myParametro.Nombre_Cliente);
+                cmd.Parameters.AddWithValue("@correo_cli", myParametro.Correo_Cliente);
+                cmd.Parameters.AddWithValue("@Telefono_cliente", myParametro.Telefono_Cliente);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_Cliente);
+                cmd.Parameters.AddWithValue("@Contrasena_cli", myParametro.Contraseña);
+                cmd.Parameters.AddWithValue("@empresa_id", myParametro.Fk_Empresa);
+                cmd.Parameters.AddWithValue("@Patron", patron);
+                cmd.Parameters.AddWithValue("@Cliente_Habilitado", cliente_habilitado);
 
 
                 cmd.ExecuteNonQuery();
@@ -317,19 +322,19 @@ namespace DynaIT.Clases
             Boolean estado = false;
             try
             {
+                //string sql = "insert into cliente ( nombre_cliente, correo_cli, Telefono_cliente, rol_id, Contrasena_cli, empresa_id) " +
+                //    " values ( @NombreCliente, @Correo, @Telefono, @Rol_Cliente, @Contraseña, @Id_Empresa )";
+                string Cliente_Habilitado = "Si", patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("Sp_pass_clien", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-                string sql = "insert into cliente ( nombre_cliente, correo_cli, Telefono_cliente, rol_id, Contrasena_cli, empresa_id) " +
-                    " values ( @NombreCliente, @Correo, @Telefono, @Rol_Cliente, @Contraseña, @Id_Empresa )";
-                SqlCommand cmd = new SqlCommand(sql, conexion);
-
-                cmd.Parameters.AddWithValue("@NombreCliente", myParametro.Nombre_Cliente);
-                cmd.Parameters.AddWithValue("@Correo", myParametro.Correo_Cliente);
-                cmd.Parameters.AddWithValue("@Telefono", myParametro.Telefono_Cliente);
-                cmd.Parameters.AddWithValue("@Rol_Cliente", myParametro.Rol_Cliente);
-                cmd.Parameters.AddWithValue("@Contraseña", myParametro.Contraseña);
-
-                cmd.Parameters.AddWithValue("@Id_Empresa", myParametro.Fk_Empresa);
-
+                cmd.Parameters.AddWithValue("@nombre_cliente", myParametro.Nombre_Cliente);
+                cmd.Parameters.AddWithValue("@correo_cli", myParametro.Correo_Cliente);
+                cmd.Parameters.AddWithValue("@Telefono_cliente", myParametro.Telefono_Cliente);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_Cliente);
+                cmd.Parameters.AddWithValue("@Contrasena_cli", myParametro.Contraseña);
+                cmd.Parameters.AddWithValue("@empresa_id", myParametro.Fk_Empresa);
+                cmd.Parameters.AddWithValue("@Cliente_Habilitado", Cliente_Habilitado);
+                cmd.Parameters.AddWithValue("@Patron", patron);
 
                 cmd.ExecuteNonQuery();
 
@@ -473,7 +478,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1263,7 +1268,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1311,7 +1316,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1357,7 +1362,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1402,7 +1407,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1422,7 +1427,8 @@ namespace DynaIT.Clases
         {
             string sql = " Select ticket.id_ticket, tipo_ticket.tipo_Ticket, ticket.Fecha, ticket.Resumen_Problema, ticket.Descripcion, " +
                 " prioridad.Prioridad, empresa.Nombre_Empresa, cliente.nombre_cliente, usuario.nombre_usuario, " +
-                " estado_ticket.estado_ticket, Ticket_Creado_por from ticket " +
+                " estado_ticket.estado_ticket, Ticket_Creado_por, ticket.fecha_vencimiento " +
+                " from ticket " +
                 " inner join cliente on cliente.id_Cliente = ticket.Cliente_id " +
                 " inner join empresa on empresa.id_empresa = cliente.empresa_id  " +
                 " inner join usuario on Usuario.id_usuario = ticket.Usuario_id " +
@@ -1447,12 +1453,13 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
                 myTicket.estado_ticket = registro.GetString(9);
                 myTicket.Ticket_Creado_por = registro.GetString(10);
+                myTicket.tiempo_Respuesta = registro.GetDateTime(11);
 
                 // Agrego el objeto estudiante creado a la lista
                 Visualizar_Tickets.Add(myTicket);
@@ -1490,7 +1497,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1536,7 +1543,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1558,7 +1565,8 @@ namespace DynaIT.Clases
         {
             string sql = " Select ticket.id_ticket, tipo_ticket.tipo_Ticket, ticket.Fecha, ticket.Resumen_Problema, ticket.Descripcion, " +
                 " prioridad.Prioridad, empresa.Nombre_Empresa, cliente.nombre_cliente, usuario.nombre_usuario, " +
-                " estado_ticket.estado_ticket, Ticket_Creado_por from ticket " +
+                " estado_ticket.estado_ticket, Ticket_Creado_por, ticket.fecha_vencimiento " +
+                " from ticket " +
                 " inner join cliente on cliente.id_Cliente = ticket.Cliente_id " +
                 " inner join empresa on empresa.id_empresa = cliente.empresa_id  " +
                 " inner join usuario on Usuario.id_usuario = ticket.Usuario_id " +
@@ -1582,12 +1590,13 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
                 myTicket.estado_ticket = registro.GetString(9);
                 myTicket.Ticket_Creado_por = registro.GetString(10);
+                myTicket.tiempo_Respuesta = registro.GetDateTime(11);
 
                 // Agrego el objeto estudiante creado a la lista
                 Visualizar_Tickets.Add(myTicket);
@@ -1629,7 +1638,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1672,7 +1681,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1718,7 +1727,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1764,7 +1773,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1809,7 +1818,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1855,7 +1864,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1901,7 +1910,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -1921,7 +1930,8 @@ namespace DynaIT.Clases
         {
             string sql = " Select ticket.id_ticket, tipo_ticket.tipo_Ticket, ticket.Fecha, ticket.Resumen_Problema, ticket.Descripcion, " +
                 " prioridad.Prioridad, empresa.Nombre_Empresa, cliente.nombre_cliente, usuario.nombre_usuario, " +
-                " estado_ticket.estado_ticket, Ticket_Creado_por from ticket " +
+                " estado_ticket.estado_ticket, Ticket_Creado_por, ticket.fecha_vencimiento " +
+                " from ticket " +
                 " inner join cliente on cliente.id_Cliente = ticket.Cliente_id " +
                 " inner join empresa on empresa.id_empresa = cliente.empresa_id  " +
                 " inner join usuario on Usuario.id_usuario = ticket.Usuario_id " +
@@ -1947,12 +1957,13 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
                 myTicket.estado_ticket = registro.GetString(9);
                 myTicket.Ticket_Creado_por = registro.GetString(10);
+                myTicket.tiempo_Respuesta = registro.GetDateTime(11);
 
                 // Agrego el objeto estudiante creado a la lista
                 Visualizar_Tickets.Add(myTicket);
@@ -1977,7 +1988,7 @@ namespace DynaIT.Clases
                 visualizar.idnotas = registro.GetInt32(0);
                 visualizar.FechaNota = registro.GetDateTime(1);
                 visualizar.descripcionNota = registro.GetString(2);
-                visualizar.nota_creada_por = registro.GetString(3);
+                visualizar.nota_creada_por = registro.GetInt32(3);
                 visualizar.nota_interna = registro.GetString(4);
                 visualizar.Adjuntos_nota = registro.GetString(5);
 
@@ -2009,7 +2020,7 @@ namespace DynaIT.Clases
                 visualizar.idnotas = registro.GetInt32(0);
                 visualizar.FechaNota = registro.GetDateTime(1);
                 visualizar.descripcionNota = registro.GetString(2);
-                visualizar.nota_creada_por = registro.GetString(3);
+                visualizar.nota_creada_por = registro.GetInt32(3);
                 visualizar.nota_interna = registro.GetString(4);
                 visualizar.Adjuntos_nota = registro.GetString(5);
 
@@ -2039,7 +2050,7 @@ namespace DynaIT.Clases
                 Visualizar_Tickets visualizar = new Visualizar_Tickets();
 
                 visualizar.idnotas = registro.GetInt32(0);
-                visualizar.nota_creada_por = registro.GetString(1);
+                visualizar.nota_creada_por = registro.GetInt32(1);
                 visualizar.FechaNota = registro.GetDateTime(2);
                 visualizar.descripcionNota = registro.GetString(3);
                 visualizar.nota_interna = registro.GetString(4);
@@ -2057,10 +2068,11 @@ namespace DynaIT.Clases
         //traer la lista de clientes de una empresa
         public List<Visualizar_Tickets> traer_clientes_empresa(string Cliente_Habilitado, int Id_Empresa)
         {
-            string sql = " SELECT cliente.idCliente, cliente.NombreCliente, cliente.Telefono, cliente.Correo, " +
-                " cliente.Rol_Cliente, cliente.Contraseña, empresas.Nombre_Empresa FROM cliente " +
-                " INNER JOIN empresas ON cliente.Id_Empresa = empresas.id_Empresas " +
-                " WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado AND empresas.id_Empresas = @Id_Empresa ) order by cliente.idCliente desc ";
+            string sql = " SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, " +
+                " rol.rol, empresa.Nombre_Empresa FROM cliente " +
+                " INNER JOIN empresa ON cliente.empresa_id = empresa.id_empresa " +
+                " inner join rol on rol.id_rol = cliente.rol_id " +
+                "  WHERE(cliente.Cliente_Habilitado = @Cliente_Habilitado AND empresa.id_Empresa = @Id_Empresa) order by cliente.id_Cliente desc ";
             SqlCommand cmd = new SqlCommand(sql, conexion);
             cmd.Parameters.AddWithValue("@Cliente_Habilitado", Cliente_Habilitado);
             cmd.Parameters.AddWithValue("@Id_Empresa", Id_Empresa);
@@ -2070,13 +2082,12 @@ namespace DynaIT.Clases
             {           // por cada registro creo un objeto estudiante
                 Visualizar_Tickets visualizar = new Visualizar_Tickets();
 
-                visualizar.idCliente = registro.GetInt32(0);
-                visualizar.NombreCliente = registro.GetString(1);
-                visualizar.Telefono = registro.GetString(2);
-                visualizar.Correo = registro.GetString(3);
-                visualizar.Rol_Cliente = registro.GetString(4);
-                visualizar.Contraseña = registro.GetString(5);
-                visualizar.Nombre_Empresa_Cliente = registro.GetString(6);
+                visualizar.id_Cliente = registro.GetInt32(0);
+                visualizar.nombre_cliente = registro.GetString(1);
+                visualizar.Telefono_cliente = registro.GetString(2);
+                visualizar.correo_cli = registro.GetString(3);
+                visualizar.Rol = registro.GetString(4);
+                visualizar.Nombre_Empresa = registro.GetString(5);
 
 
 
@@ -2094,7 +2105,7 @@ namespace DynaIT.Clases
         {
             string sql = " Select ticket.id_ticket, tipo_ticket.tipo_Ticket, ticket.Fecha, ticket.Resumen_Problema, ticket.Descripcion, " +
                 " prioridad.Prioridad, empresa.Nombre_Empresa, cliente.nombre_cliente, usuario.nombre_usuario, " +
-                " estado_ticket.estado_ticket, ticket.Ticket_Creado_por, ticket.creditos_desarrollo, ticket.Fecha_cierre_ticket, ticket.Numero_Dias " +
+                " estado_ticket.estado_ticket, ticket.Ticket_Creado_por, ticket.creditos_desarrollo, ticket.Fecha_cierre_ticket, ticket.Numero_Dias, ticket.fecha_vencimiento " +
                 " from ticket " +
                 " inner join prioridad on prioridad.id_prioridad = ticket.prioridad_id " +
                 " inner join cliente on cliente.id_Cliente = ticket.cliente_id " +
@@ -2125,6 +2136,7 @@ namespace DynaIT.Clases
                 myTicket.TiempoDesarrollo = registro.GetInt32(11);
                 myTicket.Fecha_cierre_ticket = registro.GetDateTime(12);
                 myTicket.Numero_Dias = registro.GetInt32(13);
+                myTicket.tiempo_Respuesta = registro.GetDateTime(14);
 
 
 
@@ -2193,7 +2205,7 @@ namespace DynaIT.Clases
         {
             string sql = " Select  ticket.id_ticket, tipo_ticket.tipo_Ticket, ticket.Fecha, ticket.Resumen_Problema, ticket.Descripcion, " +
                 " prioridad.Prioridad, empresa.nombre_empresa, cliente.nombre_cliente, usuario.nombre_usuario, " +
-                " estado_ticket.estado_Ticket, ticket.Ticket_Creado_por, ticket.creditos_desarrollo, ticket.fecha_cierre_ticket, ticket.numero_Dias " +
+                " estado_ticket.estado_Ticket, ticket.Ticket_Creado_por, ticket.creditos_desarrollo, ticket.fecha_cierre_ticket, ticket.numero_Dias, ticket.fecha_vencimiento " +
                 " from ticket " +
                 " inner join prioridad on prioridad.id_prioridad = ticket.prioridad_id " +
                 " inner join cliente on cliente.id_Cliente = ticket.cliente_id " +
@@ -2217,7 +2229,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -2226,6 +2238,8 @@ namespace DynaIT.Clases
                 myTicket.TiempoDesarrollo = registro.GetInt32(11);
                 myTicket.Fecha_cierre_ticket = registro.GetDateTime(12);
                 myTicket.Numero_Dias = registro.GetInt32(13);
+                myTicket.tiempo_Respuesta = registro.GetDateTime(14);
+
 
 
 
@@ -2270,7 +2284,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -2319,7 +2333,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -2365,7 +2379,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -2411,7 +2425,7 @@ namespace DynaIT.Clases
                 myTicket.Fecha_creacion = registro.GetDateTime(2);
                 myTicket.Resumen_Problema = registro.GetString(3);
                 myTicket.Descripcion = registro.GetString(4);
-                myTicket.Prioridad_id_prioridad = registro.GetString(5);
+                myTicket.Tlp_prioridad = registro.GetString(5);
                 myTicket.nombre_empresa = registro.GetString(6);
                 myTicket.Nombre_Cliente = registro.GetString(7);
                 myTicket.Nombre_usuario = registro.GetString(8);
@@ -2714,7 +2728,7 @@ namespace DynaIT.Clases
             {
                 Clase_Parametros myParametro = new Clase_Parametros();
 
-                myParametro.Ttt_Horas_respuesta = registro.GetInt32(0);
+                myParametro.Tttipo_Horas_respuesta = registro.GetInt32(0);
 
 
                 registro.Close();
@@ -2727,7 +2741,31 @@ namespace DynaIT.Clases
             }
         }
 
+        //traer las horas de la tabla tipo ticket que se tiene para dar respuesta
+        public Clase_Parametros cargar_horas_Prioridad(int id_prioridad)
 
+        {
+            string sql = " select H_respuesta_prioridad from prioridad where id_prioridad = @id_prioridad ";
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            cmd.Parameters.AddWithValue("@id_prioridad", id_prioridad);
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            if (registro.Read())
+            {
+                Clase_Parametros myParametro = new Clase_Parametros();
+
+                myParametro.Tprioridad_Horas_respuesta = registro.GetInt32(0);
+
+
+                registro.Close();
+                return myParametro;
+            }
+            else
+            {
+                registro.Close();
+                return null;
+            }
+        }
 
 
 
@@ -3205,21 +3243,30 @@ namespace DynaIT.Clases
             try
             {
 
-                string sql = (" UPDATE cliente SET Cliente_Habilitado = @Cliente_Habilitado WHERE (id_Cliente = @idCliente) ");
+                //string sql = (" UPDATE cliente SET Cliente_Habilitado = @Cliente_Habilitado WHERE (id_Cliente = @idCliente) ");
+                //SqlCommand cmd = new SqlCommand(sql, conexion);
 
-                SqlCommand cmd = new SqlCommand(sql, conexion);
+                string patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("Sp_update_cli", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-                cmd.Parameters.AddWithValue("@idCliente", myParametro.Id_cliente);
+                cmd.Parameters.AddWithValue("@id_Cliente", myParametro.Id_cliente);
+                cmd.Parameters.AddWithValue("@nombre_cliente", myParametro.Nombre_Cliente);
+                cmd.Parameters.AddWithValue("@correo_cli", myParametro.Correo_Cliente);
+                cmd.Parameters.AddWithValue("@Telefono_cliente", myParametro.Telefono_Cliente);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_Cliente);
+                cmd.Parameters.AddWithValue("@empresa_id", myParametro.Fk_Empresa);
+                cmd.Parameters.AddWithValue("@Contrasena_cli", myParametro.Contraseña);
                 cmd.Parameters.AddWithValue("@Cliente_Habilitado", myParametro.cliente_habilitado);
+                cmd.Parameters.AddWithValue("@Patron", patron);
 
                 cmd.ExecuteNonQuery();
-
-
+                estado = true;
             }
             catch (SqlException exception)
             {
 
                 this.error = exception.Message;
+                estado = false;
             }
             return estado;
 
@@ -3336,20 +3383,21 @@ namespace DynaIT.Clases
             Boolean estado = false;
             try
             {
+                string patron = "Dynamics1", usuario_habilitado = "Si";
+                //string sql = (" UPDATE usuario SET nombre_usuario = @Nombres, correo_usu = @Correo, rol_id = @Rol_usuario, prefijo_usuario = @Usuario, area_id = @area_idarea, " +
+                //    " contrasena_usu = @Contrasena, Usuario_Habilitado = 'Si' WHERE(id_usuario = @idUsuario) ");
 
-                string sql = (" UPDATE usuario SET nombre_usuario = @Nombres, correo_usu = @Correo, rol_id = @Rol_usuario, prefijo_usuario = @Usuario, area_id = @area_idarea, " +
-                    " contrasena_usu = @Contrasena, Usuario_Habilitado = 'Si' WHERE(id_usuario = @idUsuario) ");
-                SqlCommand cmd = new SqlCommand(sql, conexion);
+                SqlCommand cmd = new SqlCommand("Sp_update_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
 
-                cmd.Parameters.AddWithValue("@idUsuario", myParametro.Id_usuario);
-
-
-                cmd.Parameters.AddWithValue("@Nombres", myParametro.Nombre_Usuario);
-                cmd.Parameters.AddWithValue("@Correo", myParametro.Correo_Usuario);
-                cmd.Parameters.AddWithValue("@Rol_usuario", myParametro.Rol_usuario);
-                cmd.Parameters.AddWithValue("@Usuario", myParametro.Prefijo_Usuario);
-                cmd.Parameters.AddWithValue("@area_idarea", myParametro.Grupo_Usuario);
-                cmd.Parameters.AddWithValue("@Contrasena", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@id_usuario", myParametro.Id_usuario);
+                cmd.Parameters.AddWithValue("@nombre_usuario", myParametro.Nombre_Usuario);
+                cmd.Parameters.AddWithValue("@correo_usu", myParametro.Correo_Usuario);
+                cmd.Parameters.AddWithValue("@rol_id", myParametro.Rol_usuario);
+                cmd.Parameters.AddWithValue("@prefijo_usuario", myParametro.Prefijo_Usuario);
+                cmd.Parameters.AddWithValue("@area_id", myParametro.Grupo_Usuario);
+                cmd.Parameters.AddWithValue("@contrasena_usu", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@usuario_Habilitado", usuario_habilitado);
+                cmd.Parameters.AddWithValue("@Patron", patron);
 
 
 
@@ -3775,7 +3823,7 @@ namespace DynaIT.Clases
             }
         }
 
-        
+
         //contar los tickets En proceso para mostrar en la bandeja de entrada
 
 
@@ -3827,7 +3875,7 @@ namespace DynaIT.Clases
                 myParametro.Nombre_Cliente = registro.GetString(1);
                 myParametro.Rol_Cliente = registro.GetInt32(2);
                 myParametro.Id_Empresa_cliente = registro.GetInt32(3);
-                myParametro.Rol_Cli= registro.GetString(4);
+                myParametro.Rol_Cli = registro.GetString(4);
 
 
 
@@ -4042,8 +4090,8 @@ namespace DynaIT.Clases
         public List<Visualizar_Tickets> lista_tickets_trabajados_grafica(int top_trabajados, DateTime fecha_inicio, DateTime fecha_fin)
         {
             string sql = " select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket " +
-                " inner join usuario on usuario.id_usuario = ticket.usuario_id " +
                 " inner join nota on nota.id_ticket = ticket.id_ticket " +
+                " inner join usuario on usuario.id_usuario = nota.nota_creada_por " +
                 " where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
@@ -4071,8 +4119,8 @@ namespace DynaIT.Clases
         public List<Visualizar_Tickets> lista_tickets_trabajados_grilla(DateTime fecha_inicio, DateTime fecha_fin)
         {
             string sql = " select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket " +
-                " inner join usuario on usuario.id_usuario = ticket.usuario_id " +
                 " inner join nota on nota.id_ticket = ticket.id_ticket " +
+                " inner join usuario on usuario.id_usuario = nota.nota_creada_por " +
                 " where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
@@ -4096,60 +4144,60 @@ namespace DynaIT.Clases
         }
 
 
-            //  traer el listado de Todos los Tickets creados y asignados a los consultores en la grafica
-            public List<Visualizar_Tickets> lista_tickets_por_estado_grafica(DateTime fecha_inicio, DateTime fecha_fin)
-            {
-                string sql = " select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket " +
-                    " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin " +
-                    " group by estado_Ticket order by COUNT(2) ";
+        //  traer el listado de Todos los Tickets creados y asignados a los consultores en la grafica
+        public List<Visualizar_Tickets> lista_tickets_por_estado_grafica(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+            string sql = " select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket " +
+                " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin " +
+                " group by estado_Ticket order by COUNT(2) ";
 
-                List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
+            List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
-                SqlCommand cmd = new SqlCommand(sql, conexion);
-            
-                cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
-                cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
-                SqlDataReader registro = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conexion);
 
-                while (registro.Read())
-                {           // por cada registro creo un objeto estudiante
-                    Visualizar_Tickets myTicket = new Visualizar_Tickets();
+            cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
+            cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
+            SqlDataReader registro = cmd.ExecuteReader();
 
-                    myTicket.estado_ticket = registro.GetString(0);
-                    myTicket.N_Tickets = registro.GetInt32(1);
-                    // Agrego el objeto estudiante creado a la lista
-                    Visualizar_Tickets.Add(myTicket);
-                }
-                registro.Close();
-                return Visualizar_Tickets;
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Visualizar_Tickets myTicket = new Visualizar_Tickets();
+
+                myTicket.estado_ticket = registro.GetString(0);
+                myTicket.N_Tickets = registro.GetInt32(1);
+                // Agrego el objeto estudiante creado a la lista
+                Visualizar_Tickets.Add(myTicket);
             }
+            registro.Close();
+            return Visualizar_Tickets;
+        }
 
-            //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
-            public List<Visualizar_Tickets> lista_tickets_por_estado_grilla(DateTime fecha_inicio, DateTime fecha_fin)
-            {
-                string sql = " select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket " +
-                    " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin " +
-                    " group by estado_Ticket order by COUNT(2) ";
+        //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
+        public List<Visualizar_Tickets> lista_tickets_por_estado_grilla(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+            string sql = " select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket " +
+                " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin " +
+                " group by estado_Ticket order by COUNT(2) ";
 
-                List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
+            List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
-                SqlCommand cmd = new SqlCommand(sql, conexion);
-                cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
-                cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
-                SqlDataReader registro = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
+            cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
+            SqlDataReader registro = cmd.ExecuteReader();
 
-                while (registro.Read())
-                {           // por cada registro creo un objeto estudiante
-                    Visualizar_Tickets myTicket = new Visualizar_Tickets();
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Visualizar_Tickets myTicket = new Visualizar_Tickets();
 
-                    myTicket.estado_ticket = registro.GetString(0);
-                    myTicket.N_Tickets = registro.GetInt32(1);
-                    // Agrego el objeto estudiante creado a la lista
-                    Visualizar_Tickets.Add(myTicket);
-                }
-                registro.Close();
-                return Visualizar_Tickets;
+                myTicket.estado_ticket = registro.GetString(0);
+                myTicket.N_Tickets = registro.GetInt32(1);
+                // Agrego el objeto estudiante creado a la lista
+                Visualizar_Tickets.Add(myTicket);
             }
+            registro.Close();
+            return Visualizar_Tickets;
+        }
 
 
         //  traer el listado de Todos los Tickets creados y asignados a los consultores en la grafica
@@ -4251,7 +4299,7 @@ namespace DynaIT.Clases
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
             SqlCommand cmd = new SqlCommand(sql, conexion);
-            
+
             cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
             cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
             SqlDataReader registro = cmd.ExecuteReader();

@@ -39,10 +39,12 @@ namespace DynaIT.Clases
         }//      validar si existe el Correo de usuario y contraseña 
         public Boolean inicio_sesion_usuario(string Correo, string Contrasena)
         {
-            string sql = ("select correo_usu, contrasena_usu from usuario where correo_usu = @correo_usu and contrasena_usu = @contrasena_usu and usuario_Habilitado = 'Si' ");
-            SqlCommand cmd = new SqlCommand(sql, conexion);
+            string patron = "Dynamics1";
+            //string sql = ("select correo_usu, contrasena_usu from usuario where correo_usu = @correo_usu and contrasena_usu = @contrasena_usu and usuario_Habilitado = 'Si' ");
+            SqlCommand cmd = new SqlCommand("Validar_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
             cmd.Parameters.AddWithValue("@correo_usu", Correo);
             cmd.Parameters.AddWithValue("@contrasena_usu", Contrasena);
+            cmd.Parameters.AddWithValue("@Patron", patron);
             //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
             SqlDataReader registro = cmd.ExecuteReader();
             if (registro.Read())
@@ -60,11 +62,14 @@ namespace DynaIT.Clases
         //      validar si existe el Correo de cliente y contraseña 
         public Boolean inicio_sesion_cliente(string Correo, string Contraseña)
         {
-
-            string sql = ("select * from cliente where correo_cli = @correo_cli and Contrasena_cli = @Contrasena_cli and Cliente_Habilitado = 'Si' ");
-            SqlCommand cmd = new SqlCommand(sql, conexion);
+            //string sql = ("select * from cliente where correo_cli = @correo_cli and Contrasena_cli = @Contrasena_cli and Cliente_Habilitado = 'Si' ");
+            string Cliente_Habilitado = "Si", patron = "Dynamics1";
+            //SqlCommand cmd = new SqlCommand("Validar_cli", conexion);
+            SqlCommand cmd = new SqlCommand("Validar_cli", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
             cmd.Parameters.AddWithValue("@correo_cli", Correo);
             cmd.Parameters.AddWithValue("@Contrasena_cli", Contraseña);
+            cmd.Parameters.AddWithValue("@Cliente_Habilitado", Cliente_Habilitado);
+            cmd.Parameters.AddWithValue("@Patron", patron);
             //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
             SqlDataReader registro = cmd.ExecuteReader();
             if (registro.Read())
@@ -481,7 +486,7 @@ namespace DynaIT.Clases
             }
         }
 
-        //      validar si existe el Correo de cliente
+        //      
         public Boolean recuperar_contraseña_cliente(string Correo)
         {
             string sql = (" select * from cliente where correo_cli = @Correo and Cliente_Habilitado = 'Si' ");
@@ -520,8 +525,8 @@ namespace DynaIT.Clases
         {
             var mailService = new correo_recuperacion();
             mailService.sendMail(
-                subject: "Solicitud recuperacion de contraseña",
-                body: "Hola, " + username + " solicitaste recuperacion de contraseña!" +
+                subject: " Registro de datos de acceso ",
+                body: "Hola, " + username + " se registraron los siguientes datos de acceso !" +
                 " su contraseña es: " + recu_contraseña + ".",
                 recipientMail: new List<string> { recu_correo }
                 );
@@ -591,14 +596,7 @@ namespace DynaIT.Clases
 
         public void Notificar_cliente_creacion_ticket(string correo, string username, string n_ticket, string solicitud, string titu_ticket)
         {
-            string bodys =
-                "<body>" +
-                    "<h4> " + "Señor(a) " + "" + username + "" + " su caso se ha registrado con numero : " + " " + n_ticket + "" + "" + "</h4>" +
-                    "<p>" + solicitud + "</p>" +
-                    "<p>" + " Su solicitud sera atendida por uno de nuestros consultores en el menor tiempo posible" + " </p>" +
-                    "<p>" + " " + " </p>" +
-                    "<p>" + " " + " </p>" +
-                "</body> ";
+            string bodys = solicitud;
             var mailService = new correo_recuperacion();
 
             mailService.sendMail(

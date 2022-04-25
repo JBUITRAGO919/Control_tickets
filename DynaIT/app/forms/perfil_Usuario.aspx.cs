@@ -46,8 +46,10 @@ namespace DynaIT.app.forms
 
                 int id_usuario = clase_Parametros.Id_usuario;
                 lbl_nombre_usuario.Text = clase_Parametros.Nombre_Usuario;
-                Lbl_cargo.Text =Convert.ToString(clase_Parametros.Rol_usuario);
+                Lbl_cargo.Text = Convert.ToString(clase_Parametros.Rol_usuario);
                 Lbl_cargo_tex.Text = clase_Parametros.Rol_usu_tex;
+
+                lbl_nombre_usu_modal.Text = lbl_nombre_usuario.Text;
 
             }
             else
@@ -63,8 +65,7 @@ namespace DynaIT.app.forms
                     Lbl_cargo.Text = Convert.ToString(clase_Parametros.Rol_Cliente);
                     int Id_Empresa_cliente = clase_Parametros.Id_Empresa_cliente;
                     Lbl_cargo_tex.Text = clase_Parametros.Rol_Cli;
-
-
+                    lbl_nombre_usu_modal.Text = lbl_nombre_usuario.Text;
                 }
             }
 
@@ -118,8 +119,9 @@ namespace DynaIT.app.forms
             }
         }
 
+        protected void Btn_actualizar_datos_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

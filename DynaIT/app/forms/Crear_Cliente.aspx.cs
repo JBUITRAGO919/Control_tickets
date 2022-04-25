@@ -52,7 +52,7 @@ namespace DynaIT.app.forms
                     Lbl_cargo.Text = Convert.ToString(myParametro.Rol_Cliente);
                     int Id_Empresa_cliente = myParametro.Id_Empresa_cliente;
 
-                    if (Lbl_cargo.Text == "Cliente_Admin")
+                    if (Lbl_cargo.Text == "4")
                     {
                         Grilla_Cliente.DataSourceID = "";
 
@@ -186,12 +186,6 @@ namespace DynaIT.app.forms
             }
         }
 
-
-        protected void Grilla_crear_Cliente_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-        }
-
         protected void Grilla_crear_cliente_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
@@ -209,13 +203,12 @@ namespace DynaIT.app.forms
                 List_Empresa.SelectedValue = Convert.ToString(myParametro.Fk_Empresa);
                 Txt_NombreCliente.Text = myParametro.Nombre_Cliente;
                 Txt_CorreoCliente.Text = myParametro.Correo_Cliente;
-                Txt_TelefonoCliente.Text = myParametro.Telefono_Cliente;
-                Txt_Contraseña.Text = myParametro.Contraseña;
+                Txt_TelefonoCliente.Text = myParametro.Telefono_Cliente;                
                 Txt_VisualizarTickets.Text = Convert.ToString(myParametro.Rol_Cliente);
 
 
 
-                if (Txt_VisualizarTickets.Text == "Cliente_Admin")
+                if (Txt_VisualizarTickets.Text == "4")
                 {
                     Check_VisualizarTickets.Checked = true;
                 }
@@ -229,8 +222,9 @@ namespace DynaIT.app.forms
                 Txt_CorreoCliente.Enabled = false;
                 Grilla_Cliente.DataBind();
                 cargar_datos_sesion();
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_usuario').modal();", true);
 
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_cliente').modal();", true);
+                
 
             }
             else
@@ -242,11 +236,13 @@ namespace DynaIT.app.forms
                     string valor = Convert.ToString(Grilla_Cliente.DataKeys[index].Value);
                     Lbl_id_cliente.Text = (valor);
 
+                    myParametro = Gestion_Datos.traer_Cliente_editar(Lbl_id_cliente.Text);
+
                     myParametro.Id_cliente = Lbl_id_cliente.Text;
                     myParametro.cliente_habilitado = "No";
 
 
-                    if (!Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
+                    if (Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se elimino el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
                         Grilla_Cliente.DataBind();
@@ -268,25 +264,30 @@ namespace DynaIT.app.forms
                         string valor = Convert.ToString(Grilla_Cliente.DataKeys[index].Value);
                         Lbl_id_cliente.Text = (valor);
 
-                        myParametro = Gestion_Datos.traerID_Empresa_con_idCliente(Convert.ToInt32(Lbl_id_cliente.Text));
+                        //myParametro = Gestion_Datos.traerID_Empresa_con_idCliente(Convert.ToInt32(Lbl_id_cliente.Text));
+                        myParametro = Gestion_Datos.traer_Cliente_editar(Lbl_id_cliente.Text);
 
                         Lbl_id_empresa.Text = Convert.ToString(myParametro.Fk_Empresa);
 
                         if (myvalidacion.empresa_habilitada(Lbl_id_empresa.Text) == true)
                         {
                             myParametro.Id_cliente = Lbl_id_cliente.Text;
+
                             myParametro.cliente_habilitado = "Si";
 
-                            Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro);
-
-
-                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se restauro el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
-                            Grilla_Cliente.DataBind();
-                            cargar_datos_sesion();
+                            if (Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se restauro el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
+                                Grilla_Cliente.DataBind();
+                                cargar_datos_sesion();
+                            }
+                            else
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error en la base de datos', confirmButtonText: 'Ok' })  ", true);
+                            }
                         }
                         else
                         {
-
                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'La empresa a la cual pertenece el cliente se encuentra desHabilitada', confirmButtonText: 'Ok' })  ", true);
                         }
 
@@ -377,6 +378,7 @@ namespace DynaIT.app.forms
 
                                 if (!Gestion_Datos.editar_Cliente(myParametro))
                                 {
+                                    myvalidacion.actualizar_editar_contra_usuario(Txt_CorreoCliente.Text, Txt_Contraseña.Text, Txt_NombreCliente.Text);
 
                                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', title: 'ACTUALIZACION DE DATOS', text: 'Se actualizaron los datos correctamente', confirmButtonText: 'Ok' })  ", true);
 
@@ -431,7 +433,7 @@ namespace DynaIT.app.forms
 
             Grilla_Cliente.Columns[7].Visible = true;
             Grilla_Cliente.Columns[8].Visible = true;
-            Grilla_Cliente.Columns[9].Visible = false;
+            //Grilla_Cliente.Columns[9].Visible = false;
             Btn_Editar.Visible = false;
             BtnCrearCliente.Visible = true;
 
@@ -498,9 +500,9 @@ namespace DynaIT.app.forms
             Txt_Titulo_Eliminados.Visible = true;
             Txt_Titulo_Habilitados.Visible = false;
 
+            Grilla_Cliente.Columns[6].Visible = false;
             Grilla_Cliente.Columns[7].Visible = false;
-            Grilla_Cliente.Columns[8].Visible = false;
-            Grilla_Cliente.Columns[9].Visible = true;
+            Grilla_Cliente.Columns[8].Visible = true;
 
             Btn_Editar.Visible = false;
             BtnCrearCliente.Visible = true;
@@ -519,9 +521,9 @@ namespace DynaIT.app.forms
             Lbl_Ver_Eliminados.Text = "Si";
             Txt_Titulo_Eliminados.Visible = false;
             Txt_Titulo_Habilitados.Visible = true;
+            Grilla_Cliente.Columns[6].Visible = true;
             Grilla_Cliente.Columns[7].Visible = true;
-            Grilla_Cliente.Columns[8].Visible = true;
-            Grilla_Cliente.Columns[9].Visible = false;
+            Grilla_Cliente.Columns[8].Visible = false;
 
             Btn_Editar.Visible = false;
             BtnCrearCliente.Visible = true;
