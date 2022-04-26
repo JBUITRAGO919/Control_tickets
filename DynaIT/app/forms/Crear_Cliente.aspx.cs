@@ -203,7 +203,6 @@ namespace DynaIT.app.forms
                 List_Empresa.SelectedValue = Convert.ToString(myParametro.Fk_Empresa);
                 Txt_NombreCliente.Text = myParametro.Nombre_Cliente;
                 Txt_CorreoCliente.Text = myParametro.Correo_Cliente;
-                Txt_Contraseña.Text = myParametro.Contraseña;
                 Txt_TelefonoCliente.Text = myParametro.Telefono_Cliente;                
                 Txt_VisualizarTickets.Text = Convert.ToString(myParametro.Rol_Cliente);
 
@@ -223,8 +222,8 @@ namespace DynaIT.app.forms
                 Txt_CorreoCliente.Enabled = false;
                 Grilla_Cliente.DataBind();
                 cargar_datos_sesion();
-                
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_cliente').modal();", true);
+                
 
 
             }
@@ -239,21 +238,29 @@ namespace DynaIT.app.forms
 
                     myParametro = Gestion_Datos.traer_Cliente_editar(Lbl_id_cliente.Text);
 
-                    myParametro.Id_cliente = Lbl_id_cliente.Text;
-                    myParametro.cliente_habilitado = "No";
 
-
-                    if (Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
+                    if (myvalidacion.Existe_cliente_vinculado_aTicket(Convert.ToInt32(Lbl_id_cliente.Text))== false)
                     {
-                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se elimino el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
-                        Grilla_Cliente.DataBind();
-                        cargar_datos_sesion();
+                        myParametro.Id_cliente = Lbl_id_cliente.Text;
+                        myParametro.cliente_habilitado = "No";
+                        if (Gestion_Datos.Actualizar_Cliente_Habilitado(myParametro))
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se elimino el cliente correctamente', confirmButtonText: 'Ok' })  ", true);
+                            Grilla_Cliente.DataBind();
+                            cargar_datos_sesion();
 
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error al eliminar', confirmButtonText: 'Ok' })  ", true);
+                        }
                     }
                     else
                     {
-                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', text: 'Error al eliminar', confirmButtonText: 'Ok' })  ", true);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'El cliente tiene tickets creados',text: 'Se deben reasignar a un usuario habilitado', confirmButtonText: 'Ok' })  ", true);
                     }
+
+                    
 
 
                 }

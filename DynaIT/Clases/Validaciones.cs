@@ -280,6 +280,29 @@ namespace DynaIT.Clases
                 return false;
             }
         }
+
+        //      validar si clienteesta vinculado a tickets para evitar eliminarlos
+        public Boolean Existe_cliente_vinculado_aTicket(int cliente_id)
+        {
+            string sql = (" Select * from ticket where cliente_id = @cliente_id ");
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            cmd.Parameters.AddWithValue("@cliente_id", cliente_id);
+            //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.Read())
+            {
+                registro.Close();
+
+                return true;
+            }
+            else
+            {
+                registro.Close();
+                return false;
+            }
+        }
+
+
         //valida si hay tickets vinculados a el tipo de ticket que se va a eliminar
         public Boolean Existe_ticket_vinculado_tipo(int tipo_ticket_id)
         {

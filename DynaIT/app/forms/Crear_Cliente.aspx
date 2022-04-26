@@ -138,12 +138,12 @@
                                              <asp:GridView ID="Grilla_Cliente" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id_Cliente" DataSourceID="Tabla_Clientes" ForeColor="#333333" GridLines="None" OnRowCommand="Grilla_Cliente_RowCommand" Width="100%" AllowSorting="True">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:BoundField DataField="id_Cliente" HeaderText="idCliente" InsertVisible="False" ReadOnly="True" SortExpression="idCliente" Visible="False" />
-                                            <asp:BoundField DataField="nombre_cliente" HeaderText="Nombres" SortExpression="NombreCliente" />
-                                            <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono" SortExpression="Telefono" />
-                                            <asp:BoundField DataField="correo_cli" HeaderText="Correo" SortExpression="Correo" />
-                                            <asp:BoundField DataField="rol" HeaderText="Rol" SortExpression="rol" />
-                                            <asp:BoundField DataField="Nombre_Empresa" HeaderText="Empresa " SortExpression="Nombre_Empresa" />
+                                            <asp:BoundField DataField="id_Cliente" HeaderText="id_Cliente" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="id_Cliente" />
+                                            <asp:BoundField DataField="Nombre_Cliente" HeaderText="Nombre" SortExpression="nombre_cliente"/>
+                                            <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono" SortExpression="Telefono_cliente" />
+                                            <asp:BoundField DataField="correo_cli" HeaderText="correo" SortExpression="correo_cli" />
+                                            <asp:BoundField DataField="rol" HeaderText="rol" SortExpression="rol" />
+                                            <asp:BoundField DataField="nombre_empresa" HeaderText="Empresa" SortExpression="nombre_empresa" />
                                             <asp:ButtonField CommandName="Select" Text="Editar" />
                                             <asp:ButtonField CommandName="Eliminar" Text="Eliminar" />
                                             <asp:ButtonField CommandName="Restaurar" Text="Habilitar" Visible="False" />
@@ -159,9 +159,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, empresa.nombre_empresa 
-					 FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa inner join rol on rol.id_rol = cliente.rol_id
-					 WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc" DeleteCommand="UPDATE cliente SET Cliente_Habilitado = 'No' WHERE (id_Cliente = @idCliente)">
+                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, empresa.nombre_empresa FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa inner join rol on rol.id_rol = cliente.rol_id WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc" DeleteCommand="UPDATE cliente SET Cliente_Habilitado = 'No' WHERE (id_Cliente = @idCliente)">
                                         <DeleteParameters>
                                             <asp:Parameter Name="idCliente" />
                                         </DeleteParameters>

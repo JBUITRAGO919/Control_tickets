@@ -2083,11 +2083,11 @@ namespace DynaIT.Clases
                 Visualizar_Tickets visualizar = new Visualizar_Tickets();
 
                 visualizar.id_Cliente = registro.GetInt32(0);
-                visualizar.nombre_cliente = registro.GetString(1);
+                visualizar.Nombre_Cliente = registro.GetString(1);
                 visualizar.Telefono_cliente = registro.GetString(2);
                 visualizar.correo_cli = registro.GetString(3);
-                visualizar.Rol = registro.GetString(4);
-                visualizar.Nombre_Empresa = registro.GetString(5);
+                visualizar.rol = registro.GetString(4);
+                visualizar.nombre_empresa = registro.GetString(5);
 
 
 

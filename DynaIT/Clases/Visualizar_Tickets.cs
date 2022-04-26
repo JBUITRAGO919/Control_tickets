@@ -42,12 +42,12 @@ namespace DynaIT.Clases
 
 
         public int id_Cliente { get; set; }
-        public string nombre_cliente { get; set; }
+        //public string nombre_cliente { get; set; }
         public string Telefono_cliente { get; set; }
         public string correo_cli { get; set; }
-        public string Rol { get; set; }
+        public string rol { get; set; }
         public string Contrasena_cli { get; set; }
-        public string Nombre_Empresa { get; set; }
+        //public string nombre_empresa { get; set; }
 
 
 

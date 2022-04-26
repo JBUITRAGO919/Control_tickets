@@ -126,6 +126,7 @@ namespace DynaIT.Clases
         public int nota_creada_por { get; set; }
         public string nota_interna { get; set; }
         public string Adjuntos_nota { get; set; }
+        public int Nota_usuario { get; set; }
 
 
 

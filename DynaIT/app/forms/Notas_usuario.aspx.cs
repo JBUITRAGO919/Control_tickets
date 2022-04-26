@@ -22,11 +22,11 @@ namespace DynaIT.app.forms
 
         string fecha_inicio_proceso, nombre_usuario_sesion;
         DateTime Fecha_resuelto_ticket = DateTime.Now, fecha_cierre = DateTime.Now;
-        static int cont_desarrollo, n_horas, id_acta = 0, id_usuario_sesion, id_estado_ticket, n_cre_gara = 0, n_cred_diferencia = 0, rol_usuario_sesion;
+        static int cont_desarrollo, n_horas, id_acta = 0, id_usuario_sesion, id_estado_ticket, n_cre_gara = 0, n_cred_diferencia = 0, rol_usuario_sesion, Nota_usuario;
         static string nota_interna = "No", ruta, Adjuntos_nota = "0", Representante_empresa, Nombre_Empresa, Usuario, prefijo_consultor, ruta_adjun_nota = "0", n_usuario, correo_usuario_usu_asig;
         static Label[] arreglolabel, arreglo2;
         static int contadorControles;
-        public object ViewBag { get; private set; }
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -217,7 +217,7 @@ namespace DynaIT.app.forms
                 id_usuario_sesion = myparametro.Id_usuario;
                 nombre_usuario_sesion = myparametro.Nombre_Usuario;
                 rol_usuario_sesion = myparametro.Rol_usuario;
-
+                Nota_usuario = 0;
             }
             else
             {
@@ -229,6 +229,7 @@ namespace DynaIT.app.forms
                     nombre_usuario_sesion = myparametro.Nombre_Cliente;
                     rol_usuario_sesion = myparametro.Rol_Cliente;
                     int Id_Empresa_cliente = myparametro.Id_Empresa_cliente;
+                    Nota_usuario = 1;
                 }
             }
         }
@@ -1022,6 +1023,8 @@ namespace DynaIT.app.forms
                 myparametro.nota_creada_por = id_usuario_sesion;
                 myparametro.nota_interna = nota_interna;
                 myparametro.Adjuntos_nota = Adjuntos_nota;
+                myparametro.Nota_usuario= Nota_usuario;
+
 
                 if (gestion_Datos.insertarNotas(myparametro))
                 {
