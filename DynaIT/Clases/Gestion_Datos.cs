@@ -91,17 +91,19 @@ namespace DynaIT.Clases
             try
             {
 
-                string sql = " INSERT INTO nota (descripcionNota, FechaNota, id_ticket, nota_creada_por, nota_interna, Adjuntos_nota) " +
-                    " VALUES(@descripcionNota, @FechaNota, @Ticket_idTicket, @nota_creada_por, @nota_interna, @Adjuntos_nota) ";
+                string sql = " INSERT INTO nota (descripcionNota, FechaNota, id_ticket, usuario_id_nota, cliente_id_nota, nota_interna, Adjuntos_nota, nota_usuario) " +
+                    " VALUES(@descripcionNota, @FechaNota, @Ticket_idTicket, @usuario_id_nota, @cliente_id_nota, @nota_interna, @Adjuntos_nota, @nota_usuario) ";
                 SqlCommand cmd = new SqlCommand(sql, conexion);
 
                 cmd.Parameters.AddWithValue("@descripcionNota", myTicket.descripcionNota);
                 cmd.Parameters.AddWithValue("@FechaNota", myTicket.FechaNota);
                 cmd.Parameters.AddWithValue("@Ticket_idTicket", myTicket.Ticket_idTicket_nota);
 
-                cmd.Parameters.AddWithValue("@nota_creada_por", myTicket.nota_creada_por);
+                cmd.Parameters.AddWithValue("@usuario_id_nota", myTicket.usuario_id_nota);
+                cmd.Parameters.AddWithValue("@cliente_id_nota", myTicket.cliente_id_nota);
                 cmd.Parameters.AddWithValue("@nota_interna", myTicket.nota_interna);
                 cmd.Parameters.AddWithValue("@Adjuntos_nota", myTicket.Adjuntos_nota);
+                cmd.Parameters.AddWithValue("@nota_usuario", myTicket.Nota_usuario);
                 cmd.ExecuteNonQuery();
                 estado = true;
 
@@ -1975,7 +1977,7 @@ namespace DynaIT.Clases
         //traer la lista de notas de un ticket para el clientes sin que muestre las notas internas
         public List<Visualizar_Tickets> traer_notas_cliente(string Ticket_idTicket)
         {
-            string sql = " SELECT id_nota, FechaNota, descripcionNota, nota_creada_por, nota_interna, Adjuntos_nota " +
+            string sql = " SELECT id_nota, FechaNota, descripcionNota, usuario_id_nota, cliente_id_nota, nota_interna, Adjuntos_nota " +
                 " FROM nota where id_ticket = @Ticket_idTicket and nota_interna = 'No' and Notas_Habilitado = 'Si' ";
             SqlCommand cmd = new SqlCommand(sql, conexion);
             cmd.Parameters.AddWithValue("@Ticket_idTicket", Ticket_idTicket);
@@ -1988,9 +1990,10 @@ namespace DynaIT.Clases
                 visualizar.idnotas = registro.GetInt32(0);
                 visualizar.FechaNota = registro.GetDateTime(1);
                 visualizar.descripcionNota = registro.GetString(2);
-                visualizar.nota_creada_por = registro.GetInt32(3);
-                visualizar.nota_interna = registro.GetString(4);
-                visualizar.Adjuntos_nota = registro.GetString(5);
+                visualizar.usuario_id_nota = registro.GetInt32(3);
+                visualizar.cliente_id_nota = registro.GetInt32(4);
+                visualizar.nota_interna = registro.GetString(5);
+                visualizar.Adjuntos_nota = registro.GetString(6);
 
 
                 // Agrego el objeto estudiante creado a la lista
@@ -2007,7 +2010,7 @@ namespace DynaIT.Clases
         //traer la lista de notas de un ticket para el usuario 
         public List<Visualizar_Tickets> traer_notas_usuarios(string Ticket_idTicket)
         {
-            string sql = " SELECT id_nota, FechaNota, descripcionNota, nota_creada_por, nota_interna, Adjuntos_nota  " +
+            string sql = " SELECT id_nota, FechaNota, descripcionNota, usuario_id_nota, cliente_id_nota, nota_interna, Adjuntos_nota  " +
                 " FROM nota where id_ticket = @Ticket_idTicket and Notas_Habilitado = 'Si'  ";
             SqlCommand cmd = new SqlCommand(sql, conexion);
             cmd.Parameters.AddWithValue("@Ticket_idTicket", Ticket_idTicket);
@@ -2020,9 +2023,10 @@ namespace DynaIT.Clases
                 visualizar.idnotas = registro.GetInt32(0);
                 visualizar.FechaNota = registro.GetDateTime(1);
                 visualizar.descripcionNota = registro.GetString(2);
-                visualizar.nota_creada_por = registro.GetInt32(3);
-                visualizar.nota_interna = registro.GetString(4);
-                visualizar.Adjuntos_nota = registro.GetString(5);
+                visualizar.usuario_id_nota = registro.GetInt32(3);
+                visualizar.cliente_id_nota = registro.GetInt32(4);
+                visualizar.nota_interna = registro.GetString(5);
+                visualizar.Adjuntos_nota = registro.GetString(6);
 
 
                 // Agrego el objeto estudiante creado a la lista
@@ -2862,7 +2866,7 @@ namespace DynaIT.Clases
 
         {
             string sql = " SELECT usuario.nombre_usuario, usuario.correo_usu, usuario.rol_id, " +
-                " usuario.area_id, usuario.prefijo_usuario, usuario.contrasena_usu FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area " +
+                " usuario.area_id, usuario.prefijo_usuario FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area " +
                 " where id_usuario = @idUsuario ";
 
             SqlCommand cmd = new SqlCommand(sql, conexion);
@@ -2878,7 +2882,7 @@ namespace DynaIT.Clases
                 myParametro.Rol_usuario = registro.GetInt32(2);
                 myParametro.fk_area_id_area = registro.GetInt32(3);
                 myParametro.Prefijo_Usuario = registro.GetString(4);
-                myParametro.Contraseña_Usuario = registro.GetString(5);
+                
 
 
 
@@ -4089,10 +4093,10 @@ namespace DynaIT.Clases
         //  traer el listado de Todos los Tickets creados y asignados a los consultores en la grafica
         public List<Visualizar_Tickets> lista_tickets_trabajados_grafica(int top_trabajados, DateTime fecha_inicio, DateTime fecha_fin)
         {
-            string sql = " select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket " +
+            string sql = " select top(@top_trabajados) nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket " +
                 " inner join nota on nota.id_ticket = ticket.id_ticket " +
-                " inner join usuario on usuario.id_usuario = nota.nota_creada_por " +
-                " where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ";
+                " inner join usuario on usuario.id_usuario = nota.usuario_id_nota " +
+                " where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
@@ -4118,10 +4122,10 @@ namespace DynaIT.Clases
         //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
         public List<Visualizar_Tickets> lista_tickets_trabajados_grilla(DateTime fecha_inicio, DateTime fecha_fin)
         {
-            string sql = " select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket " +
+            string sql = " select nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket " +
                 " inner join nota on nota.id_ticket = ticket.id_ticket " +
-                " inner join usuario on usuario.id_usuario = nota.nota_creada_por " +
-                " where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ";
+                " inner join usuario on usuario.id_usuario = nota.usuario_id_nota " +
+                " where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 

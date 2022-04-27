@@ -22,16 +22,18 @@ namespace DynaIT.app.forms
 
         string fecha_inicio_proceso, nombre_usuario_sesion;
         DateTime Fecha_resuelto_ticket = DateTime.Now, fecha_cierre = DateTime.Now;
-        static int cont_desarrollo, n_horas, id_acta = 0, id_usuario_sesion, id_estado_ticket, n_cre_gara = 0, n_cred_diferencia = 0, rol_usuario_sesion, Nota_usuario;
+        static int cont_desarrollo, n_horas, id_acta = 0, id_usuario_sesion, id_estado_ticket,
+            n_cre_gara = 0, n_cred_diferencia = 0, rol_usuario_sesion, Nota_usuario, fk_usu_nota_id, fk_clie_nota_id;
         static string nota_interna = "No", ruta, Adjuntos_nota = "0", Representante_empresa, Nombre_Empresa, Usuario, prefijo_consultor, ruta_adjun_nota = "0", n_usuario, correo_usuario_usu_asig;
         static Label[] arreglolabel, arreglo2;
         static int contadorControles;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+            lbl_fecha_nota.Text = DateTime.Now.ToString();
+            lbl_correo_sesion.Text = (string)Session["correos_inicio_sesion"];
 
             if (!IsPostBack)
             {
@@ -55,13 +57,6 @@ namespace DynaIT.app.forms
             {
                 lblContador.Text = ex.Message;
             }
-
-
-
-            lbl_fecha_nota.Text = DateTime.Now.ToString();
-            lbl_correo_sesion.Text = (string)Session["correos_inicio_sesion"];
-
-            cargar_datos_usuario_sesion();
 
             if (!IsPostBack)
             {
@@ -89,10 +84,11 @@ namespace DynaIT.app.forms
 
 
             }
+
+            cargar_datos_usuario_sesion();
+
+
             listar_notas(Lbl_id_ticket.Text);
-
-
-
 
 
 
@@ -108,7 +104,6 @@ namespace DynaIT.app.forms
                 {
                     if (id_estado_ticket == 6)
                     {
-
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'El ticket se encuentra cerrado', confirmButtonText: 'Ok' })  ", true);
 
 
@@ -217,7 +212,11 @@ namespace DynaIT.app.forms
                 id_usuario_sesion = myparametro.Id_usuario;
                 nombre_usuario_sesion = myparametro.Nombre_Usuario;
                 rol_usuario_sesion = myparametro.Rol_usuario;
-                Nota_usuario = 0;
+
+                fk_usu_nota_id = id_usuario_sesion;
+                fk_clie_nota_id = Convert.ToInt32(Lbl_id_cliente.Text);
+
+                Nota_usuario = 1;
             }
             else
             {
@@ -229,7 +228,11 @@ namespace DynaIT.app.forms
                     nombre_usuario_sesion = myparametro.Nombre_Cliente;
                     rol_usuario_sesion = myparametro.Rol_Cliente;
                     int Id_Empresa_cliente = myparametro.Id_Empresa_cliente;
-                    Nota_usuario = 1;
+
+                    fk_usu_nota_id = Convert.ToInt32(lbl_id_usuario.Text);
+                    fk_clie_nota_id = id_usuario_sesion;
+                    Nota_usuario = 0;
+
                 }
             }
         }
@@ -1020,10 +1023,11 @@ namespace DynaIT.app.forms
                 myparametro.descripcionNota = Txt_descripcion_nota.Value;
                 myparametro.FechaNota = Convert.ToDateTime(lbl_fecha_nota.Text);
                 myparametro.Ticket_idTicket_nota = Lbl_id_ticket.Text;
-                myparametro.nota_creada_por = id_usuario_sesion;
+                myparametro.usuario_id_nota = fk_usu_nota_id;
+                myparametro.cliente_id_nota = fk_clie_nota_id;
                 myparametro.nota_interna = nota_interna;
                 myparametro.Adjuntos_nota = Adjuntos_nota;
-                myparametro.Nota_usuario= Nota_usuario;
+                myparametro.Nota_usuario = Nota_usuario;
 
 
                 if (gestion_Datos.insertarNotas(myparametro))

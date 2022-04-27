@@ -1,4 +1,24 @@
 ﻿
+function Comprobar_clave() {
+    var clave_1, clave_2;
+    clave_1 = document.getElementById("txt_nueva_contrasena_1").value;
+    clave_2 = document.getElementById("txt_nueva_contrasena_2").value;
+    if (clave_1 != clave_2) {
+        Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas no coinciden";
+    }
+    else
+    {
+        if (clave_1 == clave_2)
+        {            
+            Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas coinciden";
+        }
+
+    }
+
+}
+
+
+
 //funciones para el cambio de estado cerrado a abierto 
 function cambio_estado_cerrado_abierto(){
     var seleccion = confirm(" ¿ Reabrir el ticket nuevamente ?");
@@ -65,8 +85,7 @@ function cambio_estado_cerrado_resuelto()
 }
 
 function agregar_creditos()
-{
-    
+{    
     $("#Editar_credito").modal("show");
 }
 

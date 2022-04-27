@@ -123,7 +123,8 @@ namespace DynaIT.Clases
         public int Usuario_idUsuario_nota { get; set; }
         public int cliente_idCliente_nota { get; set; }
         public int estado_idEstado_nota { get; set; }
-        public int nota_creada_por { get; set; }
+        public int usuario_id_nota { get; set; }
+        public int cliente_id_nota { get; set; }
         public string nota_interna { get; set; }
         public string Adjuntos_nota { get; set; }
         public int Nota_usuario { get; set; }

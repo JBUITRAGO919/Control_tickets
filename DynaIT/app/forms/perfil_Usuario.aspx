@@ -6,14 +6,32 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>DynamicsIT</title>
+    <script src="../js/Validacion_JavaScript.js"></script>
     <link href="../style/Style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function Comprobar_clave() {
+            var clave_1, clave_2;
+            clave_1 = document.getElementById("txt_nueva_contrasena_1").value;
+            clave_2 = document.getElementById("txt_nueva_contrasena_2").value;
+            if (clave_1 != clave_2) {
+                Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas no coinciden";
+            }
+            else {
+                if (clave_1 == clave_2) {
+                    Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas coinciden";
+                }
+
+            }
+
+        }
+    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="formulario_perfil" runat="server">
         <div class="container-fluid" style="margin: 0; padding: 0; height: auto; overflow:hidden;">
         <div class="row" style="margin: 0; padding: 0;">
             <div class="col-2" style="margin: 0; padding: 0; ">
@@ -141,7 +159,12 @@
                                                  <h2 class="modal_title">¡Buen dia ! <spam class=" modal_title-bold"><asp:Label id="lbl_nombre_usu_modal" runat="server" /></spam>
                                                     </h2><p class="modal_paragraph">Contraseña nueva:  </p>
                                                     <div>
-                                                        <input class="textbox1" type="text"/>
+                                                        <asp:TextBox id="txt_nueva_contrasena_1" runat="server" />
+                                                        <span id="validador_contrasena" runat="server" >hola</span>
+                                                    </div>
+                                                <p class="modal_paragraph">Repita la contraseña:  </p>
+                                                    <div>
+                                                        <asp:TextBox id="txt_nueva_contrasena_2" runat="server" />
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
@@ -152,7 +175,7 @@
                                     </div>
                                 </div>
                     <%--fin del modal--%>
-
     </form>
+        <script src="../js/Validacion_JavaScript.js"></script>
 </body>
 </html>

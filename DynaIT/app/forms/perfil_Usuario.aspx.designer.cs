@@ -15,13 +15,13 @@ namespace DynaIT.app.forms
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control formulario_perfil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario_perfil;
 
         /// <summary>
         /// Control lbl_nombre_usuario.
@@ -166,6 +166,33 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_nombre_usu_modal;
+
+        /// <summary>
+        /// Control txt_nueva_contrasena_1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_nueva_contrasena_1;
+
+        /// <summary>
+        /// Control validador_contrasena.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validador_contrasena;
+
+        /// <summary>
+        /// Control txt_nueva_contrasena_2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_nueva_contrasena_2;
 
         /// <summary>
         /// Control Btn_actualizar_datos.

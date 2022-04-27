@@ -203,7 +203,7 @@ namespace DynaIT.app.forms
                 List_Empresa.SelectedValue = Convert.ToString(myParametro.Fk_Empresa);
                 Txt_NombreCliente.Text = myParametro.Nombre_Cliente;
                 Txt_CorreoCliente.Text = myParametro.Correo_Cliente;
-                Txt_TelefonoCliente.Text = myParametro.Telefono_Cliente;                
+                Txt_TelefonoCliente.Text = myParametro.Telefono_Cliente;
                 Txt_VisualizarTickets.Text = Convert.ToString(myParametro.Rol_Cliente);
 
 
@@ -223,7 +223,7 @@ namespace DynaIT.app.forms
                 Grilla_Cliente.DataBind();
                 cargar_datos_sesion();
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_cliente').modal();", true);
-                
+
 
 
             }
@@ -239,7 +239,7 @@ namespace DynaIT.app.forms
                     myParametro = Gestion_Datos.traer_Cliente_editar(Lbl_id_cliente.Text);
 
 
-                    if (myvalidacion.Existe_cliente_vinculado_aTicket(Convert.ToInt32(Lbl_id_cliente.Text))== false)
+                    if (myvalidacion.Existe_cliente_vinculado_aTicket(Convert.ToInt32(Lbl_id_cliente.Text)) == false)
                     {
                         myParametro.Id_cliente = Lbl_id_cliente.Text;
                         myParametro.cliente_habilitado = "No";
@@ -260,7 +260,7 @@ namespace DynaIT.app.forms
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'El cliente tiene tickets creados',text: 'Se deben reasignar a un usuario habilitado', confirmButtonText: 'Ok' })  ", true);
                     }
 
-                    
+
 
 
                 }

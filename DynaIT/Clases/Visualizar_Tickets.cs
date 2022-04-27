@@ -37,6 +37,8 @@ namespace DynaIT.Clases
         public int nota_creada_por { get; set; }
         public string nota_interna { get; set; }
         public string Adjuntos_nota { get; set; }
+        public int cliente_id_nota { get; set; }
+        public int usuario_id_nota { get; set; }
 
         //------------------------Parametros de nota Cliente------------------------
 

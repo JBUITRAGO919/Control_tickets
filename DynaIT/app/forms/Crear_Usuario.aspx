@@ -65,8 +65,8 @@
                                                         <%--<asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Cargo" runat="server" Height="22px" Style="margin-top: 0px" ></asp:TextBox>--%>
                                                         <asp:DropDownList ID="List_Rol" runat="server">
                                                             <asp:ListItem Value="1">--Seleccionar--</asp:ListItem>
-                                                            <asp:ListItem Value="3">Agente</asp:ListItem>
                                                             <asp:ListItem Value="2">Administrador</asp:ListItem>
+                                                            <asp:ListItem Value="3">Agente</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="col">

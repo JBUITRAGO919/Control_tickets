@@ -11,6 +11,7 @@ namespace DynaIT.app.forms
         Validaciones myValidaciones = new Validaciones();
         Gestion_Datos Gestion_Datos = new Gestion_Datos();
         Clase_Parametros myParametro = new Clase_Parametros();
+        static int rol;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -197,10 +198,7 @@ namespace DynaIT.app.forms
                 List_Rol.Text = Convert.ToString(myParametro.Rol_usuario);
                 Txt_Usuario.Text = myParametro.Prefijo_Usuario;
                 Txt_Grupo.SelectedValue = Convert.ToString(myParametro.fk_area_id_area);
-                Txt_Contraseña.Text = myParametro.Contraseña_Usuario;
-                Txt_Contraseña.Text = myParametro.Contraseña_Usuario;
-                Txt_CorreoUsuario.Enabled = false;
-
+                Txt_CorreoUsuario.Enabled = false;                
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_usuario').modal();", true);
             }
             else
@@ -266,22 +264,26 @@ namespace DynaIT.app.forms
                 else
                 {
 
-                    if (List_Rol.Text == "--Seleccionar--")      // me valida si el campo Txt_Cargo esta vacio si lo esta me muestra un cuadro de dialogo
+                    if (List_Rol.SelectedValue == "1")      // me valida si el campo Txt_Cargo esta vacio si lo esta me muestra un cuadro de dialogo
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' No se ha seleccionado el rol del usuario', confirmButtonText: 'Ok' })  ", true);
                     }
                     else
                     {
 
-                        int rol;
-                        if (List_Rol.Text == "Agente")
+                        
+                        if (List_Rol.SelectedValue == "3")
                         {
                             rol = 3;
                         }
                         else
                         {
-                            rol = 2;
+                            if (List_Rol.SelectedValue == "2")
+                            {
+                                rol = 2;
+                            }
                         }
+
                         if (string.IsNullOrWhiteSpace(Txt_Usuario.Text))
                         {
                             ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El campo usuario esta vacio', confirmButtonText: 'Ok' })  ", true);

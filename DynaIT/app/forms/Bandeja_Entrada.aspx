@@ -301,10 +301,10 @@
                                     </asp:Chart>
 
 
-                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket 
   inner join nota on nota.id_ticket = ticket.id_ticket
-  inner join usuario on usuario.id_usuario = nota.nota_creada_por
-                 where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ">
+  inner join usuario on usuario.id_usuario = nota.usuario_id_nota
+                 where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="List_tickets_trabajados" DbType="Int32" DefaultValue="5" Name="top_trabajados" PropertyName="SelectedValue" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
