@@ -472,41 +472,23 @@ namespace DynaIT.Clases
 
 
         //      validar si existe el Correo de usuario y contraseña 
-        public Boolean recuperar_contraseña_usuario(string Correo)
+        public Boolean recuperar_contraseña(string Nombre, string Correo, string clave)
         {
-            string sql = ("select nombre_usuario, correo_usu, contrasena_usu from usuario where correo_usu = @Correo and usuario_Habilitado = 'Si' ");
-            SqlCommand cmd = new SqlCommand(sql, conexion);
-            cmd.Parameters.AddWithValue("@Correo", Correo);
 
-            //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
-            SqlDataReader registro = cmd.ExecuteReader();
-            if (registro.Read())
-            {
-                string userName = registro.GetString(0);
-                string userMail = registro.GetString(1);
-                string accountPassword = registro.GetString(2);
 
-                var mailService = new correo_recuperacion();
-                mailService.sendMail(
-                    subject: "Solicitud recuperacion de contraseña",
-                    body: "Hola, " + userName + " solicitaste recuperacion de contraseña!" +
-                    " su contraseña es: " + accountPassword + ".",
-                    recipientMail: new List<string> { userMail }
-                    );
+            var mailService = new correo_recuperacion();
+            mailService.sendMail(
+                subject: "Solicitud recuperacion de contraseña",
+                body: "Hola, " + Nombre + " solicitaste recuperacion de contraseña!" +
+                " su contraseña es: " + clave + ".",
+                recipientMail: new List<string> { Correo }
+                );
+
+            return true;
 
 
 
-                registro.Close();
-                return true;
 
-            }
-            else
-            {
-
-
-                registro.Close();
-                return false;
-            }
         }
 
         //      

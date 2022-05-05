@@ -6,29 +6,15 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>DynamicsIT</title>
-    <script src="../js/Validacion_JavaScript.js"></script>
-    <link href="../style/Style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        function Comprobar_clave() {
-            var clave_1, clave_2;
-            clave_1 = document.getElementById("txt_nueva_contrasena_1").value;
-            clave_2 = document.getElementById("txt_nueva_contrasena_2").value;
-            if (clave_1 != clave_2) {
-                Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas no coinciden";
-            }
-            else {
-                if (clave_1 == clave_2) {
-                    Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas coinciden";
-                }
-
-            }
-
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/4467d2028a.js" crossorigin="anonymous"></script>
+    <script src="../js/Validacion_JavaScript.js"></script>
+    <link href="../style/Style.css" rel="stylesheet" />
+    
 </head>
 <body>
     <form id="formulario_perfil" runat="server">
@@ -102,7 +88,7 @@
                         <li id="Div_usuarios_grupos" runat="server" visible="false">
                             <div class="dropdown" >
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    usuarios y grupos
+                                    Areas y Usuarios
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding:0;">
                                     <a class="dropdown-item" href="Crear_Usuario.aspx " target="eliframe">Usuario</a>
@@ -127,6 +113,7 @@
                                         
                         
                         <li><a href="../login.aspx">Cerrar sesión</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -142,16 +129,20 @@
 
         </div>
     </div>
+        
         <!-- Modal para el boton del ticket  el cual carga los adjuntos del ticket -->
                                 <div class="modal fade" id="adjuntos_ticket" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                              <div class="modal-header">
+                                           <asp:ScriptManager ID="scripMananer_panel_crear_cliente" runat="server" />
+                            <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                                           <%--   <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Archivos adjuntos del ticket</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
-                                            </div>
+                                            </div>--%>
                                             <div class="modal-body">
                                                  <div class="modal_picture" style="width:90%; margin: 0 auto; max-width: 40px; margin-bottom: 2rem;">
                                                     <%--<img src="../img/Dynamicsimg.png" />--%>
@@ -159,23 +150,27 @@
                                                  <h2 class="modal_title">¡Buen dia ! <spam class=" modal_title-bold"><asp:Label id="lbl_nombre_usu_modal" runat="server" /></spam>
                                                     </h2><p class="modal_paragraph">Contraseña nueva:  </p>
                                                     <div>
-                                                        <asp:TextBox id="txt_nueva_contrasena_1" runat="server" />
-                                                        <span id="validador_contrasena" runat="server" >hola</span>
+                                                        <asp:textbox ID="txt_nueva_contrasena_1" runat="server" name="txt_nueva_contrasena_1" MaxLength="14" type="password" />                                                            
+                                                        <p id="validador_contrasena1" runat="server" visible="false"> La contraseñas no coinciden</p>
                                                     </div>
                                                 <p class="modal_paragraph">Repita la contraseña:  </p>
                                                     <div>
-                                                        <asp:TextBox id="txt_nueva_contrasena_2" runat="server" />
+                                                        <asp:textbox ID="txt_nueva_contrasena_2" name="txt_nueva_contrasena_2" value="" runat="server" MaxLength="14" type="password"/>  
+                                                        <p id="validador_contrasena2" runat="server" visible="false"> La contraseñas no coinciden</p>
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <asp:Button Text="Actializar" runat="server" ID="Btn_actualizar_datos" OnClick="Btn_actualizar_datos_Click" />   
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button runat="server" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             </div>
+                                             </ContentTemplate>
+                            </asp:UpdatePanel>
                                         </div>
                                     </div>
                                 </div>
                     <%--fin del modal--%>
     </form>
-        <script src="../js/Validacion_JavaScript.js"></script>
+
+        
 </body>
 </html>

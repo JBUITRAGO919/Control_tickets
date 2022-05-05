@@ -89,10 +89,10 @@ namespace DynaIT.app.forms
 
 
 
-                                        if (!myValidaciones.Existe_Correo_usuario(Txt_CorreoUsuario.Text))
+                                        if (myValidaciones.Existe_Correo_usuario(Txt_CorreoUsuario.Text) == false)
                                         {
 
-                                            if (!myValidaciones.Existe_Correo_cliente(Txt_CorreoUsuario.Text))
+                                            if (myValidaciones.Existe_Correo_cliente(Txt_CorreoUsuario.Text) == false)
                                             {
                                                 myParametro.Nombre_Usuario = Txt_NombreUsuario.Text;
                                                 myParametro.Correo_Usuario = Txt_CorreoUsuario.Text;
@@ -198,7 +198,7 @@ namespace DynaIT.app.forms
                 List_Rol.Text = Convert.ToString(myParametro.Rol_usuario);
                 Txt_Usuario.Text = myParametro.Prefijo_Usuario;
                 Txt_Grupo.SelectedValue = Convert.ToString(myParametro.fk_area_id_area);
-                Txt_CorreoUsuario.Enabled = false;                
+                Txt_CorreoUsuario.Enabled = false;
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "crear_cliente", "$('#modal_crear_usuario').modal();", true);
             }
             else
@@ -271,7 +271,7 @@ namespace DynaIT.app.forms
                     else
                     {
 
-                        
+
                         if (List_Rol.SelectedValue == "3")
                         {
                             rol = 3;

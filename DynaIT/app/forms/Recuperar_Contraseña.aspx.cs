@@ -8,8 +8,10 @@ namespace DynaIT.app.forms
     {
         Validaciones validaciones = new Validaciones();
         Clase_Parametros Clase_Parametros = new Clase_Parametros();
+        Gestion_Datos datos = new Gestion_Datos();
         protected void Page_Load(object sender, EventArgs e)
         {
+
 
         }
 
@@ -23,33 +25,82 @@ namespace DynaIT.app.forms
             }
             else
             {
-                if (validaciones.recuperar_contraseña_usuario(Txt_correo_recupera.Text) == true)
+                Random rdn = new Random();
+                string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
+                int longitud = caracteres.Length;
+                char letra;
+                int longitudContrasenia = 10;
+                string contraseniaAleatoria = string.Empty;
+                for (int i = 0; i < longitudContrasenia; i++)
                 {
+                    letra = caracteres[rdn.Next(longitud)];
+                    contraseniaAleatoria += letra.ToString();
+                }
 
-                    Response.Redirect("../login.aspx");
+                String Nueva_clave = contraseniaAleatoria;
+                //string nombres;
+                if (validaciones.Existe_Correo_usuario(Txt_correo_recupera.Text) == true)
+                {
+                    if (datos.recover_clave_usu(Txt_correo_recupera.Text, contraseniaAleatoria) == true)
+                    {
+
+                        if (validaciones.recuperar_contraseña(Txt_correo_recupera.Text, Txt_correo_recupera.Text, Nueva_clave) == true)
+                        {
+                            //Response.Redirect("../login.aspx");
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'succes', text: '  Se enviaron las credenciales por correo', confirmButtonText: 'Ok' })  ", true);
 
 
-                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'succes', text: 'Se enviaron las credenciales del usuario al correo', confirmButtonText: 'Ok' })  ", true);
+
+
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El correo ingresado no se encuentra registrado ', confirmButtonText: 'Ok' })  ", true);
+
+                        }
+
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'Error', text: ' Contactece con el administrador ', confirmButtonText: 'Ok' })  ", true);
+                    }
 
 
                 }
                 else
                 {
-                    if (validaciones.recuperar_contraseña_cliente(Txt_correo_recupera.Text) == true)
+                    if (validaciones.Existe_Correo_cliente(Txt_correo_recupera.Text) == true)
                     {
-                        Response.Redirect("../login.aspx");
 
-                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'succes', text: ' Se enviaron las credenciales del cliente al correo ', confirmButtonText: 'Ok' })  ", true);
+
+                        if (datos.Recover_clave_Cli(Txt_correo_recupera.Text, contraseniaAleatoria) == true)
+                        {
+                            ////ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'succes', text: ' Se enviaron las credenciales por correo', confirmButtonText: 'Ok' })  ", true);
+
+                            if (validaciones.recuperar_contraseña(Txt_correo_recupera.Text, Txt_correo_recupera.Text, Nueva_clave) == true)
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({title: 'Are you sure?',text: 'You won't be able to revert this!',icon: 'warning',showCancelButton: true,confirmButtonColor: '#3085d6',cancelButtonColor: '#d33', confirmButtonText: 'Yes, delete it!' }).then((result) => { if (result.isConfirmed) {Swal.fire('Deleted!', 'Your file has been deleted.','success' ) }})  ", true);
+                                //Response.Redirect("../login.aspx");
+
+
+
+                            }
+                            else
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El correo ingresado no se encuentra registrado ', confirmButtonText: 'Ok' })  ", true);
+
+                            }
+
+                        }
 
 
                     }
                     else
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' El correo ingresado no se encuentra registrado ', confirmButtonText: 'Ok' })  ", true);
-
                     }
-                }
 
+                }
 
 
 

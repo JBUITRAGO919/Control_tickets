@@ -51,7 +51,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <asp:Label class="mr-sm-2" ID="nombreCliente" runat="server" Text="Nombres"></asp:Label>
-                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_NombreUsuario" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
+                                                        <asp:TextBox clss="form-control mb-2 mr-sm-2" ID="Txt_NombreUsuario" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
                                                     </div>
                                                     <div class="col">
                                                         <asp:Label class="mr-sm-2" ID="Label3" runat="server" Text="Correo"></asp:Label><br />
@@ -85,7 +85,7 @@
                                                         <div style="margin: auto; align-content: center;">
                                                             <asp:Label class="mr-sm-2" ID="Label2" runat="server" Text="Usuario"></asp:Label>
                                                             <br />
-                                                            <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Usuario" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
+                                                            <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Usuario" runat="server" Height="22px" Style="margin-top: 0px; text-transform:uppercase"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">

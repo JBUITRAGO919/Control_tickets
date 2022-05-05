@@ -42,7 +42,7 @@
                                                         <div class="formularioCreacion">
                                                             <div style="width: 50%;">
                                                                 <asp:Label ID="Label1" runat="server" Text="Estados de tickets"></asp:Label>
-                                                                <asp:TextBox class="form-control mb-2" ID="Txt_EstadosTicket" runat="server"></asp:TextBox>
+                                                                <asp:TextBox class="form-control mb-2" ID="Txt_EstadosTicket" runat="server" Style="text-transform:capitalize"></asp:TextBox>
 
                                                                 <asp:Label ID="Lbl_Recuperar" runat="server" Text="No" Visible="False"></asp:Label>
 

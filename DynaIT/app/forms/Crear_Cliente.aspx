@@ -57,7 +57,7 @@
                                                     </div>
                                                     <div class="col-4 ">
                                                         <asp:Label CssClass="mr-sm-3" ID="nombreCliente" runat="server" Text="Nombre completo"></asp:Label>
-                                                        <asp:TextBox CssClass="form-control" ID="Txt_NombreCliente" runat="server"  Style="margin-top: 0px"></asp:TextBox>
+                                                        <asp:TextBox CssClass="form-control" ID="Txt_NombreCliente" runat="server"  Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
                                                     </div>
                                                     <div class="col-4">
                                                         <asp:Label CssClass="mr-sm-2" ID="Label3" runat="server" Text="Correo"></asp:Label>

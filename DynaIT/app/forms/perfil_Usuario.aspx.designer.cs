@@ -159,6 +159,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_actualizaciones;
 
         /// <summary>
+        /// Control scripMananer_panel_crear_cliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scripMananer_panel_crear_cliente;
+
+        /// <summary>
         /// Control lbl_nombre_usu_modal.
         /// </summary>
         /// <remarks>
@@ -177,13 +186,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.TextBox txt_nueva_contrasena_1;
 
         /// <summary>
-        /// Control validador_contrasena.
+        /// Control validador_contrasena1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validador_contrasena;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validador_contrasena1;
 
         /// <summary>
         /// Control txt_nueva_contrasena_2.
@@ -193,6 +202,15 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_nueva_contrasena_2;
+
+        /// <summary>
+        /// Control validador_contrasena2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validador_contrasena2;
 
         /// <summary>
         /// Control Btn_actualizar_datos.

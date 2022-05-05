@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Crear_Grupo_Usuario.aspx.cs" Inherits="DynaIT.app.forms.Crear_Grupo_Usuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Crear_Grupo_Usuario.aspx.cs" Inherits="DynaIT.app.forms.Crear_Grupo_Usuario" Debug="true" %>
 
 <!DOCTYPE html>
 
@@ -40,7 +40,7 @@
                                                         <div class="formularioCreacion">
                                                             <div style="width: 50%;">
                                                                 <asp:Label ID="Label1" runat="server" Text="Nueva área"></asp:Label>
-                                                                <asp:TextBox CssClass="form-control mb-2" ID="Txt_Grupo_usuario" runat="server" OnTextChanged="Txt_Grupo_usuario_TextChanged"></asp:TextBox>
+                                                                <asp:TextBox CssClass="form-control mb-2" ID="Txt_Grupo_usuario" runat="server" OnTextChanged="Txt_Grupo_usuario_TextChanged" Style="text-transform:capitalize"></asp:TextBox>
                                                                 <asp:Label ID="Txt_Recuperar_Grupo" runat="server" Visible="False" >Si</asp:Label>
                                                                 <asp:Label ID="Txt_Id_Grupos_usuarios" runat="server" Text="Label" Visible="False"></asp:Label>
                                                             </div>

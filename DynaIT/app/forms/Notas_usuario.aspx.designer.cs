@@ -24,6 +24,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.ScriptManager ScriptManag;
 
         /// <summary>
+        /// Control Btn_fusionar_ticket.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton Btn_fusionar_ticket;
+
+        /// <summary>
         /// Control Panel1.
         /// </summary>
         /// <remarks>

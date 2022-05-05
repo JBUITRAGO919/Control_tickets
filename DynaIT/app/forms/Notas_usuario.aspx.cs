@@ -105,11 +105,6 @@ namespace DynaIT.app.forms
                     if (id_estado_ticket == 6)
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'error', title: 'El ticket se encuentra cerrado', confirmButtonText: 'Ok' })  ", true);
-
-
-
-
-
                     }
                 }
 
@@ -148,6 +143,7 @@ namespace DynaIT.app.forms
                         Btn_Agregar_consultores.Visible = false;
                         Check_nota_interna.Visible = false;
                         check_genera_acta.Visible = false;
+                        Btn_fusionar_ticket.Visible = false;
 
 
 
@@ -158,7 +154,7 @@ namespace DynaIT.app.forms
                             List_clientes_empresa.Enabled = false;
                             List_Usuarios.Enabled = false;
                             Txt_descripcion_nota.Disabled = true;
-
+                            Btn_fusionar_ticket.Visible = false;
                             ScriptManager.RegisterStartupScript(this, GetType(), "", "Swal.fire(' El ticket se encuentra CERRADO');", true);
                         }
                     }

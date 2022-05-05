@@ -54,7 +54,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <asp:Label class="" ID="Label2" runat="server" Text="Nombre de la Empresa"></asp:Label>
-                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Empresa" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
+                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Empresa" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
                                                     </div>
 
                                                 </div>
@@ -65,7 +65,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <asp:Label class="mr-sm-2" ID="Label1" runat="server" Text="Representante"></asp:Label>
-                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_representante" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
+                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_representante" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
                                                     </div>
                                                 </div>
                                               

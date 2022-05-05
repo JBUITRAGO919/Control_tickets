@@ -43,7 +43,7 @@
                                                         <div class="formularioCreacion">
                                                             <div style="width: 50%;">
                                                                 <asp:Label ID="Label1" runat="server" Text="Tipos de tickets"></asp:Label>
-                                                                <asp:TextBox class="form-control mb-2" ID="Txt_Tipos_Tckets" runat="server"></asp:TextBox>
+                                                                <asp:TextBox class="form-control mb-2" ID="Txt_Tipos_Tckets" runat="server" Style="text-transform:capitalize"></asp:TextBox>
                                                                 <asp:Label Text="Horas de respuesta" runat="server" />
                                                                 <input  name="name" value="0" runat="server" id="txt_horas_respuesta" type="number" />
                                                                 <asp:Label ID="txt_id_tipo_ticket" runat="server" Text="Label" Visible="False"></asp:Label>

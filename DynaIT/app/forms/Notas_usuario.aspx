@@ -27,7 +27,7 @@
                     <div class="card direct-chat direct-chat-primary">
                         <div class="card-header">
                 <h3 class="card-title">Notas creadas</h3>
-                            <div>    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Fusionar_ticket" style="padding: 0; font-size: 100%;" id="Btn_fusionar_ticket">fusinar ticket</button>
+                            <div>    <button runat="server" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Fusionar_ticket" style="padding: 0; font-size: 100%;" id="Btn_fusionar_ticket">fusinar ticket</button>
 
                         </div>
                   </div>

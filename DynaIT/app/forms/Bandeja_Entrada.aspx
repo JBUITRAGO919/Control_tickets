@@ -362,7 +362,7 @@
                             <!-- Example Pie Chart Card-->
                             <div class="card mb-4">
                                 <div class="card-header" style="background-color:cornflowerblue; display:flex; justify-content: space-between;">
-                                    <i class="fa fa-pie-chart"></i>Tickets generados por Empresas
+                                    <i class="fa fa-pie-chart"></i>Tickets solicitados por Empresas
                                      <div><asp:DropDownList ID="List_tick_empresas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="List_tick_empresas_SelectedIndexChanged">
                                         <asp:ListItem>5</asp:ListItem>
                                         <asp:ListItem>10</asp:ListItem>

@@ -240,16 +240,116 @@ namespace DynaIT.Clases
 
 
                 cmd.ExecuteNonQuery();
+                estado = true;
 
             }
             catch (SqlException exception)
             {
                 this.error = exception.Message;
+                estado = false;
             }
             return estado;
 
         }
 
+        //Realiza la update en la tabla cliente para el cambio de clave desde el perfil
+        public Boolean Cambio_clave_Cli(Clase_Parametros myParametro)
+        {
+            Boolean estado = false;
+            try
+            {
+                string patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("change_password_cli", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
+
+                cmd.Parameters.AddWithValue("@id_Cliente", myParametro.idCliente);
+                cmd.Parameters.AddWithValue("@Contrasena_cli", myParametro.Contraseña);
+                cmd.Parameters.AddWithValue("@Patron", patron);
+                cmd.ExecuteNonQuery();
+                estado = true;
+
+            }
+            catch (SqlException exception)
+            {
+                this.error = exception.Message;
+                estado = false;
+            }
+            return estado;
+
+        }
+
+        //Realiza la update en la tabla cliente para el cambio de clave desde el perfil
+        public Boolean Recover_clave_Cli(string correo, string clave)
+        {
+            Boolean estado = false;
+            try
+            {
+                string patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("recover_pass_cli", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
+
+                cmd.Parameters.AddWithValue("@correo_cli", correo);
+                cmd.Parameters.AddWithValue("@Contrasena_cli", clave);
+                cmd.Parameters.AddWithValue("@Patron", patron);
+                cmd.ExecuteNonQuery();
+                estado = true;
+
+            }
+            catch (SqlException exception)
+            {
+                this.error = exception.Message;
+                estado = false;
+            }
+            return estado;
+
+        }
+        //Realiza la update en la tabla cliente para el cambio de clave desde el perfil
+        public Boolean Cambio_clave_usu(Clase_Parametros myParametro)
+        {
+            Boolean estado = false;
+            try
+            {
+                string patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("change_password_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
+
+                cmd.Parameters.AddWithValue("@id_usuario", myParametro.Id_usuario);
+                cmd.Parameters.AddWithValue("@contrasena_usu", myParametro.Contraseña_Usuario);
+                cmd.Parameters.AddWithValue("@Patron", patron);
+                cmd.ExecuteNonQuery();
+                estado = true;
+
+            }
+            catch (SqlException exception)
+            {
+                this.error = exception.Message;
+                estado = false;
+            }
+            return estado;
+
+        }
+
+        //Realiza larecuperacion de la clave con el correo regsitrado para el usuario 
+        public Boolean recover_clave_usu(string correo, string contraseña)
+        {
+            Boolean estado = false;
+            try
+            {
+                string patron = "Dynamics1";
+                SqlCommand cmd = new SqlCommand("recover_pass_usu", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
+
+                cmd.Parameters.AddWithValue("@correo_usu", correo);
+                cmd.Parameters.AddWithValue("@contrasena_usu", contraseña);
+                cmd.Parameters.AddWithValue("@Patron", patron);
+                cmd.ExecuteNonQuery();
+                estado = true;
+
+            }
+            catch (SqlException exception)
+            {
+                this.error = exception.Message;
+                estado = false;
+            }
+            return estado;
+
+        }
 
 
         //Realiza la update en la tabla ticket 
@@ -2882,7 +2982,7 @@ namespace DynaIT.Clases
                 myParametro.Rol_usuario = registro.GetInt32(2);
                 myParametro.fk_area_id_area = registro.GetInt32(3);
                 myParametro.Prefijo_Usuario = registro.GetString(4);
-                
+
 
 
 

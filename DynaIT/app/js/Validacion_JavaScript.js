@@ -1,4 +1,12 @@
-﻿
+﻿const formulario = document.getElementById('formulario_perfil');
+const inputs = document.querySelectorAll('#formulario_perfil textbox');
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', () => {
+        console.log('teclalevantada');
+    });
+});
+
 function Comprobar_clave() {
     var clave_1, clave_2;
     clave_1 = document.getElementById("txt_nueva_contrasena_1").value;
@@ -6,16 +14,14 @@ function Comprobar_clave() {
     if (clave_1 != clave_2) {
         Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas no coinciden";
     }
-    else
-    {
-        if (clave_1 == clave_2)
-        {            
+    else {
+        if (clave_1 == clave_2) {
             Document.ready = document.getElementById("validador_contrasena").textContent = "Contraseñas coinciden";
         }
 
     }
 
-}
+};
 
 
 
@@ -34,7 +40,7 @@ function cambio_estado_cerrado_abierto(){
         document.ready = document.getElementById("List_estados").value = '6';
     }    
     return seleccion;
-}
+};
 
 
 //funciones para el cambio de estado cerrado a en proceso 
@@ -50,7 +56,7 @@ function cambio_estado_cerrado_proceso() {
         document.ready = document.getElementById("List_estados").value = '6';
     }
     return seleccion;
-}
+};
 
 //funciones para el cambio de estado cerrado a pendiente
 function cambio_estado_cerrado_pendiente() {
@@ -65,7 +71,7 @@ function cambio_estado_cerrado_pendiente() {
         document.ready = document.getElementById("List_estados").value = '6';
     }
     return seleccion;
-}
+};
 
 //funciones para el cambio de estado cerrado a resuelto
 function cambio_estado_cerrado_resuelto()
@@ -82,15 +88,15 @@ function cambio_estado_cerrado_resuelto()
         document.ready = document.getElementById("List_estados").value = '6';
         return seleccion;
     }
-}
+};
 
 function agregar_creditos()
 {    
     $("#Editar_credito").modal("show");
-}
+};
 
 
 function negrita() {
 
     document.execCommand()
-}
+};

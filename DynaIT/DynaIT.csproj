@@ -241,6 +241,7 @@
     <Content Include="app\forms\perfil_Usuario.aspx" />
     <Content Include="app\forms\Recuperar_Contraseña.aspx" />
     <Content Include="app\forms\Tickets_Generados_Usuario.aspx" />
+    <Content Include="app\img\dynamics.ico" />
     <Content Include="app\img\dynamics.jpg" />
     <Content Include="app\img\Dynamicsimg.png" />
     <Content Include="app\style\Style.css" />
@@ -252,6 +253,8 @@
     <Content Include="libman.json" />
     <Content Include="app\login.aspx" />
     <Content Include="app\js\Validacion_JavaScript.js" />
+    <Content Include="app\js\summernote-bs4.js" />
+    <Content Include="app\style\summernote-bs4.min.css" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -518,6 +521,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -13,7 +13,8 @@ namespace DynaIT.app.forms
         Gestion_Datos Gestion_Datos = new Gestion_Datos();
         Clase_Parametros myParametro = new Clase_Parametros();
         Validaciones myvalidacion = new Validaciones();
-        string correo;
+        static string correo, rol_inicio_usuario, rol_inicio_cliente;
+        static int Id_Empresa_cliente;
         protected void Page_Load(object sender, EventArgs e)
         {
             correo = (string)Session["correos_inicio_sesion"];
@@ -25,13 +26,14 @@ namespace DynaIT.app.forms
 
             Txt_Contraseña.Enabled = false;
             Btn_ver_deshabilitados.Visible = true;
+
         }
 
 
         private void cargar_datos_sesion()
         {
-            string rol_inicio_usuario = (string)Session["rol_usuario"];
-            string rol_inicio_cliente = (string)Session["rol_cliente"];
+            rol_inicio_usuario = (string)Session["rol_usuario"];
+            rol_inicio_cliente = (string)Session["rol_cliente"];
 
 
 
@@ -50,7 +52,7 @@ namespace DynaIT.app.forms
 
                     int id_usuario = myParametro.idCliente;
                     Lbl_cargo.Text = Convert.ToString(myParametro.Rol_Cliente);
-                    int Id_Empresa_cliente = myParametro.Id_Empresa_cliente;
+                    Id_Empresa_cliente = myParametro.Id_Empresa_cliente;
 
                     if (Lbl_cargo.Text == "4")
                     {
@@ -384,7 +386,7 @@ namespace DynaIT.app.forms
                                 myParametro.Rol_Cliente = Convert.ToInt32(Txt_VisualizarTickets.Text);
 
 
-                                if (!Gestion_Datos.editar_Cliente(myParametro))
+                                if (Gestion_Datos.editar_Cliente(myParametro) == true)
                                 {
                                     myvalidacion.actualizar_editar_contra_usuario(Txt_CorreoCliente.Text, Txt_Contraseña.Text, Txt_NombreCliente.Text);
 
@@ -471,9 +473,20 @@ namespace DynaIT.app.forms
 
         protected void btn_agregar_cliente_Click(object sender, EventArgs e)
         {
+            if (rol_inicio_usuario != null)
+            {
+
+                List_Empresa.SelectedValue = "1";
+            }
+            else
+            {
+                if (rol_inicio_cliente != null)
+                {
+                    List_Empresa.SelectedValue = Convert.ToString(Id_Empresa_cliente);
+                }
+            }
             Btn_Editar.Visible = false;
             BtnCrearCliente.Visible = true;
-            List_Empresa.SelectedValue = "1";
             Txt_NombreCliente.Text = "";
             Txt_CorreoCliente.Text = "";
             Txt_TelefonoCliente.Text = "";
