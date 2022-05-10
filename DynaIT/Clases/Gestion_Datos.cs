@@ -4424,5 +4424,43 @@ namespace DynaIT.Clases
 
 
 
-    }
+    
+    
+        //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
+        public List<Informe> Grilla_informe(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+
+            List<Informe> List_informe = new List<Informe>();
+
+            SqlCommand cmd = new SqlCommand("informe3", conexion) { CommandType = System.Data.CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@fecha_ini", fecha_inicio);
+            cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Informe informe = new Informe();
+
+                informe.id_usuario = registro.GetInt32(0);
+                informe.nombre_usuario = registro.GetString(1);
+                informe.n_casos_inicio_jornada = registro.GetInt32(2);
+                informe.n_ticket_nuevos_dia = registro.GetInt32(3);
+                informe.n_ticket_Resueltos_hoy = registro.GetInt32(4);
+                informe.n_ticket_cerrados_hoy = registro.GetInt32(5);
+                informe.n_ticket_nuevos_cierre_jornada = registro.GetInt32(6);
+                informe.n_creditos_hoy = registro.GetInt32(7);
+                informe.n_ticket_desarrollo = registro.GetInt32(8);
+                informe.n_ticket_proyecto = registro.GetInt32(9);
+                // Agrego el objeto estudiante creado a la lista
+                List_informe.Add(informe);
+            }
+            registro.Close();
+            return List_informe;
+        }
+     }
+
+
+    
+    
 }

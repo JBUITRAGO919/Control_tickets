@@ -398,6 +398,7 @@
     <Compile Include="Clases\Enum.cs" />
     <Compile Include="Clases\Gestion_Datos.cs" />
     <Compile Include="Clases\Clase_Parametros.cs" />
+    <Compile Include="Clases\Informe.cs" />
     <Compile Include="Clases\Validaciones.cs" />
     <Compile Include="Clases\Visualizar_Tickets.cs" />
     <Compile Include="Contact.aspx.cs">

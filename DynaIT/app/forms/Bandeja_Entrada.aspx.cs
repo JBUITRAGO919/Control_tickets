@@ -45,6 +45,9 @@ namespace DynaIT.app.forms
 
                 inp_fecha_ini_creditos.Value = fecha_inicio.ToString("yyyy-MM-dd");
                 inp_fecha_fin_creditos.Value = fecha_fin.ToString("yyyy-MM-dd");
+
+                inp_Fecha_ini_info.Value = fecha_inicio.ToString("yyyy-MM-dd");
+                inp_Fecha_fin_info.Value = fecha_fin.ToString("yyyy-MM-dd");
             }
 
 
@@ -578,5 +581,62 @@ namespace DynaIT.app.forms
             }
 
         }
+
+        protected void Btn_buscar_informe_Click(object sender, EventArgs e)
+        {
+            Informe_final();
+        }
+
+        protected void Informe_final()
+        {
+            if (inp_Fecha_ini_info.Value == "")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: ' Rango de fecha de inicio vacio', confirmButtonText: 'Ok' })  ", true);
+            }
+            else
+            {
+                if (inp_Fecha_fin_info.Value == "")
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', title: 'Campo vacio', text: ' Rango de fecha de fin vacio', confirmButtonText: 'Ok' })  ", true);
+                }
+                else
+                {
+                    string hora_inicio = "00:00:00", hora_fin = "23:59:59";
+                    List<Informe> infirme_grilla = new List<Informe>();
+                    List<Visualizar_Tickets> tickets_empresas_grafica = new List<Visualizar_Tickets>();
+                    DateTime fecha_ini = Convert.ToDateTime(inp_Fecha_ini_info.Value + " " + hora_inicio + "");
+                    DateTime fecha_fin = Convert.ToDateTime(inp_Fecha_fin_info.Value + " " + hora_fin + "");
+                    
+                    infirme_grilla = datos.Grilla_informe(fecha_ini, fecha_fin);
+
+                    Grilla_informe.DataSourceID = "";
+                    Grilla_informe.DataSource = infirme_grilla;
+                    Grilla_informe.DataBind();
+
+                   
+
+                }
+            }
+        }
+
+        protected void Btn_exportar_informe_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            string FileName = "Informe final" + DateTime.Now + ".xls";
+            StringWriter strwritter = new StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "application / vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            Grilla_informe.GridLines = GridLines.Both;
+            Grilla_informe.HeaderStyle.Font.Bold = true;
+            Grilla_informe.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
+         }
     }
 }

@@ -859,3 +859,4 @@ C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.csproj.CopyComplete
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.dll
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.pdb
+C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.csproj.AssemblyReference.cache

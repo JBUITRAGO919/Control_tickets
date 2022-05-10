@@ -1,83 +1,87 @@
 use dynait
---CERRADOS POR CONSULTOR
-select nombre_usuario, count(id_ticket) as N_Ticket from ticket 
-inner join usuario on usuario.id_usuario = ticket.usuario_id 
-where estado_id = 5 group by nombre_usuario
-
-go
--- CREADOS POR CONSULTOR
-
-select nombre_usuario, count(id_ticket) as N_tickets from ticket 
-inner join usuario on usuario.id_usuario = ticket.usuario_id 
- where Fecha between @fecha_inicio AND @fecha_fin group by nombre_usuario
-
- go
- --Trabajados por agente
-
-select nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket 
-inner join nota on nota.id_ticket = ticket.id_ticket 
-inner join usuario on usuario.id_usuario = nota.usuario_id_nota
-where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario
-go
---tickets por empresas
-
-select nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket
-inner join cliente on cliente.id_Cliente = ticket.cliente_id 
-inner join empresa on empresa.id_empresa = cliente.empresa_id where Fecha between @fecha_inicio AND @fecha_fin
-group by nombre_empresa order by COUNT(2)
-go
-
-
-
+--informe general
 drop procedure informe
-
  create proc informe
   @fecha_ini datetime,
   @fecha_fin datetime
   as
   begin
-select * into #table_informe from (
-select id_usuario, nombre_usuario as consulto, estado_Ticket as estado, id_ticket as N_tickets from ticket
+select *  into #table_informe from (
+select id_usuario, nombre_usuario as consulto, estado_Ticket as estado, id_ticket as N_tickets, sum(n_creditos_acta) as creditos from ticket
 inner join usuario on usuario.id_usuario = ticket.usuario_id
 inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id 
-inner join acta on acta.ticket_id = ticket.id_ticket
-where Fecha between @fecha_ini AND @fecha_fin and fecha_crea_acta between @fecha_ini AND @fecha_fin
-and ticket_Habilitado= 'Si' )t
-
-select * from #table_informe 
+inner join acta on acta.fk_usuario_id =usuario.id_usuario
+where  (fecha_crea_acta between @fecha_ini AND @fecha_fin) or (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si')
+group by usuario.id_usuario, usuario.nombre_usuario,estado_Ticket,ticket.id_ticket)t
+select *, ([Abierto]+[En proceso]+[Resuelto]+[Cerrado])as total, creditos from #table_informe 
 pivot (count(N_tickets) for estado in ([Abierto], [En proceso],[Resuelto],[Cerrado])) as fpv
-group by fpv.id_usuario, fpv.consulto, Abierto, [En proceso],Resuelto,Cerrado
+group by id_usuario, consulto, Abierto, [En proceso],Resuelto,Cerrado, creditos
 end
+exec informe '2022-05-06 00:00:00', '2022-05-06 23:59:58';
+select sum(n_creditos_acta) from acta where fk_usuario_id=10 and fecha_crea_acta between '2022-05-06 00:00:00'and '2022-05-06 23:59:58'
+go
 
-exec informe '2022-03-29 00:00:00', '2022-05-27 23:59:58';
-select sum(n_creditos_acta), fk_usuario_id from acta where fk_usuario_id=10 and fecha_crea_acta between '2022-03-29 00:00:00' AND  '2022-05-27 23:59:58' group by fk_usuario_id
+---------------------informe general 2
+drop procedure informe2; go
+ create proc informe2
+  @fecha_ini datetime,
+  @fecha_fin datetime
+  as
+  begin
+select *  into #table_informe from (
+select id_usuario, nombre_usuario as consulto, estado_Ticket as estado, id_ticket as N_tickets, sum(n_creditos_acta) as creditos from ticket
+inner join usuario on usuario.id_usuario = ticket.usuario_id
+inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id 
+inner join acta on acta.fk_usuario_id =usuario.id_usuario
+where  ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si'
+group by usuario.id_usuario, usuario.nombre_usuario,estado_Ticket,ticket.id_ticket)t
 
-
-
-
-
-
-select COUNT(id_ticket) from ticket where usuario_id = 10 and estado_id=
-
-	
-DECLARE @Tabla1 TABLE(id INT IDENTITY(1,1), nombre VARCHAR(20), telefono VARCHAR(12));
-	
-	declare @nombres varchar(20);
-	set @nombres ='estelita';
-INSERT INTO @Tabla1 VALUES(@nombres, '222555');
-INSERT INTO @Tabla1 VALUES('Juan', '222555');
-INSERT INTO @Tabla1 VALUES('Juan', '222555');
-INSERT INTO @Tabla1 VALUES('Juan', '222555');
-INSERT INTO @Tabla1 VALUES(@nombres, '222555');
-INSERT INTO @Tabla1 VALUES(@nombres, '222555');
-INSERT INTO @Tabla1 VALUES(@nombres, '222555');
-INSERT INTO @Tabla1 VALUES('Juan', '222555');
-
-SELECT * FROM @Tabla1 ;
-
-select count(n_creditos_acta)  from acta
-
-select * from usuario where area_id in (select id_area from area where area_habilitado='Si') order by area_id
+select *  into #table_informe2 from (
+select id_usuario, nombre_usuario as consulto, sum(n_creditos_acta) as creditos from ticket
+inner join usuario on usuario.id_usuario = ticket.usuario_id
+inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id 
+inner join acta on acta.fk_usuario_id =usuario.id_usuario
+where  fecha_crea_acta between @fecha_ini AND @fecha_fin
+group by usuario.id_usuario, usuario.nombre_usuario,estado_Ticket,ticket.id_ticket)t2
 
 
-select id_area from area where area_habilitado='Si'
+select *, ([Abierto]+[En proceso]+[Resuelto]+[Cerrado])as total, creditos from #table_informe t1
+inner join #table_informe2 t2 on t2.id_usuario = t1.id
+pivot (count(N_tickets) for estado in ([Abierto], [En proceso],[Resuelto],[Cerrado])) as fpv
+group by id_usuario, consulto, Abierto, [En proceso],Resuelto,Cerrado, creditos
+end 
+
+exec informe2 '2022-04-06 00:00:00', '2022-05-06 23:59:58'; 
+
+select sum(n_creditos_acta) from acta 
+where fk_usuario_id=10 and fecha_crea_acta between '2022-05-06 00:00:00'and '2022-05-06 23:59:58' go
+-------------------
+
+select nombre_usuario, sum(n_creditos_acta) from acta 
+inner join usuario on usuario.id_usuario = acta.fk_usuario_id group by nombre_usuario
+go
+
+drop proc informe3
+ create proc informe3
+  @fecha_ini datetime,
+  @fecha_fin datetime
+  as
+  begin
+select id_usuario, nombre_usuario, 
+(select COUNT(id_ticket) from ticket where (ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_casos_inicio_jornada,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between DATEADD(day,-1, @fecha_ini) AND DATEADD(day,-1, @fecha_fin) and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_ticket_nuevos_dia,
+(select COUNT(id_ticket) from ticket where (ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=4))as n_ticket_Resueltos_hoy,
+(select COUNT(id_ticket) from ticket where (ticket.fecha_cierre_ticket between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=5))as n_ticket_cerrados_hoy,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_ticket_nuevos_cierre_jornada,
+(select ISNULL(sum(n_creditos_acta),0) from acta where fecha_crea_acta between @fecha_ini AND @fecha_fin and acta.fk_usuario_id = a.id_usuario) as n_creditos_hoy,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=3 ))as n_ticket_desarrollo,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=2 ))as n_ticket_proyecto
+from usuario as a where usuario_Habilitado= 'Si'
+end
+exec informe3 '2022-05-10 00:00:00', '2022-05-10 23:59:58';
+
+select * from estado_ticket 
+select * from usuario
+select * from tipo_ticket
+select COUNT(id_ticket) from ticket where fecha_inicio_proceso between '2022-05-09 00:00:00' and '2022-05-09 23:59:58'
+select COUNT(id_ticket) from ticket where fecha_resuelto_ticket between '2022-05-09 00:00:00' and '2022-05-09 23:59:58'
