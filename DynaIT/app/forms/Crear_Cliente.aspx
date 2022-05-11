@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <%--fin del modal--%>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa WHERE (id_Empresa = 1) OR (Empresa_Habilitada = 'Si')"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa WHERE (id_Empresa = 1) OR (Empresa_Habilitada = 'Si')"></asp:SqlDataSource>
                 <div class="row">
                     <div class=" col-12">
                         <div class="div_titilo_crear_cliente">
@@ -159,7 +159,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, empresa.nombre_empresa 
+                                    <asp:SqlDataSource ID="Tabla_Clientes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, empresa.nombre_empresa 
 					 FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa inner join rol on rol.id_rol = cliente.rol_id
 					 WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc" DeleteCommand="UPDATE cliente SET Cliente_Habilitado = 'No' WHERE (id_Cliente = @idCliente)">
                                         <DeleteParameters>

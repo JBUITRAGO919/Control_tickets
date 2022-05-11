@@ -8,6 +8,7 @@
     <title></title>
     <script src="/jquery-3.3.1.min.js"></script>
     <script src="/bootstrap.min.js"></script>
+    <link href="../style/Botones.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,43 +25,43 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="scrip_manager_tickets" runat="server"></asp:ScriptManager>
         <asp:Timer ID="Timer1" runat="server" Interval="30000" OnTick="Timer1_Tick_cierre_caso" ClientIDMode="AutoID" ViewStateMode="Enabled"></asp:Timer>
-        <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
         <div class="container-fluid" style="height: 100vh; width: 100%;">
 
             <div class="row" style="height: 100vh; margin-bottom: 0px;">
                 <div class="col-12">
-                    <div class="row" style="margin: 5px; padding: 0;">
+                    <div class="row" style="margin: 5px; padding-bottom: 10px;  background-color: #727272">
 
                         <div class="col-12" style="display: flex; justify-content: space-around;">
                             <div style="margin:0; padding:0;" >
                                 <br />
                                 <asp:Panel id="panel_cerrar" runat="server"> </asp:Panel>
-                                <asp:Label Text="0" runat="server" ID="lbl_n_registro" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" style="border-radius:100%; border:solid black 2px; padding:13px; margin:0;"/>
+                                <asp:Label Text="0" runat="server" ID="lbl_n_registro" Font-Bold="True" Font-Size="X-Large" ForeColor="White" style="border-radius:100%; border:solid white 2px; padding:13px; margin:0;"/>
                             </div>
                             <div style="padding: 0;">
                                 <br />
-                                <asp:Button ID="Btn_todos_ticket" runat="server" Text="Ver todos los tickets" OnClick="Btn_todos_ticket_Click" CssClass="btn btn-outline-primary" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" />
+                                <asp:Button ID="Btn_todos_ticket" runat="server" Text="Ver todos los tickets" OnClick="Btn_todos_ticket_Click" CssClass="btn btn-outline-primary" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" BorderColor="White" ForeColor="White" />
                             </div>
                             <div>
                                 <br />
-                                <asp:Button ID="Btn_mis_tickets" runat="server" Text="Mis tickets" OnClick="Btn_mis_tickets_Click" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" />
+                                <asp:Button ID="Btn_mis_tickets" runat="server" Text="Mis tickets" OnClick="Btn_mis_tickets_Click" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" BorderColor="White" ForeColor="White" />
                             </div>
                             <div>
                                 <br />
-                                <asp:Button ID="Btn_tickets_compartidos" runat="server" Text="Tickets compartidos" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_tickets_compartidos_Click" />
+                                <asp:Button ID="Btn_tickets_compartidos" runat="server" Text="Tickets compartidos" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_tickets_compartidos_Click" BorderColor="White" ForeColor="White" />
 
                             </div>
                             <div>
                                 <br />
-                                <asp:Button ID="Btn_sin_asignar" runat="server" Text="tickets sin asignar" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_sin_asignar_Click" />
+                                <asp:Button ID="Btn_sin_asignar" runat="server" Text="tickets sin asignar" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_sin_asignar_Click" BorderColor="White" ForeColor="White" />
                             </div>
                             <div>
                                 <br />
-                                <asp:Button ID="Btn_exportar" runat="server" Text="exportar" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_exportar_Click" />
+                                <asp:Button ID="Btn_exportar" runat="server" Text="exportar" CssClass="btn btn-outline-success btn-sm" Font-Italic="True" Font-Size="Smaller" Style="border-radius: 5px; margin: 3px;" OnClick="Btn_exportar_Click" BorderColor="White" ForeColor="White" />
                             </div>
                             <div>
                                 <br />
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscar_tickets" style="border-radius: 5px; margin: 3px;">Buscar</button>
+                                <button type="button" class="btn-ghost round" data-toggle="modal" data-target="#buscar_tickets" style="border-radius: 5px; margin: 3px;">Buscar</button>
 
                                 <!-- Modal para el boton del ticket  el cual carga los adjuntos del ticket -->
                                 <div class="modal fade" id="buscar_tickets" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-dismiss="modal" data-keyboard="false">
@@ -94,7 +95,7 @@
                                                             </div>
                                                             <div>
                                                                 <asp:DropDownList ID="List_clientes" runat="server" AutoPostBack="True" DataSourceID="Clientes_tabla" DataTextField="nombre_cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_SelectedIndexChanged" OnTextChanged="List_clientes_TextChanged" Font-Size="Smaller"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_col_estado" runat="server">
@@ -104,7 +105,7 @@
                                                             </div>
                                                             <div>
                                                                 <asp:DropDownList ID="List_estado_ticket" runat="server" DataSourceID="Tabla_estados_ticket" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estado_ticket_SelectedIndexChanged" Font-Size="Smaller"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_agente" runat="server">
@@ -114,7 +115,7 @@
                                                             </div>
                                                             <div>
                                                                 <asp:DropDownList ID="List_Agente" runat="server" AutoPostBack="True" Font-Size="Smaller" DataSourceID="tabla_Agentes" DataTextField="nombre_usuario" DataValueField="id_usuario" OnSelectedIndexChanged="List_Agente_SelectedIndexChanged"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -154,11 +155,11 @@
                             <div class="card-body table-responsive p-0" style="overflow: scroll; align-content: center; height: 88vh; width: 100%;">
 
 
-                                <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#333333" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding" OnDataBound="Grilla_Tickets_generados_usuario_DataBound">
+                                <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#000" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding" OnDataBound="Grilla_Tickets_generados_usuario_DataBound">
                                     <AlternatingRowStyle BorderStyle="None" BackColor="White" />
                                     <Columns>
                                         <asp:ButtonField CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
-                                            <ControlStyle Font-Underline="True" ForeColor="#0000CC" />
+                                            <ControlStyle Font-Underline="True" ForeColor="#000" />
                                         </asp:ButtonField>
                                         <asp:ButtonField CommandName="Select_2" HeaderText="Nº Ticket" DataTextField="N_Ticket" Visible="False">
                                             <ControlStyle Font-Underline="True" ForeColor="#0000CC" />
@@ -181,7 +182,7 @@
                                     </Columns>
                                     <EditRowStyle BorderStyle="None" BackColor="#2461BF" />
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BorderStyle="None" HorizontalAlign="Center" BackColor="#507CD1" Font-Bold="True" Font-Italic="True" ForeColor="White" Font-Size="Smaller" />
+                                    <HeaderStyle BorderStyle="None" HorizontalAlign="Center" BackColor="#424C52" Font-Bold="True" Font-Italic="True" ForeColor="White" Font-Size="Smaller" />
                                     <PagerSettings NextPageText="&gt;&gt;;" PageButtonCount="6" />
                                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                                     <RowStyle BackColor="#EFF3FB" HorizontalAlign="Left" VerticalAlign="Top" Wrap="False" CssClass="alinearColumnas" Font-Size="Smaller" />

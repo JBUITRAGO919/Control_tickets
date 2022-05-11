@@ -25,10 +25,7 @@
 				@usuario_Habilitado
 				)
 				end
-exec Sp_pass_usu 'David','jbuitrago919@gmail.com',2,'c232',3,'Password13', 'Si','Dynamics1'
 
-select * from usuario
-delete usuario where id_usuario=20
 
 --PROCEDIMIENTOS INGRESAR CLIENTES ENCRYPT
 
@@ -106,13 +103,6 @@ create proc Validar_usu
 					 WHERE id_usuario = @id_usuario 
 					 end
 
-					 
-
-
-					 select * from usuario
-
-					 update usuario set contrasena_usu = ENCRYPTBYPASSPHRASE('Dynamics1', 'sss') where id_usuario=10;
-
 --PROCEDIMIENTO UPDATE CLIENTE
 
   create proc Sp_update_cli
@@ -137,24 +127,3 @@ create proc Validar_usu
 					 Cliente_Habilitado = @Cliente_Habilitado
 					 WHERE id_Cliente = @id_Cliente
 					 end
-
-					 SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
-					 FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area INNER JOIN rol ON rol.id_rol =usuario.rol_id  
-					 WHERE (usuario.Usuario_Habilitado = @Usuario_Habilitado) order by usuario.id_Usuario desc
-
-
-					 SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, rol.rol, cliente.Contrasena_cli, empresa.nombre_empresa 
-					 FROM cliente INNER JOIN empresa ON cliente.empresa_id = empresa.id_Empresa inner join rol on rol.id_rol = cliente.rol_id
-					 WHERE (cliente.Cliente_Habilitado = @Cliente_Habilitado) order by cliente.id_Cliente desc
-
-					 select * from cliente
-					 update usuario set correo_usu= 'jbu@gmail.com' where id_usuario=17;
-
-
-					 SELECT cliente.id_Cliente, cliente.nombre_cliente, cliente.Telefono_cliente, cliente.correo_cli, 
-                 rol.rol, cliente.Contrasena_cli, empresa.Nombre_Empresa FROM cliente 
-                 INNER JOIN empresa ON cliente.empresa_id = empresa.id_empresa
-				 inner join rol on rol.id_rol=cliente.rol_id
-                 WHERE (cliente.Cliente_Habilitado = 'Si' AND empresa.id_Empresa = 3 ) order by cliente.id_Cliente desc
-
-				 select * from empresa

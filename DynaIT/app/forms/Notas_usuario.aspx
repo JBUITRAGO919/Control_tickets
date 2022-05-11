@@ -94,7 +94,7 @@
                                     <div class="col-6">
                                         <asp:Label ID="Label1" runat="server" Text="Estado" Font-Bold="True"></asp:Label><br />
                                         <asp:DropDownList ID="List_estados" runat="server" DataSourceID="Tabla_estados" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estados_SelectedIndexChanged"></asp:DropDownList>
-                                        <asp:SqlDataSource ID="Tabla_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM [estado_ticket]"></asp:SqlDataSource>
+                                        <asp:SqlDataSource ID="Tabla_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM [estado_ticket]"></asp:SqlDataSource>
                                     </div>
                                     <div class="col-6">
                                         <div style="width: auto; text-align: center;">
@@ -121,7 +121,7 @@
                                     <asp:Label ID="Label4" runat="server" Text="Solicitado por : " Font-Bold="True"></asp:Label><br />
                                     <%--<asp:Label ID="Lbl_cliente" runat="server" Text="Lbl_cliente"></asp:Label>--%>
                                     <asp:DropDownList ID="List_clientes_empresa" runat="server" AutoPostBack="True" DataSourceID="tabla_clientes_empresa" DataTextField="Nombre_Cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_empresa_SelectedIndexChanged" Font-Size="Small"></asp:DropDownList>
-                                    <asp:SqlDataSource ID="tabla_clientes_empresa" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_Cliente, nombre_cliente FROM cliente WHERE (empresa_id = @Id_Empresa)">
+                                    <asp:SqlDataSource ID="tabla_clientes_empresa" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_Cliente, nombre_cliente FROM cliente WHERE (empresa_id = @Id_Empresa)">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_id_empresa" Name="Id_Empresa" PropertyName="Text" />
                                         </SelectParameters>
@@ -133,7 +133,7 @@
                                     <asp:Label ID="Label5" runat="server" Text="Asignado a " Font-Bold="True"></asp:Label>
                                     <br />
                                     <asp:DropDownList ID="List_Usuarios" runat="server" DataSourceID="Tabla_usuarios" DataTextField="nombre_usuario" DataValueField="id_Usuario" AutoPostBack="True" OnSelectedIndexChanged="List_Usuarios_SelectedIndexChanged" Font-Size="Small"></asp:DropDownList>
-                                    <asp:SqlDataSource ID="Tabla_usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_Usuario, nombre_usuario FROM usuario WHERE (id_Usuario = '1') OR (id_Usuario = '2') OR (Usuario_Habilitado = 'Si')"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="Tabla_usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_Usuario, nombre_usuario FROM usuario WHERE (id_Usuario = '1') OR (id_Usuario = '2') OR (Usuario_Habilitado = 'Si')"></asp:SqlDataSource>
                                 </div>
                             </div>
                                 </div>
@@ -233,7 +233,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <asp:DropDownList ID="List_agregar_agentes_nota" runat="server" DataSourceID="List_agrega_agentes_nota" DataTextField="nombre_usuario" DataValueField="id_usuario"></asp:DropDownList>
-                                                        <asp:SqlDataSource ID="List_agrega_agentes_nota" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario WHERE (id_usuario = '1') OR (Usuario_Habilitado = 'Si')"></asp:SqlDataSource>
+                                                        <asp:SqlDataSource ID="List_agrega_agentes_nota" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario WHERE (id_usuario = '1') OR (Usuario_Habilitado = 'Si')"></asp:SqlDataSource>
                                                         <asp:Panel ID="Panel_agentes_nota" runat="server" style=""></asp:Panel>
                                                         <asp:Button ID="Btn_agrega_agente" runat="server" Text="Agregar" OnClick="Btn_agrega_agente_Click" /><br />
                                                         <asp:Label ID="lblContador" runat="server" Text="Label" ForeColor="Red" Font-Size="Smaller"></asp:Label>

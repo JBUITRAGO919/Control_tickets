@@ -18,7 +18,7 @@ namespace DynaIT.Clases
         {
             if (objetoConexion != null)
                 return objetoConexion;
-            objetoConexion = new SqlConnection(@"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS");
+            objetoConexion = new SqlConnection(@"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DYNAMICSIT2022-\SQLEXPRESS");
 
             try
             {

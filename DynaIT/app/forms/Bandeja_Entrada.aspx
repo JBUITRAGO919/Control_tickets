@@ -18,49 +18,47 @@
 
     <link href="../style/Style.css" rel="stylesheet" />
     <script src="../js/Validacion_JavaScript.js"></script>
-
-   
+    <link href="../style/Botones.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid" style="margin: 2px;">
+        <div class="container-fluid" style="margin: 0;">
             <asp:ScriptManager ID="aaaa" runat="server"></asp:ScriptManager>
             <%-- barra de notificaciones--%>
-            <div class="row" style="height: 15vh;">
-                <div class="col-12">
-                    <div class="row" style="margin-top: 20px">
-                        <div class="col-2">
-                            <div class="traerNota">
-                                <asp:Label ID="lbl_abiertos" runat="server" Text="Abiertos"></asp:Label>
-                                <asp:Label ID="Lbl_N_Abiertos" runat="server" OnLoad="Lbl_N_Abiertos_Load"></asp:Label>
+            <div class="row" style="height: 55px;  background-color:#727272 ">
+                <div class="col-12" style="">
+                    <div class="row" style="margin-top: 16px; ">
+                        <div class="col-2" style="margin-left: 4%;  ">
+                            <div style="text-align:center" >
+                                <asp:Label ID="lbl_abiertos" runat="server" Text="Abiertos" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Lbl_N_Abiertos" runat="server" OnLoad="Lbl_N_Abiertos_Load" ForeColor="White"></asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-2" >
+                            <div >
+                                <asp:Label ID="lbl_pendientes" runat="server" Text="En proceso" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Lbl_N_pendientes" runat="server" OnLoad="Lbl_N_pendientes_Load" ForeColor="White"></asp:Label>
                             </div>
                         </div>
                         <div class="col-2 ">
-                            <div class="traerNota">
-                                <asp:Label ID="lbl_pendientes" runat="server" Text="En proceso"></asp:Label>
-                                <asp:Label ID="Lbl_N_pendientes" runat="server" OnLoad="Lbl_N_pendientes_Load"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="col-3 ">
-                            <div class="traerNota">
-                                <asp:Label ID="lbl_enp" runat="server" Text="Resuelto"></asp:Label>
-                                <asp:Label ID="Lbl_Enproceso" runat="server" OnLoad="Enproceso_Load"></asp:Label>
+                            <div >
+                                <asp:Label ID="lbl_enp" runat="server" Text="Resuelto" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Lbl_Enproceso" runat="server" OnLoad="Enproceso_Load" ForeColor="White"></asp:Label>
                             </div>
                         </div>
                         <div class="col-2 ">
-                            <div class="traerNota">
-                                <asp:Label ID="lbl_" runat="server" Text="cerrado"></asp:Label>
-                                <asp:Label ID="Lbl_NResueltos" runat="server" OnLoad="Lbl_NResueltos_Load"></asp:Label>
+                            <div >
+                                <asp:Label ID="lbl_" runat="server" Text="cerrado" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Lbl_NResueltos" runat="server" OnLoad="Lbl_NResueltos_Load" ForeColor="White"></asp:Label>
                             </div>
                         </div>
                         <div class="col-2 ">
-                            <div class="traerNota">
-                                <asp:Label ID="Label9" runat="server" Text="vencidos"></asp:Label>
-                                <asp:linkbutton text="0" runat="server" />
+                            <div >
+                                <asp:Label ID="Label9" runat="server" Text="vencidos" ForeColor="White"></asp:Label>
+                                <asp:linkbutton text="0" runat="server" ForeColor="White" />
                             </div>
                         </div>
                     </div>
-                    <hr />
                 </div>
             </div>
             
@@ -70,12 +68,12 @@
 
                           <%--fila2--%><%--<div class="row">--%>
                        
-                        <div class="col-6" style="margin: 0; height:581px; overflow:auto;">
+                        <div class="col-6" style="margin: 0; height:581px; overflow:auto; ">
                             <!-- Example Pie Chart Card-->
-                            <div class="card mb-4">
-                                <div class="card-header" style="background-color:cadetblue; display:flex; justify-content: space-between; ">
+                            <div class="card mb-4" style=" left: 0px; top: 0px;";>
+                                <div class="card-header" style="background-color:#424C52; display:flex; justify-content: space-between; color:white  ">
                                     <div>
-                                        <i class="fa fa-pie-chart"></i>Ticket cerrados                                       
+                                        <i class="fa fa-pie-chart" style="text-decoration-color: white" ></i>Ticket cerrados                                       
                                     </div>
                                     <div>
                                         <asp:DropDownList ID="list_top_cerrados" runat="server" AutoPostBack="True" OnSelectedIndexChanged="list_top_cerrados_SelectedIndexChanged">
@@ -84,7 +82,7 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="background-color:  lightgray">
                                     
                                     <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
@@ -93,7 +91,7 @@
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fec_ini_cerrados" type="date" runat="server" style="font-size: medium" />
+                            <input id="inp_fec_ini_cerrados" type="date" runat="server" style="font-size: medium; border-radius: 10px;"  />
                         </div>
                     </div>
                     <div class="">
@@ -101,16 +99,16 @@
                             <asp:Label ID="lbl_fec_fin_empresas" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fec_fin_cerrados" type="date" runat="server" style="font-size: Medium" />
+                            <input id="inp_fec_fin_cerrados" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server" id="Btn_cerrados_agente" OnClick="Btn_cerrados_agente_Click1"/>
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" runat="server" id="Btn_cerrados_agente" OnClick="Btn_cerrados_agente_Click1"/>
                                         </div>
                                     </div>
                                     <%--<--grafica de -->--%>
-                                    <asp:Chart runat="server" ID="grafica_cerrados_agente" DataSourceID="Grafica_cerrados_agente_grafica" Width="566px" OnLoad="grafica_cerrados_agente_Load">
+                                    <asp:Chart runat="server" ID="grafica_cerrados_agente" DataSourceID="Grafica_cerrados_agente_grafica" Width="500px" OnLoad="grafica_cerrados_agente_Load">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="nombre_usuario" YValueMembers="N_Ticket"></asp:Series>
                                         </Series>
@@ -135,7 +133,7 @@
                                     </asp:GridView>
 
 
-                                    <asp:SqlDataSource ID="Grafica_cerrados_agente_grafica" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_cerrados) nombre_usuario, count(id_ticket) as N_Ticket from ticket 
+                                    <asp:SqlDataSource ID="Grafica_cerrados_agente_grafica" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_cerrados) nombre_usuario, count(id_ticket) as N_Ticket from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where estado_id = 5 and fecha_cierre_ticket between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                         <SelectParameters>
@@ -144,7 +142,7 @@
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" DefaultValue="0" Name="fecha_fin" PropertyName="Text" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:SqlDataSource ID="tablas_cerrados_por_consultor_griv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_Ticket from ticket 
+                                    <asp:SqlDataSource ID="tablas_cerrados_por_consultor_griv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_Ticket from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where estado_id = 5 and fecha_cierre_ticket between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                         <SelectParameters>
@@ -153,17 +151,17 @@
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
-                                <div class="card-footer small text-muted" style="background-color:cadetblue">
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px">
                                     <asp:Label ID="lbl_fecha" Text="" runat="server" />
-                                    <asp:Button Text="Exportar" runat="server" id="Btn_Todos_cerrados_por_agente" OnClick="Btn_Todos_cerrados_por_agente_Click"/>
+                                    <asp:Button Text="Exportar" class="btn-ghost round" runat="server" id="Btn_Todos_cerrados_por_agente" OnClick="Btn_Todos_cerrados_por_agente_Click"/>
                                 </div>
                             </div>
                         </div>
-                          <div class="col-6" style="margin: 0; height:581px; overflow:auto;">
+                          <div class="col-6" style="margin: 0; height:581px;">
                             <!-- Example Pie Chart Card-->
                             <div class="card mb-4">
-                                <div class="card-header" style="background-color:cadetblue; display:flex; justify-content: space-between; ">
-                                    <i class="fa fa-pie-chart"></i>Tickets creados y asignados
+                                <div class="card-header" style="background-color:#424C52; display:flex; justify-content: space-between; color:white ">
+                                    <i class="fa fa-pie-chart" style="color: white;" ></i>Tickets creados y asignados
                                     <asp:Label id="lbl_fecha_dia_hoy_ini" runat="server" Visible="false" />
                                     <asp:Label id="lbl_fecha_dia_hoy_fin" runat="server" Visible="false" />
                                     <div>
@@ -173,7 +171,7 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="background-color:  lightgray">
                                      <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
@@ -181,7 +179,7 @@
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="Inp_fe_ini_creado_asignados" type="date" runat="server" style="font-size: medium" />
+                            <input id="Inp_fe_ini_creado_asignados" type="date" runat="server" style="font-size: medium; border-radius: 10px" />
 
                         </div>
                     </div>
@@ -190,15 +188,15 @@
                             <asp:Label ID="Label6" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="Inp_fe_fin_creado_asignados" type="date" runat="server" style="font-size: Medium" />
+                            <input id="Inp_fe_fin_creado_asignados" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server" ID="Btn_buscar_creados_asignados" OnClick="Btn_buscar_creados_asignados_Click" />
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" runat="server" ID="Btn_buscar_creados_asignados" OnClick="Btn_buscar_creados_asignados_Click" />
                                         </div>
                                     </div>
-                                    <asp:Chart runat="server" ID="Grafica_abiertos_asignados_agente" DataSourceID="tickets_creados_y_asignados" Width="568px" OnLoad="Grafica_abiertos_asignados_agente_Load" Visible="true">
+                                    <asp:Chart runat="server" ID="Grafica_abiertos_asignados_agente" DataSourceID="tickets_creados_y_asignados" Width="500px" OnLoad="Grafica_abiertos_asignados_agente_Load" Visible="true">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="Nombre_usuario_grfica_creados" YValueMembers="N_Ticket_grafica_creados"></asp:Series>
                                         </Series>
@@ -226,7 +224,7 @@
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                      </asp:GridView>
 
-                                     <asp:SqlDataSource ID="Tickets_creados_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_tickets from ticket 
+                                     <asp:SqlDataSource ID="Tickets_creados_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_tickets from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where Fecha between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                          <SelectParameters>
@@ -235,7 +233,7 @@
                                          </SelectParameters>
                                      </asp:SqlDataSource>
 
-                                    <asp:SqlDataSource ID="tickets_creados_y_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_creados) nombre_usuario, count(id_ticket) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="tickets_creados_y_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_creados) nombre_usuario, count(id_ticket) as N_tickets from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where Fecha between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                           <SelectParameters>
@@ -246,18 +244,18 @@
                                     </asp:SqlDataSource>
                                   
                                 </div>
-                                <div class="card-footer small text-muted" style="background-color:cadetblue">
-                                    <asp:Button Text="Exportar" runat="server" id="Btn_exportar_tickets_creados" OnClick="Btn_exportar_tickets_creados_Click"/>
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px">
+                                    <asp:Button Text="Exportar" class="btn-ghost round" runat="server" id="Btn_exportar_tickets_creados" OnClick="Btn_exportar_tickets_creados_Click"/>
                                 
                                 </div>
                             </div>
                         </div>
                              
-                        <div class="col-6" style="margin: 0; height:581px; overflow:auto; " >
+                        <div class="col-6" style="margin: 0; height:581px;  " >
                                     
 
-                            <div class="card mb-4" style="overflow:auto;">
-                                <div class="card-header" style="background-color:cornflowerblue; display:flex; justify-content: space-between;">
+                            <div class="card mb-4" style="">
+                                <div class="card-header" style="background-color:#424C52; display:flex; justify-content: space-between; color:white">
                                     <i class="fa fa-pie-chart"></i>Tickets trabajados
                                     <div>
                                         <asp:DropDownList ID="List_tickets_trabajados" runat="server" AutoPostBack="True" OnSelectedIndexChanged="List_tickets_trabajados_SelectedIndexChanged">
@@ -266,7 +264,7 @@
                                         <asp:ListItem>15</asp:ListItem>
                                         </asp:DropDownList></div>
                                 </div>
-                                <div class="card-body">  
+                                <div class="card-body" style="background-color:  lightgray">  
                                    <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
@@ -274,7 +272,7 @@
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_trabajados_ini" type="date" runat="server" style="font-size: medium" />
+                            <input id="inp_trabajados_ini" type="date" runat="server" style="font-size: medium; border-radius: 10px" />
 
                         </div>
                     </div>
@@ -283,15 +281,15 @@
                             <asp:Label ID="Label8" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_trabajados_fin" type="date" runat="server" style="font-size: Medium" />
+                            <input id="inp_trabajados_fin" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server"  ID="Btn_buscar_trabajados" OnClick="Btn_buscar_trabajados_Click" />
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" runat="server"  ID="Btn_buscar_trabajados" OnClick="Btn_buscar_trabajados_Click" />
                                         </div>
                                     </div>
-                                    <asp:Chart ID="Grafica_Ticket_trabajados" runat="server" DataSourceID="tickets_trabajados" OnLoad="Grafica_Ticket_trabajados_Load" Width="506px">
+                                    <asp:Chart ID="Grafica_Ticket_trabajados" runat="server" DataSourceID="tickets_trabajados" OnLoad="Grafica_Ticket_trabajados_Load" Width="500px">
                                         <Series>
                                             <asp:Series Name="Series1" XValueMember="nombre_usuario" YValueMembers="N_tickets"></asp:Series>
                                         </Series>
@@ -301,7 +299,7 @@
                                     </asp:Chart>
 
 
-                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket 
   inner join nota on nota.id_ticket = ticket.id_ticket
   inner join usuario on usuario.id_usuario = nota.nota_creada_por
                  where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ">
@@ -334,7 +332,7 @@
 
                                     
 
-                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket
+                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket
   inner join nota on nota.id_ticket = ticket.id_ticket
   inner join usuario on usuario.id_usuario = nota.nota_creada_por
   where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario">
@@ -345,9 +343,9 @@
                                     </asp:SqlDataSource>
 
                                 </div>
-                                <div class="card-footer small text-muted" style="background-color:cornflowerblue">
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px">
                                     <asp:Label ID="Label5" Text="" runat="server" />
-                                    <asp:Button Text="Exportar" runat="server" id="Btn_exportar_Trabajados" OnClick="Btn_exportar_Trabajados_Click"/>
+                                    <asp:Button Text="Exportar" class="btn-ghost round" runat="server" id="Btn_exportar_Trabajados" OnClick="Btn_exportar_Trabajados_Click"/>
                                 </div>
                                 
                             </div>
@@ -361,7 +359,7 @@
                         <div class="col-6" style="margin: 0; height:581px; ">
                             <!-- Example Pie Chart Card-->
                             <div class="card mb-4">
-                                <div class="card-header" style="background-color:cornflowerblue; display:flex; justify-content: space-between;">
+                                <div class="card-header" style="background-color:#424C52; display:flex; justify-content: space-between; color:white">
                                     <i class="fa fa-pie-chart"></i>Tickets generados por Empresas
                                      <div><asp:DropDownList ID="List_tick_empresas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="List_tick_empresas_SelectedIndexChanged">
                                         <asp:ListItem>5</asp:ListItem>
@@ -369,7 +367,7 @@
                                         <asp:ListItem>15</asp:ListItem>
                                         </asp:DropDownList></div>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="background-color:  lightgray">
                                     <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
@@ -377,7 +375,7 @@
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_ini_empresas" type="date" runat="server" style="font-size: medium" />
+                            <input id="inp_fecha_ini_empresas" type="date" runat="server" style="font-size: medium; border-radius: 10px  " />
 
                         </div>
                     </div>
@@ -386,12 +384,12 @@
                             <asp:Label ID="Label11" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_fin_empresas" type="date" runat="server" style="font-size: Medium" />
+                            <input id="inp_fecha_fin_empresas" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server" id="Btn_buscar_empresas" OnClick="Btn_buscar_empresas_Click"/>
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" runat="server" id="Btn_buscar_empresas" OnClick="Btn_buscar_empresas_Click"/>
                                         </div>
                                     </div>
                                     <asp:Chart ID="Grafica_tickets_por_empresa" runat="server" DataSourceID="tabla_ticket_empresa_graf" Palette="Bright" Width="500px" OnLoad="Grafica_tickets_por_empresa_Load">
@@ -422,7 +420,7 @@
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
                                     <%--grillaa empresas--%>
-                                    <asp:SqlDataSource ID="tabla_ticket_empresa_graf" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_empresas) nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="tabla_ticket_empresa_graf" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_empresas) nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
  inner join cliente on cliente.id_Cliente = ticket.cliente_id
  inner join empresa on empresa.id_empresa = cliente.empresa_id 
 where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order by COUNT (2)">
@@ -432,28 +430,28 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" DefaultValue="0" Name="fecha_fin" PropertyName="Text" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:SqlDataSource ID="tabla_ticket_empresa_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="tabla_ticket_empresa_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
  inner join cliente on cliente.id_Cliente = ticket.cliente_id
  inner join empresa on empresa.id_empresa = cliente.empresa_id
  group by nombre_empresa
  order by COUNT (2)"></asp:SqlDataSource>
                                 </div>
-                                <div class="card-footer small text-muted" style="background-color:cornflowerblue"> 
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px"> 
                                     <asp:Label ID="Label1" Text="" runat="server" />
-                                <asp:Button Text="Exportar" runat="server" id="exportar_empresa" OnClick="exportar_empresa_Click" />
+                                <asp:Button Text="Exportar" class="btn-ghost round" runat="server" id="exportar_empresa" OnClick="exportar_empresa_Click" />
                                 </div>
                             </div>
                        
 
                 </div>
                     
-                        <div class="col-6" style="margin: 0; height:581px;">
+                        <div class="col-6" style="margin: 0; height:581px;" >
                             <!-- Example Pie Chart Card-->
                             <div class="card mb-4">
-                                <div class="card-header" style="display:flex; justify-content: center;">
+                                <div class="card-header" style="display:flex; justify-content: center; background-color:#424C52; color:white">
                                     <i class="fa fa-pie-chart"></i>Estados 
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="background-color:  lightgray">
                                     <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
@@ -461,7 +459,7 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_ini_estados" type="date" runat="server" style="font-size: medium" />
+                            <input id="inp_fecha_ini_estados" type="date" runat="server" style="font-size: medium; border-radius: 10px" />
 
                         </div>
                     </div>
@@ -470,12 +468,12 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
                             <asp:Label ID="Label13" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_fin_estados" type="date" runat="server" style="font-size: Medium" />
+                            <input id="inp_fecha_fin_estados" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" runat="server" ID="Btn_buscar_estados" OnClick="Btn_buscar_estados_Click" />
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" runat="server" ID="Btn_buscar_estados" OnClick="Btn_buscar_estados_Click" />
                                         </div>
                                     </div>
                                     <asp:Chart ID="Grafica_tickets_por_estado" runat="server" DataSourceID="ticket_estados_" Height="342px" Width="500px" ImageType="Jpeg" ImageStorageMode="UseImageLocation" ViewStateMode="Enabled" OnLoad="Grafica_tickets_por_estado_Load">
@@ -504,14 +502,14 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
                                         <SortedDescendingHeaderStyle BackColor="#820000" />
                                     </asp:GridView>
                                     <%--grillaa estados--%>
-                                    <asp:SqlDataSource ID="ticket_estados_" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="ticket_estados_" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
 inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin group by estado_Ticket order by COUNT (2)">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:SqlDataSource ID="ticket_estados_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
+                                    <asp:SqlDataSource ID="ticket_estados_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
 inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin group by estado_Ticket order by COUNT (2)">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
@@ -519,9 +517,9 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
-                                <div class="card-footer small text-muted" style="">
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px">
                                     <asp:Label ID="Label2" Text="" runat="server" />
-                                    <asp:Button Text="Exportar" runat="server" ID="Btn_exportar_tickets_estados" OnClick="Btn_exportar_tickets_estados_Click"/>
+                                    <asp:Button Text="Exportar" class="btn-ghost round" runat="server" ID="Btn_exportar_tickets_estados" OnClick="Btn_exportar_tickets_estados_Click"/>
                                 </div>
                             </div>
                         </div>
@@ -529,11 +527,11 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                        
                         
                             
-                          <div id="creditos" class="col-6" style="margin: 0; height:581px;">
+                          <div id="creditos" class="col-6" style="margin: 0; ">
                                     
 
-                            <div class="card mb-4" style="overflow:auto; height:550px">
-                                <div class="card-header" style="display:flex; justify-content: space-between;">
+                            <div class="card mb-4" style=" height:570px">
+                                <div class="card-header" style="display:flex; justify-content: space-between; background-color:#424C52; color:white">
                                     <i class="fa fa-pie-chart"></i>Creditos por consultor
                                     <div>   
                                         <asp:DropDownList ID="List_creditos_consult" runat="server" AutoPostBack="True" OnSelectedIndexChanged="List_creditos_consult_SelectedIndexChanged">
@@ -543,7 +541,7 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="card-body" style="overflow: auto; ">
+                                <div class="card-body" style="overflow: auto; background-color:  lightgray">
                                    <div style="display:flex; justify-content: space-around;  margin-bottom:20px;">
                                         <div class="">
                         <div style="">
@@ -551,7 +549,7 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
 
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_ini_creditos" type="date" runat="server" style="font-size: medium" />
+                            <input id="inp_fecha_ini_creditos" type="date" runat="server" style="font-size: medium; border-radius: 10px" />
 
                         </div>
                     </div>
@@ -560,12 +558,12 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                             <asp:Label ID="Label15" runat="server" Text="Fecha Fin" Font-Size="Medium"></asp:Label>
                         </div>
                         <div style="display: flex; padding: 0;">
-                            <input id="inp_fecha_fin_creditos" type="date" runat="server" style="font-size: Medium" />
+                            <input id="inp_fecha_fin_creditos" type="date" runat="server" style="font-size: Medium; border-radius: 10px" />
                         </div>
 
                     </div>
                                         <div> 
-                                            <asp:Button Text="Buscar" href="#creditos" runat="server" id="Btn_Buscar_creditos" OnClick="Btn_Buscar_creditos_Click"/>
+                                            <asp:Button Text="Buscar" CssClass="btn-ghost secundary round" href="#creditos" runat="server" id="Btn_Buscar_creditos" OnClick="Btn_Buscar_creditos_Click"/>
                                         </div>
                                     </div>
                                     <asp:GridView ID="Grilla_creditos_tickets" runat="server" AutoGenerateColumns="False" DataSourceID="N_creditos_consultor" CssClass="table table-head-fixed text-nowrap" CellPadding="4" ForeColor="#333333" GridLines="None" OnLoad="Grilla_creditos_tickets_Load">
@@ -604,17 +602,9 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="N_creditos_consultor" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_creditos_cosnul)  nombre_usuario, count(ticket.id_ticket) as N_tickets, sum(n_creditos_acta) as N_creditos from acta
-inner join ticket on ticket.id_ticket = acta.ticket_id
-inner join usuario on usuario.id_usuario = acta.fk_usuario_id 
-where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombre_usuario">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="List_creditos_consult" DbType="Int32" DefaultValue="5" Name="top_creditos_cosnul" PropertyName="SelectedValue" />
-                                            <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" Name="fecha_inicio" PropertyName="Text" DefaultValue="" />
-                                            <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
-                                        </SelectParameters>
+                                    <asp:SqlDataSource ID="N_creditos_consultor" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM [acta]">
                                     </asp:SqlDataSource>
-                                    <asp:SqlDataSource ID="N_creditos_consultor2" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets, sum(n_creditos_acta) as N_creditos from acta
+                                    <asp:SqlDataSource ID="N_creditos_consultor2" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets, sum(n_creditos_acta) as N_creditos from acta
 inner join ticket on ticket.id_ticket = acta.ticket_id
 inner join usuario on usuario.id_usuario = acta.fk_usuario_id 
 where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombre_usuario">
@@ -625,9 +615,9 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
                                     </asp:SqlDataSource>
 
                                 </div>
-                                <div class="card-footer small text-muted">
+                                <div class="card-footer small text-muted" style="background-color:#424C52; height:60px">
                                     <asp:Label ID="Label3" Text="" runat="server" />
-                                    <asp:Button Text="Exportar" runat="server" id="Btn_creditos_por_consultor" OnClick="Btn_creditos_por_consultor_Click"/>
+                                    <asp:Button Text="Exportar" class="btn-ghost round" runat="server" id="Btn_creditos_por_consultor" OnClick="Btn_creditos_por_consultor_Click"/>
                                 </div>
                             </div>
                         <div>

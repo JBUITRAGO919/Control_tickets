@@ -20,7 +20,7 @@ namespace DynaIT.app.forms
         OdbcParameter N_Factura = new OdbcParameter();
 
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
-        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DYNAMICSIT2022-\SQLEXPRESS";
         protected void Page_Load(object sender, EventArgs e)
         {
             //setTimeout("()", 100);
