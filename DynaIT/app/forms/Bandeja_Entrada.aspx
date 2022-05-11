@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card mb-4">
-                                <div class="card-header" style="background-color: cadetblue; display: flex; justify-content: space-between;">
+                                <div class="card-header" style="background-color: cadetblue; align-content:center;">
                                  <i class="fa fa-pie-chart"></i>Informe                                       
                                  </div>
                                 <div class="card-body">
@@ -97,32 +97,32 @@
                                         <Columns>
                                             <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" Visible="False" />
                                             <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="nombre_usuario">
-                                                <HeaderStyle Width="50px" />
+                                                <HeaderStyle />
                                                 <ItemStyle Font-Overline="False" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_casos_inicio_jornada" HeaderText="Numero de casos inicio jornada" ReadOnly="True" SortExpression="n_casos_inicio_jornada">
-                                                <HeaderStyle Width="20px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_nuevos_dia" HeaderText="Numero de casos nuevos (dia)" ReadOnly="True" SortExpression="n_ticket_nuevos_dia">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_Resueltos_hoy" HeaderText="Numero de casos Resueltos (dia)" ReadOnly="True" SortExpression="n_ticket_Resueltos_hoy">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_cerrados_hoy" HeaderText="Numero de casos cerrados (dia)" ReadOnly="True" SortExpression="n_ticket_cerrados_hoy">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_nuevos_cierre_jornada" HeaderText="Numero de casos nuevos cierre jornada" ReadOnly="True" SortExpression="n_ticket_nuevos_cierre_jornada">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_creditos_hoy" HeaderText="Numero de creditos (hoy)" ReadOnly="True" SortExpression="n_creditos_hoy">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_desarrollo" HeaderText="Numero de casos de desarrollo" ReadOnly="True" SortExpression="n_ticket_desarrollo">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="n_ticket_proyecto" HeaderText="Numero de casos de proyecto" ReadOnly="True" SortExpression="n_ticket_proyecto">
-                                                <HeaderStyle Width="5px" />
+                                                <HeaderStyle  />
                                             </asp:BoundField>
                                         </Columns>
                                         <EditRowStyle BackColor="#2461BF" />
@@ -379,7 +379,7 @@
                                     </div>
                                     <asp:Chart ID="Grafica_Ticket_trabajados" runat="server" DataSourceID="tickets_trabajados" OnLoad="Grafica_Ticket_trabajados_Load" Width="506px">
                                         <Series>
-                                            <asp:Series Name="Series1" XValueMember="nombre_usuario" YValueMembers="N_tickets"></asp:Series>
+                                            <asp:Series Name="Series1" XValueMember="nombre_usuario" YValueMembers="N_tickets" ChartType="StackedColumn"></asp:Series>
                                         </Series>
                                         <ChartAreas>
                                             <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
@@ -387,10 +387,9 @@
                                     </asp:Chart>
 
 
-                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket 
-  inner join nota on nota.id_ticket = ticket.id_ticket
-  inner join usuario on usuario.id_usuario = nota.usuario_id_nota
-                 where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ">
+                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select (@top_trabajados) nombre_usuario, 
+(select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
+from usuario where usuario_Habilitado = 'Si'  order by n_tickets desc ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="List_tickets_trabajados" DbType="Int32" DefaultValue="5" Name="top_trabajados" PropertyName="SelectedValue" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
@@ -419,11 +418,9 @@
                                     </asp:GridView>
 
 
-
-                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket
-  inner join nota on nota.id_ticket = ticket.id_ticket
-  inner join usuario on usuario.id_usuario = nota.nota_creada_por
-  where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario">
+                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select  nombre_usuario, 
+(select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between '2022-05-10 00:00:00' and '2022-05-10 23:59:58' and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
+from usuario where usuario_Habilitado = 'Si' order by n_tickets desc ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" Name="fecha_inicio" PropertyName="Text" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
@@ -728,6 +725,7 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
 
                     <%--fin fila 3--%>
                 </div>
+            </div>
             </div>
     </form>
 

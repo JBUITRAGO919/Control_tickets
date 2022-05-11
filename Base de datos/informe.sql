@@ -80,8 +80,6 @@ from usuario as a where usuario_Habilitado= 'Si'
 end
 exec informe3 '2022-05-10 00:00:00', '2022-05-10 23:59:58';
 
-select * from estado_ticket 
-select * from usuario
-select * from tipo_ticket
-select COUNT(id_ticket) from ticket where fecha_inicio_proceso between '2022-05-09 00:00:00' and '2022-05-09 23:59:58'
+
+select COUNT(id_ticket) from ticket where Fecha between '2022-05-10 00:00:00' and '2022-05-10 23:59:58'
 select COUNT(id_ticket) from ticket where fecha_resuelto_ticket between '2022-05-09 00:00:00' and '2022-05-09 23:59:58'

@@ -4193,10 +4193,9 @@ namespace DynaIT.Clases
         //  traer el listado de Todos los Tickets creados y asignados a los consultores en la grafica
         public List<Visualizar_Tickets> lista_tickets_trabajados_grafica(int top_trabajados, DateTime fecha_inicio, DateTime fecha_fin)
         {
-            string sql = " select top(@top_trabajados) nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket " +
-                " inner join nota on nota.id_ticket = ticket.id_ticket " +
-                " inner join usuario on usuario.id_usuario = nota.usuario_id_nota " +
-                " where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ";
+            string sql = " select top(@top_trabajados) nombre_usuario, (select count(id_acta) " +
+                " from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario) as n_tickets " +
+                " from usuario where usuario_Habilitado = 'Si' order by n_tickets desc";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
@@ -4222,10 +4221,9 @@ namespace DynaIT.Clases
         //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
         public List<Visualizar_Tickets> lista_tickets_trabajados_grilla(DateTime fecha_inicio, DateTime fecha_fin)
         {
-            string sql = " select nombre_usuario, count(distinct ticket.id_ticket) as N_tickets from ticket " +
-                " inner join nota on nota.id_ticket = ticket.id_ticket " +
-                " inner join usuario on usuario.id_usuario = nota.usuario_id_nota " +
-                " where FechaNota between @fecha_inicio AND @fecha_fin and nota_usuario = 1 group by nombre_usuario ";
+            string sql = " select nombre_usuario, (select count(id_acta) " +
+                " from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario) as n_tickets " +
+                " from usuario where usuario_Habilitado = 'Si' order by n_tickets desc ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
