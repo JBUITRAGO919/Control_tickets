@@ -276,6 +276,24 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.TextBox Txt_DetallesProblema;
 
         /// <summary>
+        /// Control btnMostrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMostrar;
+
+        /// <summary>
+        /// Control lblSalida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSalida;
+
+        /// <summary>
         /// Control File_Archivo.
         /// </summary>
         /// <remarks>

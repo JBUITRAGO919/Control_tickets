@@ -131,7 +131,7 @@
 
 
 
-                                                <asp:SqlDataSource ID="grupoUsuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_area, area FROM area WHERE (area_Habilitado = @area_Habilitado)" UpdateCommand="UPDATE area SET area = @area_usuario WHERE id_area = @id_area_usuario" DeleteCommand="SELECT * FROM area">
+                                                <asp:SqlDataSource ID="grupoUsuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_area, area FROM area WHERE (area_Habilitado = @area_Habilitado)" UpdateCommand="UPDATE area SET area = @area_usuario WHERE id_area = @id_area_usuario" DeleteCommand="SELECT * FROM area">
                                                     <SelectParameters>
                                                         <asp:ControlParameter ControlID="Txt_Grupos_Habilitados" Name="area_Habilitado" PropertyName="Text" />
                                                     </SelectParameters>

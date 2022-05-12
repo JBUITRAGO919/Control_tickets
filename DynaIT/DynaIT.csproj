@@ -244,6 +244,7 @@
     <Content Include="app\img\dynamics.ico" />
     <Content Include="app\img\dynamics.jpg" />
     <Content Include="app\img\Dynamicsimg.png" />
+    <Content Include="app\style\Botones.css" />
     <Content Include="app\style\Style.css" />
     <Content Include="app\style\style_login.css" />
     <Content Include="Contact.aspx" />

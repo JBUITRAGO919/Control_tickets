@@ -159,7 +159,7 @@
                                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                             </asp:GridView>
-                            <asp:SqlDataSource ID="empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM empresa where Empresa_Habilitada = @Empresa_Habilitada order by empresa.id_Empresa desc" DeleteCommand="SELECT * FROM empresa" UpdateCommand="UPDATE empresa SET nombre_empresa = @Nombre_Empresa, nit= @Nit, telefono_empresa = @Telefono, representante_empresa= @Representante_empresa WHERE (id_empresa = @id_Empresas)">
+                            <asp:SqlDataSource ID="empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM empresa where Empresa_Habilitada = @Empresa_Habilitada order by empresa.id_Empresa desc" DeleteCommand="SELECT * FROM empresa" UpdateCommand="UPDATE empresa SET nombre_empresa = @Nombre_Empresa, nit= @Nit, telefono_empresa = @Telefono, representante_empresa= @Representante_empresa WHERE (id_empresa = @id_Empresas)">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="Lbl_Ver_Eliminados" Name="Empresa_Habilitada" PropertyName="Text" />
                                 </SelectParameters>

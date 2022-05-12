@@ -134,7 +134,7 @@
                                                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                                 </asp:GridView>
-                                                <asp:SqlDataSource ID="estados_Ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" DeleteCommand="select * from estado_ticket;" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket, estado_Habilitado FROM estado_ticket where estado_Habilitado = @estado_Habilitado" UpdateCommand="UPDATE dynait.estado_ticket SET estado_Ticket = @estado_Ticket WHERE (id_Estado_Ticket = @idEstado_Ticket)">
+                                                <asp:SqlDataSource ID="estados_Ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" DeleteCommand="select * from estado_ticket;" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket, estado_Habilitado FROM estado_ticket where estado_Habilitado = @estado_Habilitado" UpdateCommand="UPDATE dynait.estado_ticket SET estado_Ticket = @estado_Ticket WHERE (id_Estado_Ticket = @idEstado_Ticket)">
                                                     <DeleteParameters>
                                                         <asp:Parameter Name="idEstado_Ticket" />
                                                     </DeleteParameters>

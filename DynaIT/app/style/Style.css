@@ -1,14 +1,6 @@
 ﻿@import url('Style.css');
 
-.traerNota {
-    border-radius: 5px;
-    margin:0;
-    align-content: center;
-    text-align: center;
-    height: auto;
-    box-shadow: cadetblue 3px 3px 3px 3px;
-    justify-content: space-around;
- }
+
 
 
 
@@ -17,6 +9,7 @@ body {
     padding: 0;
     height: 100vh;
     overflow: hidden;
+    background-color: #EBEFF0;
 }
 
 li {
@@ -31,11 +24,18 @@ a {
 }
 
 .menuLateral {
+<<<<<<< HEAD
     background-color: darkgoldenrod;
+=======
+    background-color: #4DA7E4;
+>>>>>>> c7451a383db531e1a183c37d21e64e1d0f927f79
     height: 100vh;
     padding: 0;
     margin: 0;
-    width:100%;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding-right: 35px;
 }
 .contenido {
     padding: 1px;

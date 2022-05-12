@@ -21,8 +21,6 @@ namespace DynaIT
 
         }
 
-
-
         protected void Btn_ingresar_Click(object sender, EventArgs e)
         {
 

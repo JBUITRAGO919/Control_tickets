@@ -25,7 +25,6 @@
 				@usuario_Habilitado
 				)
 				end
-exec Sp_pass_usu 'David','jbuitrago919@gmail.com',2,'c232',3,'Password13', 'Si','Dynamics1'
 
 
 --PROCEDIMIENTOS INGRESAR CLIENTES ENCRYPT
@@ -132,6 +131,7 @@ create proc Validar_usu
 					 Contrasena_cli = ENCRYPTBYPASSPHRASE('Dynamics1', @Contrasena_cli),
 					 Cliente_Habilitado = @Cliente_Habilitado
 					 WHERE id_Cliente = @id_Cliente
+<<<<<<< HEAD
 					 end
 
 
@@ -198,3 +198,6 @@ SELECT SERVERPROPERTY('collation');
 select * from usuario
 
 
+=======
+					 end
+>>>>>>> c7451a383db531e1a183c37d21e64e1d0f927f79

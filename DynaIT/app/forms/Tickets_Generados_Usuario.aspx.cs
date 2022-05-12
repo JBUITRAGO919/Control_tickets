@@ -19,7 +19,7 @@ namespace DynaIT.app.forms
         Gestion_Datos gestion_Datos = new Gestion_Datos();
         Clase_Parametros myparametro = new Clase_Parametros();
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
-        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DYNAMICSIT2022-\SQLEXPRESS";
         perfil_Usuario perfil_Usuario = new perfil_Usuario();
         string correo, Id_Empresa_cliente;
 
