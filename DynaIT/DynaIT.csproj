@@ -244,6 +244,7 @@
     <Content Include="app\img\dynamics.ico" />
     <Content Include="app\img\dynamics.jpg" />
     <Content Include="app\img\Dynamicsimg.png" />
+    <Content Include="app\style\Botones.css" />
     <Content Include="app\style\Style.css" />
     <Content Include="app\style\style_login.css" />
     <Content Include="Contact.aspx" />
@@ -253,8 +254,6 @@
     <Content Include="libman.json" />
     <Content Include="app\login.aspx" />
     <Content Include="app\js\Validacion_JavaScript.js" />
-    <Content Include="app\js\summernote-bs4.js" />
-    <Content Include="app\style\summernote-bs4.min.css" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

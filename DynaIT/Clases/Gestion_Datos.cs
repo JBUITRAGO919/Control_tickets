@@ -4422,8 +4422,8 @@ namespace DynaIT.Clases
 
 
 
-    
-    
+
+
         //  traer el listado de Todos los Tickets cerrados en la grilla para exportar a excel
         public List<Informe> Grilla_informe(DateTime fecha_inicio, DateTime fecha_fin)
         {
@@ -4456,9 +4456,9 @@ namespace DynaIT.Clases
             registro.Close();
             return List_informe;
         }
-     }
+    }
 
 
-    
-    
+
+
 }

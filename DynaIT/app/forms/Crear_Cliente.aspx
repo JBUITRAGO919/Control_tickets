@@ -131,9 +131,7 @@
                             <div class="col-12">
                                 <div style="overflow: scroll; align-content: center; height: 80vh; width: 100%; text-align: center">
                                     <asp:UpdatePanel runat="server">
-                                        <Triggers>
-                                            <asp:AsyncPostBackTrigger controlid="BtnCrearCliente"/>
-                                        </Triggers>
+                                        
                                         <ContentTemplate>
                                              <asp:GridView ID="Grilla_Cliente" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id_Cliente" DataSourceID="Tabla_Clientes" ForeColor="#333333" GridLines="None" OnRowCommand="Grilla_Cliente_RowCommand" Width="100%" AllowSorting="True">
                                         <AlternatingRowStyle BackColor="White" />

@@ -21,8 +21,8 @@
         <div class="container-fluid" style="margin: 0; padding: 0; height: auto; overflow:hidden;">
         <div class="row" style="margin: 0; padding: 0;">
             <div class="col-2" style="margin: 0; padding: 0; ">
-                <div class="menuLateral">
-
+                <div class="menuLateral" >
+                    <div>
                     <ul>
                         <li>
                             <a>
@@ -35,17 +35,18 @@
                                 </div>
                             </a>
                         </li>
+                        
                         <li> <button type="button" class="btn btn" data-toggle="modal" data-target="#adjuntos_ticket" style="padding: 0; font-size: 100%;" id="Btn_crear_cliente"><asp:Label ID="lbl_nombre_usuario" runat="server" Text="nombre usuario"></asp:Label></button></li>
                             
                         <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small" Visible="false"></asp:Label></li>
                         <li> <asp:Label ID="Lbl_cargo_tex" runat="server" Text="cargo usuario" Font-Size="Small" ></asp:Label></li>
-                        <li id="Li_Dashboard" runat="server"> <a href="Bandeja_Entrada.aspx" target="eliframe" >Dashboard</a></li>
+                        <li id="Li_Dashboard" runat="server"> <a href="Bandeja_Entrada.aspx" target="eliframe" >DASHBOARD</a></li>
                         <asp:Label ID="lbl_correo_usuario" runat="server" Text="lbl_correo_usuario" Visible="False"></asp:Label>
                         <asp:Label ID="lbl_correo_cliente" runat="server" Text="lbl_correo_cliente" Visible="False"></asp:Label>
                         <li  id="Div_menu_tickets" runat="server" visible="false">
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tickets
+                            <div class="dropdown" aria-orientation="horizontal" >
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    TICKETS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a runat="server" class="dropdown-item" href="Generar_Ticket_usuario.aspx" target="eliframe" id="idGenerar_Ticket">Crear TICKET</a>
@@ -60,7 +61,7 @@
                          <li  id="li_acta" runat="server" visible="true">
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Actas
+                                    ACTAS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a runat="server" class="dropdown-item" href="Lista_actas.aspx" target="eliframe" id="A1">Total actas</a>
@@ -75,7 +76,7 @@
                          <li id="Div_empresas_clientes" runat="server" visible="false">
                             <div class="dropdown">
                                 <a id="empresas_clientes" runat="server" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Empresas y clientes  
+                                    EMPRESAS Y CLIENTES 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a id="a_crearEmpresa" runat="server" class="dropdown-item" href="Crear_Empresa.aspx" target="eliframe">Empresa</a>
@@ -88,7 +89,7 @@
                         <li id="Div_usuarios_grupos" runat="server" visible="false">
                             <div class="dropdown" >
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Areas y Usuarios
+                                    USUARIOS Y GRUPOS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding:0;">
                                     <a class="dropdown-item" href="Crear_Usuario.aspx " target="eliframe">Usuario</a>
@@ -100,7 +101,7 @@
                         <li id="Div_actualizaciones" runat="server" visible="false">
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Actualizaciones
+                                    ACTUALIZACIONES
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding:0;">
                                     <a class="dropdown-item" href="crear_Estados_Ticket.aspx" target="eliframe">Agregar estados</a>
@@ -112,14 +113,14 @@
                         </li>
                                         
                         
-                        <li><a href="../login.aspx">Cerrar sesión</a></li>
-                        
+                        <li><a href="../login.aspx">CERRAR SESIÓN</a></li>
                     </ul>
                 </div>
             </div>
+            </div>
             <!-- menu central -->
             <div class="col-10" style="margin:0; padding:0; ">
-                <div class="contenido" style="margin:1px; ">
+                <div >
 
                     <iframe src="Tickets_Generados_Usuario.aspx" name="eliframe" id="eliframe"></iframe>
 

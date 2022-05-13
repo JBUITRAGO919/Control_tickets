@@ -451,12 +451,6 @@ namespace DynaIT.app.forms
                     Grafica_tickets_por_estado.DataSourceID = "";
                     Grafica_tickets_por_estado.DataSource = Tickets_estados_grafica;
                     Grafica_tickets_por_estado.DataBind();
-
-
-
-
-
-
                 }
             }
         }
@@ -558,7 +552,6 @@ namespace DynaIT.app.forms
                     Grilla_creditos_tickets2.DataSourceID = "";
                     Grilla_creditos_tickets2.DataSource = tickets_creditos_consultor_griv;
                     Grilla_creditos_tickets2.DataBind();
-
                 }
             }
         }
@@ -606,14 +599,14 @@ namespace DynaIT.app.forms
                     List<Visualizar_Tickets> tickets_empresas_grafica = new List<Visualizar_Tickets>();
                     DateTime fecha_ini = Convert.ToDateTime(inp_Fecha_ini_info.Value + " " + hora_inicio + "");
                     DateTime fecha_fin = Convert.ToDateTime(inp_Fecha_fin_info.Value + " " + hora_fin + "");
-                    
+
                     infirme_grilla = datos.Grilla_informe(fecha_ini, fecha_fin);
 
                     Grilla_informe.DataSourceID = "";
                     Grilla_informe.DataSource = infirme_grilla;
                     Grilla_informe.DataBind();
 
-                   
+
 
                 }
             }
@@ -637,6 +630,8 @@ namespace DynaIT.app.forms
             Grilla_informe.RenderControl(htmltextwrtter);
             Response.Write(strwritter.ToString());
             Response.End();
-         }
+        }
+
+       
     }
 }

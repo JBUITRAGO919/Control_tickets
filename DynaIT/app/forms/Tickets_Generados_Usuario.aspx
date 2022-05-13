@@ -151,11 +151,11 @@
                             <div class="card-body table-responsive p-0" style="overflow: scroll; align-content: center; height: 88vh; width: 100%;">
 
 
-                                <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#333333" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding" OnDataBound="Grilla_Tickets_generados_usuario_DataBound">
+                                <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#000" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding" OnDataBound="Grilla_Tickets_generados_usuario_DataBound">
                                     <AlternatingRowStyle BorderStyle="None" BackColor="White" />
                                     <Columns>
                                         <asp:ButtonField CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
-                                            <ControlStyle Font-Underline="True" ForeColor="#0000CC" />
+                                            <ControlStyle Font-Underline="True" ForeColor="#000" />
                                         </asp:ButtonField>
                                         <asp:ButtonField CommandName="Select_2" HeaderText="Nº Ticket" DataTextField="N_Ticket" Visible="False">
                                             <ControlStyle Font-Underline="True" ForeColor="#0000CC" />
@@ -178,7 +178,7 @@
                                     </Columns>
                                     <EditRowStyle BorderStyle="None" BackColor="#2461BF" />
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BorderStyle="None" HorizontalAlign="Center" BackColor="#507CD1" Font-Bold="True" Font-Italic="True" ForeColor="White" Font-Size="Smaller" />
+                                    <HeaderStyle BorderStyle="None" HorizontalAlign="Center" BackColor="#424C52" Font-Bold="True" Font-Italic="True" ForeColor="White" Font-Size="Smaller" />
                                     <PagerSettings NextPageText="&gt;&gt;;" PageButtonCount="6" />
                                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                                     <RowStyle BackColor="#EFF3FB" HorizontalAlign="Left" VerticalAlign="Top" Wrap="False" CssClass="alinearColumnas" Font-Size="Smaller" />

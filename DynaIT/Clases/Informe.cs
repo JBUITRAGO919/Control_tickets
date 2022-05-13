@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DynaIT.Clases
+﻿namespace DynaIT.Clases
 {
     public class Informe
     {
@@ -17,6 +12,6 @@ namespace DynaIT.Clases
         public int n_creditos_hoy { get; set; }
         public int n_ticket_desarrollo { get; set; }
         public int n_ticket_proyecto { get; set; }
-           
+
     }
 }

@@ -1,14 +1,6 @@
 ﻿@import url('Style.css');
 
-.traerNota {
-    border-radius: 5px;
-    margin:0;
-    align-content: center;
-    text-align: center;
-    height: auto;
-    box-shadow: cadetblue 3px 3px 3px 3px;
-    justify-content: space-around;
- }
+
 
 
 
@@ -17,12 +9,12 @@ body {
     padding: 0;
     height: 100vh;
     overflow: hidden;
+    background-color: #EBEFF0;
 }
 
 li {
     list-style: none;
-    padding:10px;
-    
+    padding: 10px;
 }
 
 a {
@@ -31,26 +23,29 @@ a {
 }
 
 .menuLateral {
-    background-color: darkgoldenrod;
+    background-color: #4DA7E4;
     height: 100vh;
     padding: 0;
     margin: 0;
-    width:100%;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding-right: 35px;
 }
+
 .contenido {
     padding: 1px;
     margin: 0;
     /*height: 100vh;*/
     width: 100%;
-    
 }
+
 iframe {
     width: 100%;
     height: 100vh;
     border: none;
     padding: 1px;
     margin: 0;
-    
 }
 
 ul li a {
@@ -76,7 +71,6 @@ ul li a {
 }
 /*clase para centrar tabla de los formularios de creación*/
 .GrillaInferior {
-       
     align-content: center;
     height: 80vh;
     width: 100%;
@@ -87,22 +81,19 @@ ul li a {
 .TitleForm {
     text-align: center;
     /*margin: 5px 0px 5px auto;*/
- 
-    
 }
 
 .bodycrearcliente {
     background-color: aliceblue;
-    padding:20px;
-    margin:0;
-    width:98%;
-    height:100vh;
+    padding: 20px;
+    margin: 0;
+    width: 98%;
+    height: 100vh;
 }
 
-.div_titilo_crear_cliente{
-    
-    margin:12px;
-    padding:7px;
+.div_titilo_crear_cliente {
+    margin: 12px;
+    padding: 7px;
 }
 
 .contenidoPlantilla {
@@ -127,26 +118,26 @@ ul li a {
 
 .alingCheckbox {
     display: flex;
-    text-align:center;
+    text-align: center;
     align-items: center;
     justify-content: center;
 }
 /*clase para bordes de los DropDownList*/
 .bordesDrop {
-    border:hidden;
-    border-radius:5px;
-    background-color:white;
-    color:black;
+    border: hidden;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
 }
 /*clase para organizar los div de la badeja de entrada*/
 .bandejaEntradaDiv {
     border-radius: 3px;
     background-color: dimgrey;
-    margin:1px;
-    padding:9px;
+    margin: 1px;
+    padding: 9px;
     align-items: center;
     justify-content: center;
-    width:100%;
+    width: 100%;
 }
 
 .bandejaEntradaDivdos {
@@ -159,9 +150,11 @@ ul li a {
     width: 100%;
     color: antiquewhite;
 }
+
 .dropdown:hover > .dropdown-menu {
     display: block;
 }
+
 alinearColumnas {
     padding: 0;
     text-align: left;
@@ -169,31 +162,35 @@ alinearColumnas {
 
 #btn_limpiar {
     background-image: src(../img/dynamics.jpg);
-    border:solid 3px;
+    border: solid 3px;
 }
-.holaaa{
-    border:solid 3px;
-         
-}
-.Tex_correo:invalid {
 
+.holaaa {
+    border: solid 3px;
+}
+
+.Tex_correo:invalid {
     box-shadow: cadetblue -2px -2px 4px 1px;
     border: solid red;
 }
+
 .div_chat_notas::-webkit-scrollbar {
     width: 12px;
 }
+
 .div_chat_notas::-webkit-scrollbar-track {
     width: 12px;
-    background-color:darkgray;
+    background-color: darkgray;
 }
+
 .div_chat_notas::-webkit-scrollbar-thumb {
-    background-color: blue; 
-    border-radius: 20px; 
+    background-color: blue;
+    border-radius: 20px;
     border: 3px solid orange;
 }
-.div_chat_notas{
-    background-color:aqua;
+
+.div_chat_notas {
+    background-color: aqua;
 }
 
 

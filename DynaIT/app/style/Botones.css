@@ -1,0 +1,75 @@
+﻿:root {
+    --white: white;
+    --black: black;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.bg-dark {
+    background-color: rgb(186, 188, 194);
+    min-height: calc(100vh - 30px);
+    margin: 0;
+}
+
+.btn-ghost.round {
+    border-radius: 30px;
+    position: relative;
+    display: inline-block;
+    border: 2px solid var(--white);
+    padding: 10px 10px;
+    color: var(--black);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: var(--white);
+    transition: color 0.5s, 0.5s;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    font-size: 10px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.btn-ghost.secundary {
+    background-color: transparent;
+    color: var(--black);
+    position: relative;
+    display: inline-block;
+    border: 2px solid var(--white);
+    padding: 10px 20px;
+    color: var(--black);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.5s, 0.5s;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.btn-ghost:hover {
+    color: var(--white);
+    background-color: transparent;
+}
+
+.btn-ghost.secundary:hover {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.col-2 {
+    border-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 2%;
+}
