@@ -83,3 +83,11 @@ exec informe3 '2022-05-10 00:00:00', '2022-05-10 23:59:58';
 
 select COUNT(id_ticket) from ticket where Fecha between '2022-05-10 00:00:00' and '2022-05-10 23:59:58'
 select COUNT(id_ticket) from ticket where fecha_resuelto_ticket between '2022-05-09 00:00:00' and '2022-05-09 23:59:58'
+
+
+select * from nota where id_ticket=6
+
+select * from nota where id_nota=15
+
+select * from acta
+select * from usuario where id_usuario=10

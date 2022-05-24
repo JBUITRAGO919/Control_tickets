@@ -475,8 +475,7 @@ namespace DynaIT.app.forms
         protected void btn_agregar_creditos_Click2(object sender, EventArgs e)
         {
             lbl_n_creditos.Text = N_creditos.Value;
-
-
+            check_genera_acta.Enabled = false;
         }
 
 
@@ -1039,6 +1038,7 @@ namespace DynaIT.app.forms
 
                 cargar_datos_ticket();
                 Txt_descripcion_nota.Value = "";
+                check_genera_acta.Enabled = true;
             }
 
 

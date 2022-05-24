@@ -15,44 +15,37 @@
     <link href="../style/Style.css" rel="stylesheet" />
     <script src="../js/Validacion_JavaScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="../style/Botones.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="scrip_lis_actas" runat="server"></asp:ScriptManager>
         <div class="container-fluid" style="height: 99vh;">
-            
-
             <div class="row">
-                <div class="col-12" style="margin: 0, 10px; display: flex; justify-content: space-around; padding: 0, 15px;">
+                <div class="menuActas" style="display: flex; justify-content: space-around; padding: 0; width: 100%">
                    
                      <div class="">
                         <div style="">
-
                             <div>
                                 <br />
-                          <asp:Button ID="btn_limpiar" runat="server" Text="Borrar Filtros" CssClass="btn btn-outline-success btn-sm" OnClick="btn_limpiar_Click" />
-
+                          <asp:Button ID="btn_limpiar" runat="server" Text="Borrar Filtros" CssClass="col-121" Style="border-radius: 5px; margin: 1px;" BorderColor="White" ForeColor="White" Font-Italic="True" OnClick="btn_limpiar_Click" BorderWidth="1px" />
                             </div>
                         </div>
-
+                     </div>
+                    <div class="">
+                        <div style="">
+                            <div>
+                                <br />
+                                <asp:Button ID="Btn_exportar_actas" runat="server" Text="Exportar" CssClass="col-121" Style="border-radius: 5px; margin: 1px;" BorderColor="White" ForeColor="White" Font-Italic="True" OnClick="Btn_exportar_actas_Click" BorderWidth="1px" />
+                            </div>
+                        </div>
                     </div>
                     <div class="">
                         <div style="">
 
                             <div>
                                 <br />
-                                <asp:Button ID="Btn_exportar_actas" runat="server" Text="Exportar" CssClass="btn btn-outline-success btn-sm" OnClick="Btn_exportar_actas_Click" />
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="">
-                        <div style="">
-
-                            <div>
-                                <br />
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_busqueda_actas" style="border-radius: 5px; margin: 3px;">Buscar</button>
+                                <button type="button" class="btn-buscarTickets" data-toggle="modal" data-target="#modal_busqueda_actas" style="border-radius: 5px; margin: 1px;">Buscar</button>
 
                             </div>
                         </div>
@@ -78,7 +71,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="background-color: #EBEFF0; text-align: center">
                                         <%-----------------------------------------------------%>
                                      
                                         <div class="">
@@ -141,7 +134,7 @@
                                         <%---------------------------------------------------------%>
                                     </div>
                                     <div class="modal-footer">
-                                       
+                                        <asp:Button Text="Limpiar" runat="server" OnClick="btn_limpiar_Click"/>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </ContentTemplate>

@@ -2241,10 +2241,6 @@ namespace DynaIT.Clases
                 myTicket.Fecha_cierre_ticket = registro.GetDateTime(12);
                 myTicket.Numero_Dias = registro.GetInt32(13);
                 myTicket.tiempo_Respuesta = registro.GetDateTime(14);
-
-
-
-
                 // Agrego el objeto estudiante creado a la lista
                 Visualizar_Tickets.Add(myTicket);
             }
@@ -2276,6 +2272,27 @@ namespace DynaIT.Clases
             }
             registro.Close();
             return Visualizar_Tickets;
+        }
+
+        public List<Tickets_con_notas> tickets_con_notas()
+        {
+            string sql = " select ticket.id_ticket, isnull((select max(id_nota)as ultima_nota from nota where nota.id_ticket = ticket.id_ticket group by id_ticket),0)as n_ultim_nota from ticket ";
+
+            List<Tickets_con_notas> Ticket_con_notas = new List<Tickets_con_notas>();
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Tickets_con_notas myTicket = new Tickets_con_notas();
+
+                myTicket.N_Ticket = registro.GetInt32(0);
+                myTicket.N_ultima_nota = registro.GetInt32(1);
+
+                Ticket_con_notas.Add(myTicket);
+            }
+            registro.Close();
+            return Ticket_con_notas;
         }
 
         //Se deshabilita ticket que fue fusionado a otro

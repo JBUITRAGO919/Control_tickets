@@ -242,14 +242,12 @@
     <Content Include="app\forms\Recuperar_Contraseña.aspx" />
     <Content Include="app\forms\Tickets_Generados_Usuario.aspx" />
     <Content Include="app\img\dynamics.ico" />
-    <Content Include="app\img\dynamics.jpg" />
-    <Content Include="app\img\Dynamicsimg.png" />
+    <Content Include="app\img\dynamics.png" />
+    <Content Include="app\img\login.png" />
     <Content Include="app\style\Botones.css" />
     <Content Include="app\style\Style.css" />
     <Content Include="app\style\style_login.css" />
-    <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="libman.json" />
     <Content Include="app\login.aspx" />
@@ -398,15 +396,9 @@
     <Compile Include="Clases\Gestion_Datos.cs" />
     <Compile Include="Clases\Clase_Parametros.cs" />
     <Compile Include="Clases\Informe.cs" />
+    <Compile Include="Clases\Tickets_con_notas.cs" />
     <Compile Include="Clases\Validaciones.cs" />
     <Compile Include="Clases\Visualizar_Tickets.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -523,7 +515,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

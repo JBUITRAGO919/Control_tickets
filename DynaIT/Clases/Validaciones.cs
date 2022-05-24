@@ -458,13 +458,32 @@ namespace DynaIT.Clases
             if (registro.Read())
             {
                 registro.Close();
-
                 return true;
             }
             else
             {
                 registro.Close();
                 return false;
+            }
+        }
+        public Boolean Validar_nota(int n_nota)
+        {
+            string sql = (" select nota_usuario from nota where id_nota = @id_nota ");
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            cmd.Parameters.AddWithValue("@id_nota", n_nota);
+            //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
+            SqlDataReader registro = cmd.ExecuteReader();                
+            if (registro.Read())
+            {
+                Boolean valor =  registro.GetBoolean(0);
+                registro.Close();
+                return valor;
+            }
+            else
+            {
+                Boolean valor = false;
+                registro.Close();
+                return valor;
             }
         }
 
@@ -474,8 +493,6 @@ namespace DynaIT.Clases
         //      validar si existe el Correo de usuario y contraseña 
         public Boolean recuperar_contraseña(string Nombre, string Correo, string clave)
         {
-
-
             var mailService = new correo_recuperacion();
             mailService.sendMail(
                 subject: "Solicitud recuperacion de contraseña",
@@ -485,11 +502,10 @@ namespace DynaIT.Clases
                 );
 
             return true;
-
-
-
-
         }
+
+
+       
 
         //      
         public Boolean recuperar_contraseña_cliente(string Correo)

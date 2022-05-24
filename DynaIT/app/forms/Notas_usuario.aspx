@@ -23,7 +23,7 @@
         <div class="container-fluid" style="overflow: hidden;">
              <asp:ScriptManager ID="ScriptManag" runat="server" />
             <div class="row"  >
-                <div class="col-6" >
+                <div class="col-9" >
                     <div class="card direct-chat direct-chat-primary">
                         <div class="card-header">
                 <h3 class="card-title">Notas creadas</h3>
@@ -47,7 +47,7 @@
                             </div>
                   <div class="input-group">
                       <%--<asp:TextBox class="form-control"  TextMode="MultiLine" Width="100%"></asp:TextBox>--%>
-                    <input type="text" name="message" placeholder="Responder.........." class="form-control" ID="Txt_descripcion_nota" runat="server"/>
+                    <input type="text" name="message" placeholder="Responder.........." class="form-control" id="Txt_descripcion_nota" runat="server"/>
                     <span class="input-group-append">
                       <asp:Button ID="Btn_agregar_Nota" runat="server" Text="Responder" CssClass="btn btn-outline-info" OnClick="Btn_agregar_Nota_Click" />
                     </span>
@@ -55,33 +55,33 @@
               </div>
             </div>
                 </div>
-                <div class="col-6 " style="height: 99vh; overflow: auto;">
-                    <div class="bandejaEntradaDivdos">
-                        <div class="row">
+                <div class="col-3 " style=" width:100%; overflow: auto;">
+                    <div class="bandejaEntradaDivdos" style="background-color: #E5E2E2; height: 98vh; ">
+                        <div class="row" style="">
                             <div class="col-12">
                                  <div class="row">
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6" style="width:50%;" > 
-                                        <asp:Label runat="server" Text="Numero de ticket: " Font-Bold="True" Font-Size="15pt" ></asp:Label><br />
-                                        <asp:Label ID="Lbl_id_ticket" runat="server" Text="Lbl_id_ticket" Font-Size="20pt"></asp:Label>
+                                        <asp:Label runat="server" Text="Numero de ticket: " Font-Bold="True" Font-Size="10pt" ForeColor="Black" ></asp:Label><br />
+                                        <asp:Label ID="Lbl_id_ticket" runat="server" Text="Lbl_id_ticket" Font-Size="15pt" Font-Italic="True" ForeColor="Black"></asp:Label>
                                     </div>
                                     <div class="col-6"> 
-                                        <asp:Label ID="Lbl_Tipo_t" runat="server" Text="Tipo Ticket" Font-Bold="True" Font-Size="15pt"></asp:Label><br />
-                                        <asp:Label ID="Lbl_Tipo_Ticket" runat="server" Text="Lbl_Tipo_Ticket" Font-Size="15pt"></asp:Label>
+                                        <asp:Label ID="Lbl_Tipo_t" runat="server" Text="Tipo Ticket" Font-Bold="True" Font-Size="10pt" ForeColor="Black"></asp:Label><br />
+                                        <asp:Label ID="Lbl_Tipo_Ticket" runat="server" Text="Lbl_Tipo_Ticket" Font-Size="10pt" ForeColor="Black"></asp:Label>
                                     </div>
                                 </div>
                                 <hr />
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-12">
                                          <div>
-                                            <asp:Label ID="lbl_1" runat="server" Text="Titulo" Font-Size="15pt"></asp:Label>
-                                            <asp:TextBox ID="Txt_Resumen_ticket" runat="server" Enabled="False" Width="100%"></asp:TextBox>
+                                            <asp:Label ID="lbl_1" runat="server" Text="Titulo" Font-Size="10pt" ForeColor="Black"></asp:Label>
+                                            <asp:TextBox ID="Txt_Resumen_ticket" runat="server" Enabled="False" Width="100%" Font-Size="10pt" ForeColor="Black"></asp:TextBox>
                                         </div>
-                                        <asp:Label ID="Label6" runat="server" Text="Descripción: " Font-Bold="True"></asp:Label><br />
-                                        <div style="height:200px; overflow: scroll; background-color:white;">
-                                            <asp:Label ID="Lbl_descripcion" runat="server" Text="Lbl_descripcion" Font-Bold="False" Font-Italic="True" ForeColor="Black"></asp:Label>
-                                        </div>
+                                        <asp:Label ID="Label6" runat="server" Text="Descripción: " Font-Bold="True" ForeColor="Black"></asp:Label><br />
+                                        
+                                            <asp:Label ID="Lbl_descripcion" runat="server" Text="Lbl_descripcion" Font-Bold="False" Font-Italic="True" ForeColor="Black" Font-Size="10pt"></asp:Label>
+                                        
                                     </div>
                                    
 
@@ -92,8 +92,8 @@
                                 <hr />
                                 <div class="row">
                                     <div class="col-6">
-                                        <asp:Label ID="Label1" runat="server" Text="Estado" Font-Bold="True"></asp:Label><br />
-                                        <asp:DropDownList ID="List_estados" runat="server" DataSourceID="Tabla_estados" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estados_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:Label ID="Label1" runat="server" Text="Estado" Font-Bold="True" Font-Size="10pt" ForeColor="Black"></asp:Label><br />
+                                        <asp:DropDownList ID="List_estados" runat="server" DataSourceID="Tabla_estados" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estados_SelectedIndexChanged" Font-Size="Smaller" ForeColor="Black"></asp:DropDownList>
                                         <asp:SqlDataSource ID="Tabla_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM [estado_ticket]"></asp:SqlDataSource>
                                     </div>
                                     <div class="col-6">
@@ -106,33 +106,33 @@
                                 </div>                        <hr />
                         <div class="row" style="margin-top: 10px; ">
                             <div class="col-12">
-                                <div>
-                                    <asp:Label ID="Label2" runat="server" Text="Fecha de creación"></asp:Label>
-                                    <asp:Label ID="Lbl_fecha" runat="server" Text="Lbl_fecha"></asp:Label><br />
-                                    <asp:Label ID="labela" runat="server" Text="Fecha de vencimiento"></asp:Label>
-                                    <asp:Label ID="lbl_tiempo_respuesta" runat="server" Text="Sin fecha"></asp:Label>
+                                
+                                    <asp:Label ID="Label2" runat="server" Text="Fecha de creación" Font-Size="10pt" Font-Bold="True" ForeColor="Black"></asp:Label><br />
+                                    <asp:Label ID="Lbl_fecha" runat="server" Text="Lbl_fecha" Font-Size="10pt" ForeColor="Black"></asp:Label><br />
+                                     
+                                    <asp:Label ID="labela" runat="server" Text="Fecha de vencimiento" Font-Size="10pt" Font-Bold="True" ForeColor="Black"></asp:Label><br />
+                                    <asp:Label ID="lbl_tiempo_respuesta" runat="server" Text="Sin fecha" Font-Size="10pt" ForeColor="Black"></asp:Label><br />
                                 </div>
-                            </div>
+                            
                         </div>
                                 <hr />
-                                <div class="row" style="margin:0; padding:0; >
-                                    <div class="col-6">
-                                <div style="padding:3px;">
-                                    <asp:Label ID="Label4" runat="server" Text="Solicitado por : " Font-Bold="True"></asp:Label><br />
+                                <div class="row" style="margin:0; padding:0;">
+                                    <div class="col-12">
+                                <div >
+                                    <asp:Label ID="Label4" runat="server" Text="Solicitado por : " Font-Bold="True" Font-Size="10pt" ForeColor="Black"></asp:Label><br />
                                     <%--<asp:Label ID="Lbl_cliente" runat="server" Text="Lbl_cliente"></asp:Label>--%>
-                                    <asp:DropDownList ID="List_clientes_empresa" runat="server" AutoPostBack="True" DataSourceID="tabla_clientes_empresa" DataTextField="Nombre_Cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_empresa_SelectedIndexChanged" Font-Size="Small"></asp:DropDownList>
+                                    <asp:DropDownList ID="List_clientes_empresa" runat="server" AutoPostBack="True" DataSourceID="tabla_clientes_empresa" DataTextField="Nombre_Cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_empresa_SelectedIndexChanged" Font-Size="Smaller" ForeColor="Black"></asp:DropDownList>
                                     <asp:SqlDataSource ID="tabla_clientes_empresa" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_Cliente, nombre_cliente FROM cliente WHERE (empresa_id = @Id_Empresa)">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_id_empresa" Name="Id_Empresa" PropertyName="Text" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div style="width: 100%; padding:3px;">
-                                    <asp:Label ID="Label5" runat="server" Text="Asignado a " Font-Bold="True"></asp:Label>
+                           
+                                <div style="width: 100%;">
+                                    <asp:Label ID="Label5" runat="server" Text="Asignado a " Font-Bold="True" Font-Size="10pt" ForeColor="Black"></asp:Label>
                                     <br />
-                                    <asp:DropDownList ID="List_Usuarios" runat="server" DataSourceID="Tabla_usuarios" DataTextField="nombre_usuario" DataValueField="id_Usuario" AutoPostBack="True" OnSelectedIndexChanged="List_Usuarios_SelectedIndexChanged" Font-Size="Small"></asp:DropDownList>
+                                    <asp:DropDownList ID="List_Usuarios" runat="server" DataSourceID="Tabla_usuarios" DataTextField="nombre_usuario" DataValueField="id_Usuario" AutoPostBack="True" OnSelectedIndexChanged="List_Usuarios_SelectedIndexChanged" Font-Size="Smaller" ForeColor="Black"></asp:DropDownList>
                                     <asp:SqlDataSource ID="Tabla_usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_Usuario, nombre_usuario FROM usuario WHERE (id_Usuario = '1') OR (id_Usuario = '2') OR (Usuario_Habilitado = 'Si')"></asp:SqlDataSource>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                             <asp:Label ID="ruta_nota" Text="ruta_nota" runat="server" Visible="False" />
                         </div>
                     </div>
-                    <asp:Label ID="lbl_fecha_nota" runat="server" Text="lbl_fecha_nota" Visible="False"></asp:Label>
+                    <asp:Label ID="lbl_fecha_nota" runat="server" Text="lbl_fecha_nota" Visible="False" Font-Size="10pt"></asp:Label>
                     <asp:Label ID="Lbl_id_cliente" runat="server" Text="Lbl_id_cliente" Visible="False"></asp:Label>
                     <asp:Label ID="lbl_id_usuario" runat="server" Text="lbl_id_usuario" Visible="False"></asp:Label>
                     <asp:Label ID="Lbl_id_estado" runat="server" Text="Lbl_id_estado" Visible="False"></asp:Label>
@@ -286,6 +286,5 @@
             </div>
         </div>
     </form>
-    
 </body>
 </html>

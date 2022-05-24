@@ -42,24 +42,6 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.Timer Timer1;
 
         /// <summary>
-        /// Control Tabla_empresas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Tabla_empresas;
-
-        /// <summary>
-        /// Control panel_cerrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_cerrar;
-
-        /// <summary>
         /// Control lbl_n_registro.
         /// </summary>
         /// <remarks>
@@ -114,6 +96,42 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Button Btn_exportar;
 
         /// <summary>
+        /// Control Lbl_id_usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_id_usuario;
+
+        /// <summary>
+        /// Control lbl_rol_usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_rol_usuario;
+
+        /// <summary>
+        /// Control lbl_nombre_usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_nombre_usuario;
+
+        /// <summary>
+        /// Control lbl_correo2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_correo2;
+
+        /// <summary>
         /// Control div_col_empresa.
         /// </summary>
         /// <remarks>
@@ -139,6 +157,15 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList List_Empresas;
+
+        /// <summary>
+        /// Control Tabla_empresas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Tabla_empresas;
 
         /// <summary>
         /// Control div_col_cliente.
@@ -249,40 +276,13 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.SqlDataSource tabla_Agentes;
 
         /// <summary>
-        /// Control Lbl_id_usuario.
+        /// Control Btn_Limpiar_filtros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_id_usuario;
-
-        /// <summary>
-        /// Control lbl_rol_usuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_rol_usuario;
-
-        /// <summary>
-        /// Control lbl_nombre_usuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_nombre_usuario;
-
-        /// <summary>
-        /// Control lbl_correo2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_correo2;
+        protected global::System.Web.UI.WebControls.Button Btn_Limpiar_filtros;
 
         /// <summary>
         /// Control Grilla_Tickets_generados_usuario.

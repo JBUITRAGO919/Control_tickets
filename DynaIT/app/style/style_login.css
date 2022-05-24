@@ -1,4 +1,5 @@
-﻿html {
+﻿[11:41 a. m.] Consultor 24
+html {
     background-color: #56baed;
 }
 
@@ -23,9 +24,6 @@ h2 {
     margin: 40px 8px 10px 8px;
     color: #cccccc;
 }
-
-
-
 /* STRUCTURE */
 
 .wrapper {
@@ -36,12 +34,13 @@ h2 {
     width: 100%;
     min-height: 100%;
     padding: 20px;
+    opacity: 0.8;
 }
 
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: rgba(132, 173, 210, 0.81);
     padding: 30px;
     width: 70%;
     max-width: 450px;
@@ -50,16 +49,14 @@ h2 {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
-    
 }
 
 #formContent_recupera {
-    
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
     padding: 30px;
-    width: 80%;    
+    width: 80%;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -69,16 +66,12 @@ h2 {
 }
 
 #formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
+    background: rgba(132, 173, 210, 0.81);
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
 }
-
-
-
 /* TABS */
 
 h2.inactive {
@@ -89,13 +82,10 @@ h2.active {
     color: #0d0d0d;
     border-bottom: 2px solid #5fbae9;
 }
-
-
-
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset] {
-    background-color: #56baed;
+    background-color: #2EA7FF;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -150,9 +140,9 @@ input[type=text], input[type=password] {
 }
 
 #Txt_correo_recupera {
-    background-color: #f6f6f6;
+    background-color: #fff;
     border: none;
-    color: #0d0d0d;
+    color: #000;
     padding: 5px 20px;
     text-align: center;
     text-decoration: none;
@@ -172,18 +162,13 @@ input[type=text], input[type=password] {
 
 input[type=text]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #fff;
 }
 
-    input[type=text] :placeholder {
-        color: #cccccc;
-    }
-
-
-
-/* ANIMATIONS */
-
-/* Simple CSS3 Fade-in-down Animation */
+input[type=text] :placeholder {
+    color: #000;
+}
+/* ANIMATIONS */ /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
@@ -220,7 +205,6 @@ input[type=text]:focus {
         transform: none;
     }
 }
-
 /* Simple CSS3 Fade-in Animation */
 @-webkit-keyframes fadeIn {
     from {
@@ -288,7 +272,6 @@ input[type=text]:focus {
         -moz-animation-delay: 1s;
         animation-delay: 1s;
     }
-
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
     display: block;
@@ -296,25 +279,20 @@ input[type=text]:focus {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    color: #000;
     content: "";
     transition: width 0.2s;
 }
 
 .underlineHover:hover {
-    color: #0d0d0d;
+    color: #000;
 }
 
     .underlineHover:hover:after {
         width: 100%;
     }
-
-
-
 /* OTHERS */
 
 *:focus {
     outline: none;
 }
-
-

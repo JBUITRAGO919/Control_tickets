@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><i><a href="../img/dynamics.ico">../img/dynamics.ico</a></i>DynamicsIT</title> 
+    <title>DynamicsIT</title> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -327,10 +327,9 @@
                                     </asp:Chart>
 
 
-                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top(@top_trabajados) nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket 
-  inner join nota on nota.id_ticket = ticket.id_ticket
-  inner join usuario on usuario.id_usuario = nota.nota_creada_por
-                 where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario ">
+                                    <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select (@top_trabajados) nombre_usuario, 
+(select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
+from usuario where usuario_Habilitado = 'Si' order by n_ticket desc  ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="List_tickets_trabajados" DbType="Int32" DefaultValue="5" Name="top_trabajados" PropertyName="SelectedValue" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
@@ -340,11 +339,11 @@
 
 
                                     <%--grilla--%>
-                                    <asp:GridView Visible="false" ID="Grilla_Ticket_trabajado_fecha" runat="server" AutoGenerateColumns="False" DataSourceID="Tickets_trabajados_driv" CssClass="table table-head-fixed text-nowrap" CellPadding="4" ForeColor="#333333" GridLines="None" OnLoad="Grilla_Ticket_trabajado_fecha_Load">
+                                    <asp:GridView Visible="False" ID="Grilla_Ticket_trabajado_fecha" runat="server" AutoGenerateColumns="False" DataSourceID="Tickets_trabajados_driv" CssClass="table table-head-fixed text-nowrap" CellPadding="4" ForeColor="#333333" GridLines="None" OnLoad="Grilla_Ticket_trabajado_fecha_Load">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
                                             <asp:BoundField DataField="nombre_usuario" HeaderText="nombre_usuario" SortExpression="nombre_usuario" />
-                                            <asp:BoundField DataField="N_tickets" HeaderText="N_tickets" ReadOnly="True" SortExpression="N_tickets" />
+                                            <asp:BoundField DataField="n_ticket" HeaderText="n_ticket" ReadOnly="True" SortExpression="n_ticket" />
                                         </Columns>
                                         <EditRowStyle BackColor="#2461BF" />
                                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -360,10 +359,9 @@
 
                                     
 
-                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets from ticket
-  inner join nota on nota.id_ticket = ticket.id_ticket
-  inner join usuario on usuario.id_usuario = nota.nota_creada_por
-  where FechaNota between @fecha_inicio AND @fecha_fin group by nombre_usuario">
+                                    <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select nombre_usuario, 
+(select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
+from usuario where usuario_Habilitado = 'Si' order by n_ticket desc ">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" Name="fecha_inicio" PropertyName="Text" />
                                             <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
@@ -690,7 +688,7 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
                     <div class="row">
                         <div class="col-12">
                             <div class="card mb-4">
-                                <div class="card-header" style="background-color: cadetblue; align-content:center;">
+                                <div class="card-header" style="background-color:#424C52; align-content:center;">
                                  <i class="fa fa-pie-chart"></i>Informe                                       
                                  </div>
                                 <div class="card-body">
@@ -776,7 +774,7 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
                                     </asp:UpdatePanel>
                                    
                                 </div>
-                                <div class="card-footer small text-muted" style="background-color: cadetblue">
+                                <div class="card-footer small text-muted" style="background-color:#424C52;">
                                     <asp:Label ID="Label18" Text="" runat="server" />
                                     <asp:Button Text="Exportar" runat="server" ID="Btn_exportar_informe" OnClick="Btn_exportar_informe_Click" />
                                 </div>
