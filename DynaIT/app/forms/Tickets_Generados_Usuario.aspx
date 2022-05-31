@@ -16,6 +16,9 @@
 
     <link href="../style/Style.css" rel="stylesheet" />
     <script src="../js/Validacion_JavaScript.js"></script>
+    <script type="text/javascript">
+       
+    </script>    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -159,7 +162,7 @@
                                 <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#000" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding">
                                     <AlternatingRowStyle BorderStyle="None" BackColor="White" />
                                     <Columns>
-                                        <asp:ButtonField CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
+                                        <asp:ButtonField  CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
                                             <ControlStyle Font-Underline="True" ForeColor="#000" />
                                         </asp:ButtonField>
                                         <asp:ButtonField CommandName="Select_2" HeaderText="Nº Ticket" DataTextField="N_Ticket" Visible="False">
@@ -193,6 +196,8 @@
                                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                 </asp:GridView>
+
+
                             </div>
                             <%--////--%>
                         </div>

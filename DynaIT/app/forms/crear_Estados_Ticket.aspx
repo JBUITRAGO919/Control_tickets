@@ -13,10 +13,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="../style/Botones.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid" style="padding: 0; height: 296px;">
+        <div class="container-fluid" style="padding: 0; height: 95vh">
             <div class="contenidoFormulariosCreacion">
                 <!-- Modal para el boton del crearcliente -->
                 <div class="modal fade" id="modal_crear_estado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -42,7 +43,7 @@
                                                         <div class="formularioCreacion">
                                                             <div style="width: 50%;">
                                                                 <asp:Label ID="Label1" runat="server" Text="Estados de tickets"></asp:Label>
-                                                                <asp:TextBox class="form-control mb-2" ID="Txt_EstadosTicket" runat="server" Style="text-transform:capitalize"></asp:TextBox>
+                                                                <asp:TextBox class="form-control mb-2" ID="Txt_EstadosTicket" runat="server"></asp:TextBox>
 
                                                                 <asp:Label ID="Lbl_Recuperar" runat="server" Text="No" Visible="False"></asp:Label>
 
@@ -78,24 +79,24 @@
                 <%--fin del modal--%>
 
 
-                <div class="row">
-                    <div class="col-12">
 
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12" style="text-align: center; margin: 7px;">
-                                        <asp:Label ID="Lbl_Titulo_Todos_Creados" runat="server" Text="Estados creados" Font-Bold="True" Font-Size="20pt"></asp:Label>
-                                        <asp:Label ID="Lbl_Titulo_Eliminados" runat="server" Text="Estados eliminados" Visible="False" Font-Bold="True" Font-Size="20pt"></asp:Label>
+                                <div class="row" style="background-color:#727272; text-align: center;">
+                                    <div class="col-12" >
+                                        <div class="div_titilo_crear_cliente" style="text-align: center;">
+                                            <asp:Label ID="Lbl_Titulo_Todos_Creados" runat="server" Text="Estados creados" Font-Bold="True" Font-Size="Large" ForeColor="White"></asp:Label>
+                                            <asp:Label ID="Lbl_Titulo_Eliminados" runat="server" Text="Estados eliminados" Visible="False" Font-Bold="True" Font-Size="Large" ForeColor="White"></asp:Label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row" style="margin: 20px;">
 
                                     <div class="col" style="text-align: center;">
                                         <asp:Label ID="Lbl_Ver_Eliminados" runat="server" Text="Si" Visible="False"></asp:Label>
-                                        <asp:Button Text="Agregar estado" class="btn btn-primary" runat="server" ID="btn_agregar_estado" OnClick="btn_agregar_estado_Click" />
-                                        <asp:Button Text="ver deshabilitados" class="btn btn-danger" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" />
-                                        <asp:Button Text="ver habilitados" class="btn btn-success" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_habilitados_Click" />
+                                        <asp:Button Text="Agregar estado" class="btn-agregarempresa" runat="server" ID="btn_agregar_estado" OnClick="btn_agregar_estado_Click" />
+                                        <asp:Button Text="ver deshabilitados" class="btn-verdeshabilitados" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 12px;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" />
+                                        <asp:Button Text="ver habilitados" class="btn-verhabilitados" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 12px;" Visible="False" OnClick="Btn_ver_habilitados_Click" />
                                     </div>
                                 </div>
                                 <div class="row" style="margin: 30px;">
@@ -105,7 +106,7 @@
                                                 <asp:UpdatePanel runat="server" ID="panel_tabla_estados"> 
                                                     
                                                     <ContentTemplate>
-                                                      <asp:GridView ID="Grilla_Estados_Ticket" CssClass="table table-bordered table-striped" runat="server" AutoGenerateColumns="False" DataKeyNames="id_Estado_Ticket" DataSourceID="estados_Ticket" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="6" OnRowCommand="Grilla_Estados_Ticket_RowCommand" HorizontalAlign="Center" OnRowDeleting="Grilla_Estados_Ticket_RowDeleting">
+                                                      <asp:GridView ID="Grilla_Estados_Ticket" CssClass="table table-bordered table-striped" runat="server" AutoGenerateColumns="False" DataKeyNames="id_Estado_Ticket" DataSourceID="estados_Ticket" AllowSorting="True" CellPadding="4" ForeColor="#000000" GridLines="None" PageSize="6" OnRowCommand="Grilla_Estados_Ticket_RowCommand" HorizontalAlign="Center" OnRowDeleting="Grilla_Estados_Ticket_RowDeleting">
                                                     <AlternatingRowStyle BackColor="White" />
                                                     <Columns>
                                                         <asp:BoundField DataField="id_Estado_Ticket" HeaderText="N Estado" InsertVisible="False" ReadOnly="True" SortExpression="id_Estado_Ticket" />
@@ -118,17 +119,17 @@
                                                         </asp:ButtonField>
                                                         <asp:TemplateField ShowHeader="False">
                                                             <ItemTemplate>
-                                                                <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" OnClientClick="return confirm('Esta seguro de eliminar el registro?'); "></asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" OnClientClick="return confirm('Esta seguro de eliminar el registro?'); " ForeColor="Black"></asp:LinkButton>
                                                             </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Right" />
+                                                            <ItemStyle HorizontalAlign="Right" ForeColor="Black" />
                                                         </asp:TemplateField>
                                                     </Columns>
                                                     <EditRowStyle BackColor="#2461BF" />
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
-                                                    <HeaderStyle BackColor="#3399FF" BorderStyle="None" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    <HeaderStyle BackColor="#424C52" BorderStyle="None" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     <PagerStyle BackColor="#3399FF" ForeColor="White" HorizontalAlign="Center" />
                                                     <RowStyle BackColor="#EFF3FB" BorderStyle="None" HorizontalAlign="Center" />
-                                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#0000" />
                                                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
                                                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
                                                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
@@ -155,8 +156,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
     </form>
 </body>

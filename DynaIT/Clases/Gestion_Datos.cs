@@ -2333,7 +2333,7 @@ namespace DynaIT.Clases
                 " inner join empresa on empresa.id_empresa = cliente.empresa_id " +
                 " inner join usuario on Usuario.id_usuario = ticket.usuario_id " +
                 " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id " +
-                " inner join tipo_ticket on tipo_ticket.id_tipo_Ticket = ticket.tipo_ticket_id where usuario_id = @idUsuario order by ticket.id_ticket desc ";
+                " inner join tipo_ticket on tipo_ticket.id_tipo_Ticket = ticket.tipo_ticket_id where usuario_id = @idUsuario and ticket_Habilitado= 'Si' order by ticket.id_ticket desc ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
@@ -2483,7 +2483,7 @@ namespace DynaIT.Clases
                 " inner join usuario on Usuario.id_usuario = ticket.usuario_id  " +
                 " inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id " +
                 " inner join prioridad on prioridad.id_prioridad = ticket.prioridad_id " +
-                " inner join tipo_ticket on tipo_ticket.id_tipo_Ticket = ticket.tipo_ticket_id where Ticket_Creado_por = @Ticket_Creado_por order by ticket.id_ticket desc ";
+                " inner join tipo_ticket on tipo_ticket.id_tipo_Ticket = ticket.tipo_ticket_id where Ticket_Creado_por = @Ticket_Creado_por and ticket_Habilitado= 'Si' order by ticket.id_ticket desc ";
 
             List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
 
@@ -4458,15 +4458,16 @@ namespace DynaIT.Clases
                 Informe informe = new Informe();
 
                 informe.id_usuario = registro.GetInt32(0);
-                informe.nombre_usuario = registro.GetString(1);
-                informe.n_casos_inicio_jornada = registro.GetInt32(2);
-                informe.n_ticket_nuevos_dia = registro.GetInt32(3);
+                informe.prefijo_usuario = registro.GetString(1);
+                informe.n_ticket_nuevos_dia = registro.GetInt32(2);
+                informe.n_ticket_nuevos_dia_jornada = registro.GetInt32(3);
                 informe.n_ticket_Resueltos_hoy = registro.GetInt32(4);
                 informe.n_ticket_cerrados_hoy = registro.GetInt32(5);
-                informe.n_ticket_nuevos_cierre_jornada = registro.GetInt32(6);
+                informe.N_casos_abierto_cierre_jornada = registro.GetInt32(6);
                 informe.n_creditos_hoy = registro.GetInt32(7);
                 informe.n_ticket_desarrollo = registro.GetInt32(8);
-                informe.n_ticket_proyecto = registro.GetInt32(9);
+                informe.n_ticket_incidente= registro.GetInt32(9);
+                informe.n_ticket_proyecto = registro.GetInt32(10);
                 // Agrego el objeto estudiante creado a la lista
                 List_informe.Add(informe);
             }

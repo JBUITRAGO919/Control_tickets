@@ -720,37 +720,37 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
                                             <asp:AsyncPostBackTrigger  ControlID="Btn_buscar_informe"/>
                                         </Triggers>
                                         <ContentTemplate>
-                                             <asp:GridView ID="Grilla_informe" runat="server" DataSourceID="informe3" AutoGenerateColumns="False" DataKeyNames="id_usuario" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1175px">
+                                             <asp:GridView ID="Grilla_informe" runat="server" DataSourceID="informe3" AutoGenerateColumns="False" DataKeyNames="id_usuario" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1175px" >
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" Visible="False" />
-                                            <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="nombre_usuario">
-                                                <HeaderStyle />
-                                                <ItemStyle Font-Overline="False" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="n_casos_inicio_jornada" HeaderText="Numero de casos inicio jornada" ReadOnly="True" SortExpression="n_casos_inicio_jornada">
+                                            <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" Visible="false"/>
+                                            <asp:BoundField DataField="prefijo_usuario" HeaderText="Consultor" SortExpression="nombre_usuario">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_nuevos_dia" HeaderText="Numero de casos nuevos (dia)" ReadOnly="True" SortExpression="n_ticket_nuevos_dia">
+                                            <asp:BoundField DataField="n_ticket_nuevos_dia" HeaderText="Número de casos(Inicio jornada)" ReadOnly="True" SortExpression="n_ticket_nuevos_dia">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_Resueltos_hoy" HeaderText="Numero de casos Resueltos (dia)" ReadOnly="True" SortExpression="n_ticket_Resueltos_hoy">
+                                            <asp:BoundField DataField="n_ticket_nuevos_dia_jornada" HeaderText="Número de casos nuevos(Día)" ReadOnly="True" SortExpression="n_ticket_nuevos_dia_jornada">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_cerrados_hoy" HeaderText="Numero de casos cerrados (dia)" ReadOnly="True" SortExpression="n_ticket_cerrados_hoy">
+                                            <asp:BoundField DataField="n_ticket_Resueltos_hoy" HeaderText="Número de casos resuletos" ReadOnly="True" SortExpression="n_ticket_Resueltos_hoy">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_nuevos_cierre_jornada" HeaderText="Numero de casos nuevos cierre jornada" ReadOnly="True" SortExpression="n_ticket_nuevos_cierre_jornada">
+                                            <asp:BoundField DataField="n_ticket_cerrados_hoy" HeaderText="Número de casos cerrados (Final día) " ReadOnly="True" SortExpression="n_ticket_cerrados_hoy">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_creditos_hoy" HeaderText="Numero de creditos (hoy)" ReadOnly="True" SortExpression="n_creditos_hoy">
+                                            <asp:BoundField DataField="N_casos_abierto_cierre_jornada" HeaderText="Número de casos abiertos (Cierre de jornada)" ReadOnly="True" SortExpression="N_casos_abierto_cierre_jornada">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_desarrollo" HeaderText="Numero de casos de desarrollo" ReadOnly="True" SortExpression="n_ticket_desarrollo">
+                                            <asp:BoundField DataField="n_ticket_desarrollo" HeaderText="Número de casos que corresponden a desarrollo" ReadOnly="True" SortExpression="n_ticket_desarrollo">
                                                 <HeaderStyle />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="n_ticket_proyecto" HeaderText="Numero de casos de proyecto" ReadOnly="True" SortExpression="n_ticket_proyecto">
+                                            <asp:BoundField DataField="n_ticket_incidente" HeaderText="Número de casos que corresponden a incidentes" ReadOnly="True" SortExpression="n_ticket_incidente">
                                                 <HeaderStyle  />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="n_ticket_proyecto" HeaderText="Número de casos que corresponden a proyecto" ReadOnly="True" SortExpression="n_ticket_proyecto" />
+                                            <asp:BoundField DataField="n_creditos_hoy" HeaderText="Número de créditos facturados" ReadOnly="True" SortExpression="n_creditos_hoy">
+                                                <HeaderStyle />
                                             </asp:BoundField>
                                         </Columns>
                                         <EditRowStyle BackColor="#2461BF" />

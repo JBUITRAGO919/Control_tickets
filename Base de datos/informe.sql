@@ -67,7 +67,7 @@ drop proc informe3
   @fecha_fin datetime
   as
   begin
-select id_usuario, nombre_usuario, 
+select id_usuario, nombre_usuario,
 (select COUNT(id_ticket) from ticket where (ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_casos_inicio_jornada,
 (select COUNT(id_ticket) from ticket where (ticket.Fecha between DATEADD(day,-1, @fecha_ini) AND DATEADD(day,-1, @fecha_fin) and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_ticket_nuevos_dia,
 (select COUNT(id_ticket) from ticket where (ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=4))as n_ticket_Resueltos_hoy,
@@ -78,7 +78,7 @@ select id_usuario, nombre_usuario,
 (select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=2 ))as n_ticket_proyecto
 from usuario as a where usuario_Habilitado= 'Si'
 end
-exec informe3 '2022-05-10 00:00:00', '2022-05-10 23:59:58';
+exec informe3 '2022-05-24 00:00:00', '2022-05-25 23:59:58';
 
 
 select COUNT(id_ticket) from ticket where Fecha between '2022-05-10 00:00:00' and '2022-05-10 23:59:58'
@@ -91,3 +91,60 @@ select * from nota where id_nota=15
 
 select * from acta
 select * from usuario where id_usuario=10
+
+exec informe3 '2022-05-25 00:00:00', '2022-05-25 23:59:58';
+
+
+select ticket.id_ticket, usuario_id, isnull((select max(id_nota)as ultima_nota from nota where nota.id_ticket = ticket.id_ticket  ) ,0)as n_ultim_nota from ticket
+
+select * from nota where id_ticket = 1
+
+
+select * from ticket
+
+select id_usuario, usuario.prefijo_usuario,
+(select ticket.id_ticket from ticket where ticket.usuario_id=usuario.id_usuario)as n_tickes,
+(select max(nota.id_nota)as ultima_nota from nota where nota.id_ticket = ticket.id_ticket  )as n_ultim_nota
+from usuario 
+inner join ticket on ticket.usuario_id = usuario.id_usuario
+inner join nota on nota.id_ticket = ticket.id_ticket
+where usuario_Habilitado='Si'  group by prefijo_usuario,id_usuario, ticket.id_ticket
+
+
+
+select 
+(select id_usuario from usuario where usuario.id_usuario= ticket.usuario_id)as id_usuario,
+id_ticket, 
+isnull((select max(nota.id_nota) from nota where nota.id_ticket= ticket.id_ticket),0)as n_nota
+from ticket
+
+
+
+drop procedure informe5
+create proc informe5
+  @fecha_ini datetime,
+  @fecha_fin datetime
+  as
+  begin
+select id_usuario, nombre_usuario, 
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between DATEADD(day,-1, @fecha_ini) AND DATEADD(day,-1, @fecha_fin) and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_ticket_nuevos_dia,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))as n_ticket_nuevos_dia_jornada,
+(select COUNT(id_ticket) from ticket where (ticket.fecha_resuelto_ticket between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=4))as n_ticket_Resueltos_hoy,
+(select COUNT(id_ticket) from ticket where (ticket.fecha_cierre_ticket between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=5))as n_ticket_cerrados_hoy,
+((select COUNT(id_ticket) from ticket where (ticket.Fecha between DATEADD(day,-1, @fecha_ini) AND DATEADD(day,-1, @fecha_fin) and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))+
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario))+
+(select COUNT(id_ticket) from ticket where (ticket.fecha_resuelto_ticket between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=4))-
+(select COUNT(id_ticket) from ticket where (ticket.fecha_cierre_ticket between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and estado_id=5)))as suma ,
+(select ISNULL(sum(n_creditos_acta),0) from acta where fecha_crea_acta between @fecha_ini AND @fecha_fin and acta.fk_usuario_id = a.id_usuario) as n_creditos_hoy,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=3 ))as n_ticket_desarrollo,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=2 ))as n_ticket_incidente,
+(select COUNT(id_ticket) from ticket where (ticket.Fecha between @fecha_ini AND @fecha_fin and ticket_Habilitado= 'Si' and ticket.usuario_id = a.id_usuario and tipo_ticket_id=4 ))as n_ticket_proyecto
+from usuario as a where usuario_Habilitado= 'Si'
+end
+exec informe3 '2022-05-27 00:00:00', '2022-05-27 23:59:58';
+
+
+
+
+
+

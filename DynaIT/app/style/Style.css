@@ -23,14 +23,12 @@ a {
 }
 
 .menuLateral {
-    background-color: #4DA7E4;
+    background-color: lightgray;
     height: 100vh;
-    padding: 0;
     margin: 0;
     width: 100%;
     text-align: center;
     font-size: 12px;
-    padding-right: 35px;
 }
 
 .contenido {
@@ -142,7 +140,7 @@ ul li a {
 
 .bandejaEntradaDivdos {
     border-radius: 7px;
-    background-color: darkgray;
+    background-color: dimgrey;
     margin: 1px;
     padding: 20px;
     align-items: center;
@@ -180,7 +178,7 @@ alinearColumnas {
 
 .div_chat_notas::-webkit-scrollbar-track {
     width: 12px;
-    background-color: darkgray;
+    background-color: cornflowerblue;
 }
 
 .div_chat_notas::-webkit-scrollbar-thumb {
@@ -193,5 +191,35 @@ alinearColumnas {
     background-color: aqua;
 }
 
+.img__logo {
+    width: 200px;
+    height: auto;
+    align-content: center;
+    display: flex;
+}
 
-/*-------------------------------moodal de perfil usuario para cambio de contraseña----------------------------------*/
+/*Medidas responsive para vistas */
+@media(max-width: 1180px) {
+    .menuLateral {
+        background-color: #9dc7ab;
+    }
+
+    .conten__menu {
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 840px) {
+    .menuLateral {
+        width: 10px;
+    }
+
+    .conten__menu {
+        width: 10px;
+    }
+
+    .espacio {
+        width: 100%;
+        display: block;
+    }
+}

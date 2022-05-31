@@ -10,10 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-   
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/30f6829453.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="../style/Style.css" rel="stylesheet" />
     <script src="../js/Validacion_JavaScript.js"></script>
     
@@ -38,12 +37,12 @@
                 </div>
               </div>
                 <div class="card-footer" >
-                  <div style="text-align: left; display: flex; justify-content: space-around; margin: 0; padding: 0; " >
+                  <div style="text-align: left; display: flex; justify-content: space-around; margin: 0; padding: 0; margin:5px;" >
                                 <%--<asp:LinkButton  title="Adjuntar" runat="server" Text="<span class='fa fa-paperclip'></span>" />--%>
-                                <button title="Agregar consultores" id="Btn_Agregar_consultores" runat="server" type="button" class="btn btn-primary" data-toggle="modal" data-target="#agentes_agregados" style="padding: 0; font-size: 100%;" ><i class="fas fa-user-plus"></i></button>
+                                <button title="Agregar consultores" id="Btn_Agregar_consultores" runat="server" type="button" class="btn btn-primary" data-toggle="modal" data-target="#agentes_agregados" style="padding: 0; font-size: 100%; width:30px;" ><i class="fa-solid fa-user-tie" style="-moz-animation:forwards,alternate;"></i></button>
                                 <asp:CheckBox title="¿Nota Interna?" text="Nota interna" ID="Check_nota_interna" runat="server" AutoPostBack="True" OnCheckedChanged="Check_nota_interna_CheckedChanged" Font-Size="XX-Small" />
                                 <asp:CheckBox Text="Generar acta" runat="server" ID="check_genera_acta" AutoPostBack="True" Font-Size="X-Small" OnCheckedChanged="check_genera_acta_CheckedChanged" />
-                                <asp:FileUpload  ID="file_nota" runat="server" AllowMultiple="true" Font-Size="Smaller" Visible="true"  CssClass="fa fa-paperclip" />
+                                <asp:FileUpload  ID="file_nota" runat="server" AllowMultiple="true" Font-Size="Smaller" Visible="true" Font-Overline="True" />
                             </div>
                   <div class="input-group">
                       <%--<asp:TextBox class="form-control"  TextMode="MultiLine" Width="100%"></asp:TextBox>--%>
@@ -257,20 +256,46 @@
                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <p class="modal-title" id="">Numero de ticket:</p>
-                                                        <asp:TextBox runat="server" id="txt_id_ticket_buscar"/>
-                                                        <asp:Button Text="Buscar" runat="server" id="Btn_buscar_ticket" OnClick="Btn_buscar_ticket_Click"/>                                                        
+                                                        <p class="modal-title" id="" visible="false" >Seleccione ticket a fusionar</p>
+                                                        <asp:TextBox runat="server" id="txt_id_ticket_buscar" visible="false"/>
+                                                        <asp:Button Text="Buscar" runat="server" id="Btn_buscar_ticket" OnClick="Btn_buscar_ticket_Click" visible="false"/>                                                        
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <asp:LinkButton  runat="server" id="id_ticket_duscado"/>
-                                                        <asp:Label  runat="server" id="lbl_titulo_t_buscado"/>
-                                                        <asp:Label runat="server" id="lbl_descripcion_buscado" />
-                                                        <asp:Label runat="server" id="lbl_estado_buscado" />
+                                                    <div class="modal-body" style="align-items:center;">
+                                                       
+                                                        <%-------------------------%>
+                                                   <asp:GridView ID="Tickets_fusionar" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id_ticket" DataSourceID="TICKETS_FUSIONAR1" ForeColor="#333333" GridLines="None" Height="250px" OnRowCommand="Tickets_fusionar_RowCommand" Width="100%">
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                            <Columns>
+                                                              
+                                                                <asp:ButtonField CommandName="Select_ticket" DataTextField="id_ticket" Text="N_tickets" HeaderText="N_tickets">
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                </asp:ButtonField>
+                                                                <asp:BoundField DataField="Resumen_Problema" HeaderText="Titulo" SortExpression="Resumen_Problema">
+                                                                </asp:BoundField>
+                                                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" visible="false"/>
+                                                            </Columns>
+                                                            <EditRowStyle BackColor="#2461BF" Height="10px" />
+                                                            <EmptyDataRowStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                                                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                                            <RowStyle BackColor="#EFF3FB" />
+                                                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                                        </asp:GridView>
 
-
+                                                         <asp:LinkButton  runat="server" id="id_ticket_duscado" ForeColor="BlueViolet"/><br />
+                                                        <asp:Label  runat="server" id="lbl_titulo_t_buscado" /><br />
+                                                        <asp:Label runat="server" id="lbl_descripcion_buscado"  /><br />
+                                                        <asp:Label runat="server" id="lbl_estado_buscado" /><br />
+                                                        <asp:Button Text="Cancelar" runat="server" OnClick="Cancerlar_seleccón_Click" ID="Cancerlar_seleccón" Visible="false"/> 
+                                                        <%-------------------------%>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <asp:Button Text="Fusionar" runat="server" ID="btn_fusionar" OnClick="btn_fusionar_Click" />
@@ -285,6 +310,9 @@
                 </div>
             </div>
         </div>
+             
+                                                        
+                 <asp:SqlDataSource ID="TICKETS_FUSIONAR1" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_ticket, Resumen_Problema, Descripcion FROM TICKET where ticket_Habilitado='Si'and estado_id=2"></asp:SqlDataSource>                                          
     </form>
 </body>
 </html>

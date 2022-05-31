@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Crear_Grupo_Usuario.aspx.cs" Inherits="DynaIT.app.forms.Crear_Grupo_Usuario" Debug="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Crear_Grupo_Usuario.aspx.cs" Inherits="DynaIT.app.forms.Crear_Grupo_Usuario" %>
 
 <!DOCTYPE html>
 
@@ -13,11 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="../style/Botones.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-            <div class="contenidoFormulariosCreacion">
+            <div class="">
                 <!-- Modal para el boton del crearcliente -->
                 <div class="modal fade" id="modal_crear_grupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog" role="document">
@@ -40,7 +41,7 @@
                                                         <div class="formularioCreacion">
                                                             <div style="width: 50%;">
                                                                 <asp:Label ID="Label1" runat="server" Text="Nueva área"></asp:Label>
-                                                                <asp:TextBox CssClass="form-control mb-2" ID="Txt_Grupo_usuario" runat="server" OnTextChanged="Txt_Grupo_usuario_TextChanged" Style="text-transform:capitalize"></asp:TextBox>
+                                                                <asp:TextBox CssClass="form-control mb-2" ID="Txt_Grupo_usuario" runat="server" OnTextChanged="Txt_Grupo_usuario_TextChanged"></asp:TextBox>
                                                                 <asp:Label ID="Txt_Recuperar_Grupo" runat="server" Visible="False" >Si</asp:Label>
                                                                 <asp:Label ID="Txt_Id_Grupos_usuarios" runat="server" Text="Label" Visible="False"></asp:Label>
                                                             </div>
@@ -66,24 +67,27 @@
                     </div>
                 </div>
                 <%--fin del modal--%>
-                <div class="row" style="margin-top: 20px">
-                    <div class="col" style="text-align: center; margin: 20px">
-                        <asp:Label ID="Txt_Grupos_Habilitados" runat="server" Text="Si" Visible="False"></asp:Label>
-                        <asp:Label ID="Txt_Titulo_Eliminados" runat="server" Text="Área Eliminados" Font-Size="XX-Large" Visible="False"></asp:Label>
-                        <asp:Label ID="Txt_Titulo_Habilitados" runat="server" Text="Área Creados" Font-Size="XX-Large" Visible="True"></asp:Label>
-                        <asp:Label ID="Lbl_id_grupo_habilita" runat="server" Visible="False"></asp:Label>
+                <div class="row" >
+                    <div class=" col-12" style="background-color:#727272">
+                        <div class="div_titilo_crear_cliente">
+                            <div style="text-align: center; padding-bottom:10px; width:100%">
+                                <asp:Label ID="Txt_Grupos_Habilitados" runat="server" Text="Si" Visible="False"></asp:Label>
+                                <asp:Label ID="Txt_Titulo_Eliminados" runat="server" Text="ÁREAS ELIMINADAS" Font-Size="Large" Visible="False" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Txt_Titulo_Habilitados" runat="server" Text="ÁREAS CREADAS" Font-Size="Large" ForeColor="White"></asp:Label>
+                                <asp:Label ID="Lbl_id_grupo_habilita" runat="server" Visible="False"></asp:Label>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12">
-                                <div class="" style="margin-top: 20px; text-align: center;">
-                                    <asp:Button Text="Agregar Área" runat="server" class="btn btn-primary" OnClick="btn_agregar_grupo_Click" ID="btn_agregar_grupo" Style="padding: 5px; font-size: 100%;" />
-                                    <asp:Button Text="ver deshabilitados" class="btn btn-danger" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" />
-                                    <asp:Button Text="ver habilitados" class="btn btn-success" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_habilitados_Click" />
+                                <div class="" style="margin-top: 10px; text-align: center;">
+                                    <asp:Button Text="Agregar Área" runat="server" class="btn-agregarempresa" OnClick="btn_agregar_grupo_Click" ID="btn_agregar_grupo" Style="padding: 5px; font-size: 12px;" Font-Size="Smaller" />
+                                    <asp:Button Text="ver deshabilitados" class="btn-verdeshabilitados" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 11px;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" Font-Size="Smaller" />
+                                    <asp:Button Text="ver habilitados" class="btn-verhabilitados" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 11px;" Visible="False" OnClick="Btn_ver_habilitados_Click" Font-Size="Smaller" />
 
                                 </div>
 
@@ -111,7 +115,7 @@
                                                         </asp:ButtonField>
                                                         <asp:TemplateField ShowHeader="False">
                                                             <ItemTemplate>
-                                                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar"></asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" ForeColor="Black"></asp:LinkButton>
 
                                                             </ItemTemplate>
                                                             <FooterStyle HorizontalAlign="Right" />
@@ -119,7 +123,7 @@
                                                     </Columns>
                                                     <EditRowStyle BackColor="#2461BF" />
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                                    <HeaderStyle BackColor="#3399FF" BorderStyle="None" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" VerticalAlign="Middle" />
+                                                    <HeaderStyle BackColor="#424C52" BorderStyle="None" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" VerticalAlign="Middle" />
                                                     <PagerStyle BackColor="#3399FF" ForeColor="White" HorizontalAlign="Center" />
                                                     <RowStyle BackColor="#EFF3FB" BorderStyle="None" HorizontalAlign="Right" />
                                                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />

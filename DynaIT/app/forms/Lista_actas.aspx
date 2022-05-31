@@ -157,18 +157,18 @@
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="id_acta" HeaderText="idactas" InsertVisible="False" ReadOnly="True" SortExpression="id_acta" />
-                                <asp:BoundField DataField="Numero_Acta" HeaderText="N° Acta" SortExpression="Numero_Acta" ReadOnly="True"></asp:BoundField>
-                                <asp:BoundField DataField="Fecha_crea_acta" HeaderText="Fecha Creación Acta" SortExpression="Fecha_crea_acta" ReadOnly="True" />
-                                <asp:BoundField DataField="N_creditos_acta" HeaderText="N° Creditos acta" SortExpression="N_creditos_acta" ReadOnly="True" />
-                                <asp:BoundField DataField="TiempoDesarrollo" HeaderText="Total Creditos" SortExpression="TiempoDesarrollo" ReadOnly="True" Visible="False" />
-                                <asp:BoundField DataField="ticket_id" HeaderText="N° Ticket" SortExpression="ticket_idTicket" ReadOnly="True" />
-                                <asp:BoundField DataField="estado_Ticket" HeaderText="Estado" SortExpression="estado_Ticket" ReadOnly="True" />
                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha Del Caso" SortExpression="Fecha" ReadOnly="True" />
-                                <asp:BoundField DataField="Fecha_cierre_ticket" HeaderText="Fecha Cierre Caso" SortExpression="Fecha_cierre_ticket" ReadOnly="True" Visible="False" />
+                                <asp:BoundField DataField="Fecha_crea_acta" HeaderText="Fecha Creación Acta" SortExpression="Fecha_crea_acta" ReadOnly="True" />
+                                <asp:BoundField DataField="Numero_Acta" HeaderText="N° Acta" SortExpression="Numero_Acta" ReadOnly="True"></asp:BoundField>
+                                <asp:BoundField DataField="ticket_id" HeaderText="N° Ticket" SortExpression="ticket_idTicket" ReadOnly="True" />
                                 <asp:BoundField DataField="Resumen_Problema" HeaderText="Titulo Caso" SortExpression="Resumen_Problema" ReadOnly="True" />
+                                <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="Nombres" ReadOnly="True" />
+                                <asp:BoundField DataField="estado_Ticket" HeaderText="Estado" SortExpression="estado_Ticket" ReadOnly="True" />
+                                <asp:BoundField DataField="TiempoDesarrollo" HeaderText="Total Creditos" SortExpression="TiempoDesarrollo" ReadOnly="True" Visible="False" />
+                                <asp:BoundField DataField="N_creditos_acta" HeaderText="N° Creditos acta" SortExpression="N_creditos_acta" ReadOnly="True" />
+                                <asp:BoundField DataField="Fecha_cierre_ticket" HeaderText="Fecha Cierre Caso" SortExpression="Fecha_cierre_ticket" ReadOnly="True" Visible="False" />
                                 <asp:BoundField DataField="Nombre_Empresa" HeaderText="Empresa" SortExpression="Nombre_Empresa" ReadOnly="True" />
                                 <asp:BoundField DataField="Representante_empresa" HeaderText="Cliente" SortExpression="Representante_empresa" ReadOnly="True" />
-                                <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="Nombres" ReadOnly="True" />
                                 <asp:BoundField DataField="Numero_Factura" HeaderText="N° Factura" SortExpression="Numero_Factura" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
