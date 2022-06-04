@@ -14,5 +14,15 @@
         public int n_ticket_incidente { get; set; }
         public int n_ticket_proyecto { get; set; }
 
+        //--------------------------------------------
+
+        public string id_usuario_sin_responder { get; set; }
+        public int id_ticket_sin_responder { get; set; }
+        public int n_nota_sin_responder { get; set; }
+
+        //--------------------------------------------
+
+
+
     }
 }

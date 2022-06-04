@@ -104,8 +104,10 @@ function negrita() {
 $(function () {
     $("[id*=Grilla_Tickets_generados_usuario] td").hover(function () {
         $("td", $(this).closest("tr")).addClass("hover_row");
-        //var id_tic = $("td", $(this).closest("tr")).ready("td)").eq(1).text;
-        //alert(' ventana modal ' + id_tic + '');
+        var id_tic = $("td", $(this).closest("tr")).ready("td)").eq(0).value;
+        alert(' ventana modal ' + id_tic + '');
+
+        
     },
         function () {
             $("td", $(this).closest("tr")).removeClass("hover_row");

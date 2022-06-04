@@ -50,9 +50,10 @@ ul li a {
     color: black;
     text-decoration: none;
 }
-
-
-
+.hover_row {
+    background-color: #59abb8;
+    color: black;
+}
 /*se da color y heidin de 100% de acuerdo al dispositivo en los formularios de creacion*/
 .contenidoFormulariosCreacion {
     background-color: aliceblue;

@@ -197,7 +197,7 @@
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                 </asp:GridView>
 
-
+                                <asp:Label ID="MessageLabel" runat="server" Text="Label"></asp:Label>
                             </div>
                             <%--////--%>
                         </div>

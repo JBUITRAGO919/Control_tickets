@@ -1,4 +1,4 @@
-use dynait
+	use dynait
 --informe general
 drop procedure informe
  create proc informe
@@ -110,15 +110,7 @@ inner join ticket on ticket.usuario_id = usuario.id_usuario
 inner join nota on nota.id_ticket = ticket.id_ticket
 where usuario_Habilitado='Si'  group by prefijo_usuario,id_usuario, ticket.id_ticket
 
-
-
-select 
-(select id_usuario from usuario where usuario.id_usuario= ticket.usuario_id)as id_usuario,
-id_ticket, 
-isnull((select max(nota.id_nota) from nota where nota.id_ticket= ticket.id_ticket),0)as n_nota
-from ticket
-
-
+select * from nota where id_ticket = 5
 
 drop procedure informe5
 create proc informe5
@@ -143,8 +135,32 @@ from usuario as a where usuario_Habilitado= 'Si'
 end
 exec informe3 '2022-05-27 00:00:00', '2022-05-27 23:59:58';
 
+--selecccionar los usuarios con tickets y sus ultimas notas
+select 
+(select prefijo_usuario from usuario where usuario.id_usuario= ticket.usuario_id)as Usuario, 
+id_ticket, 
+isnull((select max(nota.id_nota) from nota where nota.id_ticket= ticket.id_ticket),0)as n_nota
+from ticket where ticket_Habilitado='Si' and estado_id= 2 or estado_id= 3 or estado_id= 4
 
 
 
+
+select * from nota where usuario_id_nota=16
+
+select usuario_id from ticket where id_ticket=12
+
+select * from cliente
+
+--selecccionar los clientes con tickets y sus ultimas notas
+select 
+(select nombre_cliente from cliente where cliente.id_Cliente= ticket.cliente_id)as cliente, 
+id_ticket, 
+isnull((select max(nota.id_nota) from nota where nota.id_ticket= ticket.id_ticket),0)as n_nota
+from ticket where ticket_Habilitado='Si' and estado_id= 2 or estado_id= 3 or estado_id= 4
+
+select * from estado_ticket
+
+select * from usuario
+select * from ticket where usuario_id=1
 
 

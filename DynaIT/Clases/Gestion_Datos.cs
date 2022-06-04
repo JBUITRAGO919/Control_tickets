@@ -4474,6 +4474,70 @@ namespace DynaIT.Clases
             registro.Close();
             return List_informe;
         }
+
+
+        public List<Informe> sin_responder_por_usuario()
+        {
+            List<Informe> List_informe = new List<Informe>();
+            string sql = " select (select prefijo_usuario from usuario where usuario.id_usuario = ticket.usuario_id) as usuario," +
+                " id_ticket, isnull((select max(nota.id_nota) from nota where nota.id_ticket = ticket.id_ticket),0)as n_nota" +
+                " from ticket where ticket_Habilitado='Si' and estado_id= 2 or estado_id= 3 or estado_id= 4";
+
+            List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
+
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+
+            //cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
+            //cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
+            SqlDataReader registro = cmd.ExecuteReader();
+
+
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Informe informe = new Informe();
+
+                informe.id_usuario_sin_responder = registro.GetString(0);
+                informe.id_ticket_sin_responder = registro.GetInt32(1);
+                informe.n_nota_sin_responder = registro.GetInt32(2);
+                
+                
+                List_informe.Add(informe);
+            }
+            registro.Close();
+            return List_informe;
+        }
+
+        public List<Informe> sin_responder_por_cliente()
+        {
+            List<Informe> List_informe = new List<Informe>();
+            string sql = " select (select nombre_cliente from cliente where cliente.id_Cliente = ticket.cliente_id) as cliente," +
+                " id_ticket, isnull((select max(nota.id_nota) from nota where nota.id_ticket = ticket.id_ticket),0)as n_nota" +
+                " from ticket where ticket_Habilitado='Si' and estado_id= 2 or estado_id= 3 or estado_id= 4 ";
+
+            List<Visualizar_Tickets> Visualizar_Tickets = new List<Visualizar_Tickets>();
+
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+
+            //cmd.Parameters.AddWithValue("@fecha_inicio", fecha_inicio);
+            //cmd.Parameters.AddWithValue("@fecha_fin", fecha_fin);
+            SqlDataReader registro = cmd.ExecuteReader();
+
+
+            while (registro.Read())
+            {           // por cada registro creo un objeto estudiante
+                Informe informe = new Informe();
+
+                informe.id_usuario_sin_responder = registro.GetString(0);
+                informe.id_ticket_sin_responder = registro.GetInt32(1);
+                informe.n_nota_sin_responder = registro.GetInt32(2);
+
+
+                List_informe.Add(informe);
+            }
+            registro.Close();
+            return List_informe;
+        }
+
     }
 
 

@@ -853,6 +853,7 @@ C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\bin\Antlr3
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\bin\es\System.Web.Optimization.resources.dll
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.csproj.AssemblyReference.cache
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\Interop.ACTIVEXLib.dll
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.csproj.ResolveComReference.cache
 C:\Users\Javier\Documents\documentos\Trabajo DynamicsIT\DynaIT\DynaIT\obj\Debug\DynaIT.csproj.CoreCompileInputs.cache

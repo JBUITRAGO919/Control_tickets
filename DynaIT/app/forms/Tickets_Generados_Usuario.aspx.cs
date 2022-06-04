@@ -1935,7 +1935,9 @@ namespace DynaIT.app.forms
 
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
 
+            
         }
 
         protected void Grilla_Tickets_generados_usuario_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -2140,7 +2142,8 @@ namespace DynaIT.app.forms
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Detalle_ticket", "$('#modal_detalle_ticket').modal();", true);
-            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' ventana modal');", true);
+            GridViewRow row = Grilla_Tickets_generados_usuario.Rows[e.NewSelectedIndex];
+            MessageLabel.Text = row.Cells[3].Text;
         }
 
         protected void Btn_todos_ticket_Click(object sender, EventArgs e)
