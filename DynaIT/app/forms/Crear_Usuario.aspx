@@ -13,15 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link href="../style/Botones.css" rel="stylesheet" />
 </head>
 <body>
     <form id="crearCliente" runat="server">
         <div class="container-fluid" style="margin: 0; padding: 0;">
-            <div class="bodycrearcliente">
+            <div class="">
 
                   
-                <asp:SqlDataSource ID="Grupo_Usuarios_Habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_area, area FROM Area WHERE (area_Habilitado = 'Si') OR (id_area = '1')"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="Grupo_Usuarios_Habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_area, area FROM Area WHERE (area_Habilitado = 'Si') OR (id_area = '1')"></asp:SqlDataSource>
                 <!-- Modal para el boton del crear usuario -->
                 <div class="modal fade" id="modal_crear_usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog" role="document">
@@ -51,7 +51,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <asp:Label class="mr-sm-2" ID="nombreCliente" runat="server" Text="Nombres"></asp:Label>
-                                                        <asp:TextBox clss="form-control mb-2 mr-sm-2" ID="Txt_NombreUsuario" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
+                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_NombreUsuario" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
                                                     </div>
                                                     <div class="col">
                                                         <asp:Label class="mr-sm-2" ID="Label3" runat="server" Text="Correo"></asp:Label><br />
@@ -65,8 +65,8 @@
                                                         <%--<asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Cargo" runat="server" Height="22px" Style="margin-top: 0px" ></asp:TextBox>--%>
                                                         <asp:DropDownList ID="List_Rol" runat="server">
                                                             <asp:ListItem Value="1">--Seleccionar--</asp:ListItem>
-                                                            <asp:ListItem Value="2">Administrador</asp:ListItem>
                                                             <asp:ListItem Value="3">Agente</asp:ListItem>
+                                                            <asp:ListItem Value="2">Administrador</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="col">
@@ -85,7 +85,7 @@
                                                         <div style="margin: auto; align-content: center;">
                                                             <asp:Label class="mr-sm-2" ID="Label2" runat="server" Text="Usuario"></asp:Label>
                                                             <br />
-                                                            <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Usuario" runat="server" Height="22px" Style="margin-top: 0px; text-transform:uppercase"></asp:TextBox>
+                                                            <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Usuario" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
@@ -120,22 +120,22 @@
                     </div>
                 </div>
         <%--fin del modal--%>
-        <div class="row">
+        <div class="row" >
 
-            <div class=" col-12">
+            <div class=" col-12" style="background-color:#727272">
                 <div class="div_titilo_crear_cliente">
-                    <div class="TitleForm">
-                        <asp:Label ID="lbl_Titulo_Habilitados" runat="server" Text="Lista de usuarios habilitados" Font-Size="X-Large" Visible="True"></asp:Label>
-                        <asp:Label ID="lbl_Titulo_Eliminados" runat="server" Text="Lista de usuarios eliminados" Font-Size="X-Large" Visible="False"></asp:Label>
+                    <div class="TitleForm" ">
+                        <asp:Label ID="lbl_Titulo_Habilitados" runat="server" Text="Lista de usuarios habilitados" Font-Size="Large" ForeColor="White"></asp:Label>
+                        <asp:Label ID="lbl_Titulo_Eliminados" runat="server" Text="Lista de usuarios eliminados" Font-Size="Large" Visible="False" ForeColor="White"></asp:Label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col" style="text-align: center;">
-                <asp:Button Text="Agregar usuario" class="btn btn-primary" runat="server" ID="btn_agregar_usuario" Style="padding: 5px; font-size: 100%;" OnClick="btn_agregar_usuario_Click" />
-                <asp:Button Text="ver deshabilitados" class="btn btn-danger" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" />
-                <asp:Button Text="ver habilitados" class="btn btn-success" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 100%;" Visible="False" OnClick="Btn_ver_habilitados_Click" />
+            <div class="col" style="text-align: center; margin-top:10px">
+                <asp:Button Text="Agregar usuario" class="btn-agregarempresa" runat="server" ID="btn_agregar_usuario" Style="padding: 5px; font-size: 12px;" OnClick="btn_agregar_usuario_Click" />
+                <asp:Button Text="ver deshabilitados" class="btn-verdeshabilitados" runat="server" ID="Btn_ver_deshabilitados" Style="padding: 5px; font-size: 12px;" Visible="False" OnClick="Btn_ver_deshabilitados_Click" />
+                <asp:Button Text="ver habilitados" class="btn-verhabilitados" runat="server" ID="Btn_ver_habilitados" Style="padding: 5px; font-size: 12px;" Visible="False" OnClick="Btn_ver_habilitados_Click" />
                 <asp:Label ID="lbl_habilitado" runat="server" Text="Si" Visible="False"></asp:Label>
             </div>
         </div>
@@ -165,7 +165,7 @@
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#424C52" Font-Bold="True" ForeColor="White" />
                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                         <RowStyle BackColor="#EFF3FB" />
                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -175,7 +175,7 @@
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                     
-                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
+                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
 					 FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area INNER JOIN rol ON rol.id_rol =usuario.rol_id  
 					 WHERE (usuario.Usuario_Habilitado = @Usuario_Habilitado) order by usuario.id_Usuario desc" DeleteCommand="Select * from ticket ">
                        

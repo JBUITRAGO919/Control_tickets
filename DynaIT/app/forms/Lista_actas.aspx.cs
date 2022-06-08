@@ -8,6 +8,7 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace DynaIT.app.forms
 {
@@ -19,15 +20,15 @@ namespace DynaIT.app.forms
         OdbcParameter N_Acta = new OdbcParameter();
         OdbcParameter N_Factura = new OdbcParameter();
 
+        
+
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
-        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-L5T5BI3";
         protected void Page_Load(object sender, EventArgs e)
         {
             //setTimeout("()", 100);
 
             Grilla_actas.Columns[0].Visible = false;
-
-
         }
         protected void btn_limpiar_Click(object sender, EventArgs e)
         {

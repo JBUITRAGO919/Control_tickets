@@ -16,6 +16,9 @@
 
     <link href="../style/Style.css" rel="stylesheet" />
     <script src="../js/Validacion_JavaScript.js"></script>
+    <script type="text/javascript">
+       
+    </script>    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -95,7 +98,7 @@
                                                          <%--   </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_Empresas" runat="server" AutoPostBack="True" DataSourceID="Tabla_empresas" DataTextField="Nombre_Empresa" DataValueField="id_empresa" OnSelectedIndexChanged="List_Empresas_SelectedIndexChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_col_cliente" runat="server" class="col-6">
@@ -104,7 +107,7 @@
                                                            <%-- </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_clientes" runat="server" AutoPostBack="True" DataSourceID="Clientes_tabla" DataTextField="nombre_cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_SelectedIndexChanged" OnTextChanged="List_clientes_TextChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         
@@ -118,7 +121,7 @@
                                                             <%--</div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_estado_ticket" runat="server" DataSourceID="Tabla_estados_ticket" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estado_ticket_SelectedIndexChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_agente" runat="server" class="col-6">
@@ -127,7 +130,7 @@
                                                            <%-- </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_Agente" runat="server" AutoPostBack="True" Font-Size="Smaller" DataSourceID="tabla_Agentes" DataTextField="nombre_usuario" DataValueField="id_usuario" OnSelectedIndexChanged="List_Agente_SelectedIndexChanged" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
                                                             </div>
                                                         
                                                         </div>
@@ -159,7 +162,7 @@
                                 <asp:GridView CssClass="table table-head-fixed text-nowrap" ID="Grilla_Tickets_generados_usuario" runat="server" CellPadding="1" ForeColor="#000" GridLines="None" Width="100%" Height="90%" AutoGenerateColumns="False" OnPageIndexChanging="Grilla_Tickets_generados_usuario_PageIndexChanging" HorizontalAlign="Center" RowHeaderColumn="N_Ticket" OnLoad="Grilla_Tickets_generados_usuario_Load" OnPageIndexChanged="Grilla_Tickets_generados_usuario_PageIndexChanged" AllowCustomPaging="True" DataKeyNames="N_Ticket" OnRowCommand="Grilla_Tickets_generados_usuario_RowCommand" OnSelectedIndexChanged="Grilla_Tickets_generados_usuario_SelectedIndexChanged" OnRowDataBound="Grilla_Tickets_generados_usuario_RowDataBound" OnSelectedIndexChanging="Grilla_Tickets_generados_usuario_SelectedIndexChanging" OnDataBinding="Grilla_Tickets_generados_usuario_DataBinding">
                                     <AlternatingRowStyle BorderStyle="None" BackColor="White" />
                                     <Columns>
-                                        <asp:ButtonField CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
+                                        <asp:ButtonField  CommandName="Select" HeaderText="Nº Ticket" DataTextField="N_Ticket">
                                             <ControlStyle Font-Underline="True" ForeColor="#000" />
                                         </asp:ButtonField>
                                         <asp:ButtonField CommandName="Select_2" HeaderText="Nº Ticket" DataTextField="N_Ticket" Visible="False">
@@ -193,6 +196,8 @@
                                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                 </asp:GridView>
+
+                                <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
                             </div>
                             <%--////--%>
                         </div>

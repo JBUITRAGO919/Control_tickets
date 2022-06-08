@@ -11,7 +11,7 @@ namespace DynaIT.Clases
         //public MySqlConnection conexion;
         public string error;
         Visualizar_Tickets Visualizar_Tickets = new Visualizar_Tickets();
-        static string conex = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string conex = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-L5T5BI3";
         SqlConnection conexion = new SqlConnection(conex);
         public Validaciones()
         {
@@ -472,10 +472,10 @@ namespace DynaIT.Clases
             SqlCommand cmd = new SqlCommand(sql, conexion);
             cmd.Parameters.AddWithValue("@id_nota", n_nota);
             //*** confronta la consulta o la insercion que le pido a mySQL y si me sale error en esta liena es por mal istruccion en la cadena de caracteres de mysql
-            SqlDataReader registro = cmd.ExecuteReader();                
+            SqlDataReader registro = cmd.ExecuteReader();
             if (registro.Read())
             {
-                Boolean valor =  registro.GetBoolean(0);
+                Boolean valor = registro.GetBoolean(0);
                 registro.Close();
                 return valor;
             }
@@ -505,7 +505,7 @@ namespace DynaIT.Clases
         }
 
 
-       
+
 
         //      
         public Boolean recuperar_contraseña_cliente(string Correo)

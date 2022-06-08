@@ -100,3 +100,14 @@ function negrita() {
 
     document.execCommand()
 };
+
+$(function () {
+    $("[id*=Grilla_Tickets_generados_usuario] td").hover(function () {
+        $("td", $(this).closest("tr")).addClass("hover_row");
+
+        
+    },
+        function () {
+            $("td", $(this).closest("tr")).removeClass("hover_row");
+        });
+});

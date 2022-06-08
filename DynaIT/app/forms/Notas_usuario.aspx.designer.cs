@@ -483,6 +483,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Button Btn_buscar_ticket;
 
         /// <summary>
+        /// Control Tickets_fusionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Tickets_fusionar;
+
+        /// <summary>
         /// Control id_ticket_duscado.
         /// </summary>
         /// <remarks>
@@ -519,6 +528,15 @@ namespace DynaIT.app.forms
         protected global::System.Web.UI.WebControls.Label lbl_estado_buscado;
 
         /// <summary>
+        /// Control Cancerlar_seleccón.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cancerlar_seleccón;
+
+        /// <summary>
         /// Control btn_fusionar.
         /// </summary>
         /// <remarks>
@@ -526,5 +544,14 @@ namespace DynaIT.app.forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_fusionar;
+
+        /// <summary>
+        /// Control TICKETS_FUSIONAR1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TICKETS_FUSIONAR1;
     }
 }

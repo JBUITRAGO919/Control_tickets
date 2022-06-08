@@ -80,7 +80,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_empresas" runat="server" DataSourceID="lista_empresas" DataTextField="Nombre_Empresa" DataValueField="id_Empresa" OnSelectedIndexChanged="List_empresas_SelectedIndexChanged" AutoPostBack="True" Font-Size="Medium"></asp:DropDownList>
-                            <asp:SqlDataSource ID="lista_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa where Empresa_Habilitada = 'Si' or id_Empresa = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="lista_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa where Empresa_Habilitada = 'Si' or id_Empresa = '1'"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div class="">
@@ -90,7 +90,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_agente" runat="server" DataSourceID="lista_agentes" DataTextField="nombre_usuario" DataValueField="id_usuario" AutoPostBack="True" OnSelectedIndexChanged="List_agente_SelectedIndexChanged" Font-Size="Medium"></asp:DropDownList>
-                            <asp:SqlDataSource ID="lista_agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario where Usuario_Habilitado = 'Si' or id_usuario = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="lista_agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario where Usuario_Habilitado = 'Si' or id_usuario = '1'"></asp:SqlDataSource>
 
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_estados" runat="server" DataSourceID="Lista_estados" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" Font-Size="Medium" AutoPostBack="True" OnSelectedIndexChanged="List_estados_SelectedIndexChanged"></asp:DropDownList>
-                            <asp:SqlDataSource ID="Lista_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket FROM estado_ticket where estado_Habilitado = 'Si' or id_Estado_Ticket = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="Lista_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket FROM estado_ticket where estado_Habilitado = 'Si' or id_Estado_Ticket = '1'"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div class="">
@@ -157,18 +157,18 @@
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="id_acta" HeaderText="idactas" InsertVisible="False" ReadOnly="True" SortExpression="id_acta" />
-                                <asp:BoundField DataField="Numero_Acta" HeaderText="N° Acta" SortExpression="Numero_Acta" ReadOnly="True"></asp:BoundField>
-                                <asp:BoundField DataField="Fecha_crea_acta" HeaderText="Fecha Creación Acta" SortExpression="Fecha_crea_acta" ReadOnly="True" />
-                                <asp:BoundField DataField="N_creditos_acta" HeaderText="N° Creditos acta" SortExpression="N_creditos_acta" ReadOnly="True" />
-                                <asp:BoundField DataField="TiempoDesarrollo" HeaderText="Total Creditos" SortExpression="TiempoDesarrollo" ReadOnly="True" Visible="False" />
-                                <asp:BoundField DataField="ticket_id" HeaderText="N° Ticket" SortExpression="ticket_idTicket" ReadOnly="True" />
-                                <asp:BoundField DataField="estado_Ticket" HeaderText="Estado" SortExpression="estado_Ticket" ReadOnly="True" />
                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha Del Caso" SortExpression="Fecha" ReadOnly="True" />
-                                <asp:BoundField DataField="Fecha_cierre_ticket" HeaderText="Fecha Cierre Caso" SortExpression="Fecha_cierre_ticket" ReadOnly="True" Visible="False" />
+                                <asp:BoundField DataField="Fecha_crea_acta" HeaderText="Fecha Creación Acta" SortExpression="Fecha_crea_acta" ReadOnly="True" />
+                                <asp:BoundField DataField="Numero_Acta" HeaderText="N° Acta" SortExpression="Numero_Acta" ReadOnly="True"></asp:BoundField>
+                                <asp:BoundField DataField="ticket_id" HeaderText="N° Ticket" SortExpression="ticket_idTicket" ReadOnly="True" />
                                 <asp:BoundField DataField="Resumen_Problema" HeaderText="Titulo Caso" SortExpression="Resumen_Problema" ReadOnly="True" />
+                                <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="Nombres" ReadOnly="True" />
+                                <asp:BoundField DataField="estado_Ticket" HeaderText="Estado" SortExpression="estado_Ticket" ReadOnly="True" />
+                                <asp:BoundField DataField="TiempoDesarrollo" HeaderText="Total Creditos" SortExpression="TiempoDesarrollo" ReadOnly="True" Visible="False" />
+                                <asp:BoundField DataField="N_creditos_acta" HeaderText="N° Creditos acta" SortExpression="N_creditos_acta" ReadOnly="True" />
+                                <asp:BoundField DataField="Fecha_cierre_ticket" HeaderText="Fecha Cierre Caso" SortExpression="Fecha_cierre_ticket" ReadOnly="True" Visible="False" />
                                 <asp:BoundField DataField="Nombre_Empresa" HeaderText="Empresa" SortExpression="Nombre_Empresa" ReadOnly="True" />
                                 <asp:BoundField DataField="Representante_empresa" HeaderText="Cliente" SortExpression="Representante_empresa" ReadOnly="True" />
-                                <asp:BoundField DataField="nombre_usuario" HeaderText="Consultor" SortExpression="Nombres" ReadOnly="True" />
                                 <asp:BoundField DataField="Numero_Factura" HeaderText="N° Factura" SortExpression="Numero_Factura" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
@@ -186,7 +186,7 @@
 
 
 
-                          <asp:SqlDataSource ID="tabla_actas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_acta, Numero_Acta, ticket_id, Fecha_crea_acta, ticket.creditos_desarrollo, N_creditos_acta, ticket.Resumen_Problema, empresa.Nombre_Empresa, 
+                          <asp:SqlDataSource ID="tabla_actas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_acta, Numero_Acta, ticket_id, Fecha_crea_acta, ticket.creditos_desarrollo, N_creditos_acta, ticket.Resumen_Problema, empresa.Nombre_Empresa, 
 empresa.Representante_empresa, usuario.nombre_usuario, acta.Numero_Factura, ticket.Fecha, ticket.Fecha_cierre_ticket, estado_ticket.estado_Ticket
 FROM acta inner join ticket on ticket.id_ticket = acta.ticket_id
                                  inner join cliente on cliente.id_Cliente = ticket.Cliente_id

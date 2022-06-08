@@ -15,13 +15,13 @@ namespace DynaIT.app.forms
     {
 
         /// <summary>
-        /// Control formulario_perfil.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formulario_perfil;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control lbl_nombre_usuario.

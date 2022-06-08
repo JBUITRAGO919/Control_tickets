@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DynaIT.Clases
+﻿namespace DynaIT.Clases
 {
     public class Tickets_con_notas
     {

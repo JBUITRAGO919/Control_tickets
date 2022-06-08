@@ -23,14 +23,12 @@ a {
 }
 
 .menuLateral {
-    background-color: #4DA7E4;
+    background-color: lightgray;
     height: 100vh;
-    padding: 0;
     margin: 0;
     width: 100%;
     text-align: center;
     font-size: 12px;
-    padding-right: 35px;
 }
 
 .contenido {
@@ -142,7 +140,7 @@ ul li a {
 
 .bandejaEntradaDivdos {
     border-radius: 7px;
-    background-color: darkgray;
+    background-color: dimgrey;
     margin: 1px;
     padding: 20px;
     align-items: center;
@@ -180,7 +178,7 @@ alinearColumnas {
 
 .div_chat_notas::-webkit-scrollbar-track {
     width: 12px;
-    background-color: darkgray;
+    background-color: cornflowerblue;
 }
 
 .div_chat_notas::-webkit-scrollbar-thumb {
@@ -193,5 +191,130 @@ alinearColumnas {
     background-color: aqua;
 }
 
+.img__logo {
+    width: 200px;
+    height: auto;
+    align-content: center;
+    display: flex;
+}
 
-/*-------------------------------moodal de perfil usuario para cambio de contraseña----------------------------------*/
+.img__logo2 {
+    width: 200px;
+    height: auto;
+    align-content: center;
+    display: flex;
+}
+
+/*Medidas responsive para vistas */
+@media(max-width: 4000px) {
+    .img__logo2 {
+        display: none;
+    }
+}
+
+@media(max-width: 1280px) {
+    .img__logo {
+        width: 180px;
+        height: auto;
+        align-content: center;
+        display: flex;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img__logo2 {
+        display: none;
+    }
+}
+
+
+
+@media(max-width: 1180px) {
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: block;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .conten__menu {
+        font-size: 9px;
+    }
+
+    .img__logo2 {
+        width: 120px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+}
+
+@media(max-width: 970px) {
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .conten__menu {
+        font-size: 9px;
+    }
+
+    .img__logo2 {
+        width: 120px;
+        height: auto;
+        align-content: center;
+        display: block;
+    }
+}
+
+@media(max-width: 840px) {
+    .menuLateral {
+        width: 10px;
+    }
+
+    .conten__menu {
+        width: 10px;
+    }
+
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+
+    .img__logo2 {
+        display: block;
+    }
+}
+
+@media(max-width: 400px) {
+    .img__logo2 {
+        display: block;
+    }
+}

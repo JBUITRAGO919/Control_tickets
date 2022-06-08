@@ -13,11 +13,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="../style/Botones.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 0px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid" style="margin: 0; padding: 0;">
-            <div class="bodycrearcliente">
 
                 <!-- Modal para el boton del crear empresa -->
                 <div class="modal fade" id="modal_crear_empresa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -54,7 +60,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <asp:Label class="" ID="Label2" runat="server" Text="Nombre de la Empresa"></asp:Label>
-                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Empresa" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
+                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_Empresa" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
                                                     </div>
 
                                                 </div>
@@ -65,7 +71,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <asp:Label class="mr-sm-2" ID="Label1" runat="server" Text="Representante"></asp:Label>
-                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_representante" runat="server" Height="22px" Style="margin-top: 0px; text-transform:capitalize"></asp:TextBox>
+                                                        <asp:TextBox class="form-control mb-2 mr-sm-2" ID="Txt_representante" runat="server" Height="22px" Style="margin-top: 0px"></asp:TextBox>
                                                     </div>
                                                 </div>
                                               
@@ -90,14 +96,14 @@
 
 
 
-                <div class="row">
-                    <div class=" col-12">
-                        <div class="div_titilo_crear_cliente">
-                        <div class="TitleForm">
+                <div class="">
+                    <div class=" col-12" style="background-color:#727272">
+                        <div class="">
+                        <div class="TitleForm" style="padding-bottom:20px">
 
                             <asp:Label ID="Lbl_Ver_Eliminados" runat="server" Text="Si" Visible="False"></asp:Label><br />
-                            <asp:Label ID="Lbl_Titulo_Eliminados" runat="server" Text="Lista de empresas deshabilitadas" Font-Size="X-Large" Visible="False"></asp:Label>
-                            <asp:Label ID="Lbl_Titulo_Habilitados" runat="server" Text="Lista de empresas habilitadas" Font-Size="X-Large" Visible="True"></asp:Label>
+                            <asp:Label ID="Lbl_Titulo_Eliminados" runat="server" Text="Lista de empresas deshabilitadas" Font-Size="Large" Visible="False" ForeColor="White"></asp:Label>
+                            <asp:Label ID="Lbl_Titulo_Habilitados" runat="server" Text="Lista de empresas habilitadas" Font-Size="Large" ForeColor="White"></asp:Label>
                         </div>
                          </div>
                     </div>
@@ -106,10 +112,10 @@
                 <div class="row" style="margin: 10px;">
                     <div class="col" style="text-align:center;">
                         <div>
-                        <asp:Button Text="Agregar empresa" class="btn btn-primary" runat="server" ID="btn_agregar_empresa" Style="padding: 4px; font-size: 100%;" OnClick="btn_agregar_empresa_Click" />
+                        <asp:Button Text="Agregar empresa" class="btn-agregarempresa" runat="server" ID="btn_agregar_empresa" Style="padding: 4px; font-size: 12px;" OnClick="btn_agregar_empresa_Click" />
                         
-                            <asp:Button Text="Ver deshabilitada" class="btn btn-danger" runat="server" ID="btn_ver_empresa_deshabilitada" Style="padding: 4px; font-size: 100%;" OnClick="btn_ver_empresa_deshabilitada_Click" Visible="False" />
-                        <asp:Button Text="Ver habilitada" class="btn btn-success" runat="server" ID="btn_ver_empresa_habilitada" Style="padding: 4px; font-size: 100%;" OnClick="btn_ver_empresa_habilitada_Click" Visible="False"  />
+                            <asp:Button Text="Ver deshabilitada" class="btn-verdeshabilitados" runat="server" ID="btn_ver_empresa_deshabilitada" Style="padding: 4px; " OnClick="btn_ver_empresa_deshabilitada_Click" Visible="False" Font-Size="12px" />
+                        <asp:Button Text="Ver habilitada" class="btn-verhabilitados" runat="server" ID="btn_ver_empresa_habilitada" Style="padding: 4px; " OnClick="btn_ver_empresa_habilitada_Click" Visible="False" Font-Size="12px"   />
                             </div>
                     </div>
                     
@@ -122,7 +128,7 @@
                                             <asp:AsyncPostBackTrigger controlid="Btn_CrearCliente"/>
                                         </Triggers>
                                         <ContentTemplate>
-                            <asp:GridView ID="Grilla_crear_empresa" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="id_Empresa" DataSourceID="empresas" GridLines="None" CellPadding="4" HorizontalAlign="Left" ForeColor="#333333" PageSize="7" Width="100%" OnRowCommand="Grilla_crear_empresa_RowCommand" OnRowDeleting="Grilla_crear_empresa_RowDeleting">
+                            <asp:GridView ID="Grilla_crear_empresa" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="id_Empresa" DataSourceID="empresas" GridLines="None" CellPadding="4" HorizontalAlign="Left" ForeColor="#000000" PageSize="7" Width="100%" OnRowCommand="Grilla_crear_empresa_RowCommand" OnRowDeleting="Grilla_crear_empresa_RowDeleting">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
                                     <asp:BoundField DataField="id_empresa" HeaderText="ID Empresas" SortExpression="id_Empresa" Visible="False">
@@ -145,21 +151,22 @@
                                         <ItemTemplate>
                                             <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" OnClientClick="return confirm('Esta seguro de eliminar el registro?'); "></asp:LinkButton>
                                         </ItemTemplate>
+                                        <ControlStyle ForeColor="Black" />
                                     </asp:TemplateField>
                                     <asp:ButtonField CommandName="Habilitar" Text="Restaurar" Visible="False" />
                                 </Columns>
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#424C52" Font-Bold="True" ForeColor="White" />
                                 <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                                 <RowStyle BackColor="#EFF3FB" />
-                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#727272" />
                                 <SortedAscendingCellStyle BackColor="#F5F7FB" />
                                 <SortedAscendingHeaderStyle BackColor="#6D95E1" />
                                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                             </asp:GridView>
-                            <asp:SqlDataSource ID="empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM empresa where Empresa_Habilitada = @Empresa_Habilitada order by empresa.id_Empresa desc" DeleteCommand="SELECT * FROM empresa" UpdateCommand="UPDATE empresa SET nombre_empresa = @Nombre_Empresa, nit= @Nit, telefono_empresa = @Telefono, representante_empresa= @Representante_empresa WHERE (id_empresa = @id_Empresas)">
+                            <asp:SqlDataSource ID="empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM empresa where Empresa_Habilitada = @Empresa_Habilitada order by empresa.id_Empresa desc" DeleteCommand="SELECT * FROM empresa" UpdateCommand="UPDATE empresa SET nombre_empresa = @Nombre_Empresa, nit= @Nit, telefono_empresa = @Telefono, representante_empresa= @Representante_empresa WHERE (id_empresa = @id_Empresas)">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="Lbl_Ver_Eliminados" Name="Empresa_Habilitada" PropertyName="Text" />
                                 </SelectParameters>
@@ -177,7 +184,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
-</body>
+        </form>
+    </body>
 </html>

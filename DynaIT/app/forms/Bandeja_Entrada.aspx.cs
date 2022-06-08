@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +16,8 @@ namespace DynaIT.app.forms
         Clase_Parametros myparametro = new Clase_Parametros();
         Clases.Gestion_Datos datos = new Clases.Gestion_Datos();
         Visualizar_Tickets Visualizar_Tickets = new Visualizar_Tickets();
+        Validaciones myValidaciones = new Validaciones();
+        Informe Informe = new Informe();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -50,7 +53,8 @@ namespace DynaIT.app.forms
                 inp_Fecha_fin_info.Value = fecha_fin.ToString("yyyy-MM-dd");
             }
 
-
+            tickets_sin_responde_por_usuario();
+            tickets_sin_responde_por_cliente();
 
         }
 
@@ -632,6 +636,127 @@ namespace DynaIT.app.forms
             Response.End();
         }
 
-       
+
+        protected void tickets_sin_responde_por_usuario()
+        {
+            List<Informe> sin_responder = new List<Informe>();
+            sin_responder = datos.sin_responder_por_usuario();
+
+            int i = 0;
+            int w = sin_responder.Count + 1;
+            int[] id_nota = new int[w];
+            string[] id_consultores = new string[w];
+            int[] id_ticket = new int[w];
+
+            foreach (var sin_res in sin_responder)
+            {
+                    i ++;    
+                    id_consultores[i]= sin_res.id_usuario_sin_responder;
+                    id_ticket[i] = sin_res.id_ticket_sin_responder ;
+                    id_nota[i] =  sin_res.n_nota_sin_responder;
+            }
+
+            List<Informe> list_sin_responder = new List<Informe>();
+            List<Informe> list_sin_responder1 = new List<Informe>();
+
+            int b = 0;
+
+            foreach (var item in id_nota)
+            {
+                if (item!=0)
+                {
+                    b++;
+                    if (myValidaciones.Validar_nota(item) == false)
+                    {
+                        Informe informes_sin_responder = new Informe();
+                        informes_sin_responder.id_usuario_sin_responder = id_consultores[b];
+                        informes_sin_responder.id_ticket_sin_responder = id_ticket[b];
+                        list_sin_responder.Add(informes_sin_responder);
+                    }
+                }
+            }
+            var groups = list_sin_responder.GroupBy(x => x.id_usuario_sin_responder);
+            var largest = groups.OrderByDescending(x => x.Count()) ;
+            int r = 0;
+            int o = 0;
+            int z = groups.Count() + 2;
+            string[] id_nota_0 = new string[z];
+            int[] id_nota_1 = new int[z];
+
+            foreach (var item in groups)
+            {
+                r++;
+                id_nota_0[r] = item.Key;
+                
+            }
+            foreach (var item in largest)
+            {
+                o++;
+                id_nota_1[o] = item.Count();
+            }
+            Chart_usuario.Series["Series1"].Points.DataBindXY(id_nota_0, id_nota_1 );
+        }
+
+
+        protected void tickets_sin_responde_por_cliente()
+        {
+            List<Informe> sin_responder = new List<Informe>();
+            sin_responder = datos.sin_responder_por_cliente();
+
+            int i = 0;
+            int w = sin_responder.Count + 1;
+            int[] id_nota = new int[w];
+            string[] id_consultores = new string[w];
+            int[] id_ticket = new int[w];
+
+            foreach (var sin_res in sin_responder)
+            {
+                i++;
+                id_consultores[i] = sin_res.id_usuario_sin_responder;
+                id_ticket[i] = sin_res.id_ticket_sin_responder;
+                id_nota[i] = sin_res.n_nota_sin_responder;
+            }
+
+            List<Informe> list_sin_responder = new List<Informe>();
+            List<Informe> list_sin_responder1 = new List<Informe>();
+
+            int b = 0;
+
+            foreach (var item in id_nota)
+            {
+                if (item != 0)
+                {
+                    b++;
+                    if (myValidaciones.Validar_nota(item) == true)
+                    {
+                        Informe informes_sin_responder = new Informe();
+                        informes_sin_responder.id_usuario_sin_responder = id_consultores[b];
+                        informes_sin_responder.id_ticket_sin_responder = id_ticket[b];
+                        list_sin_responder.Add(informes_sin_responder);
+                    }
+                }
+            }
+            var groups = list_sin_responder.GroupBy(x => x.id_usuario_sin_responder);
+            var largest = groups.OrderByDescending(x => x.Count());
+            int r = 0;
+            int o = 0;
+            int z = groups.Count() + 2;
+            string[] id_nota_0 = new string[z];
+            int[] id_nota_1 = new int[z];
+
+            foreach (var item in groups)
+            {
+                r++;
+                id_nota_0[r] = item.Key;
+
+            }
+            foreach (var item in largest)
+            {
+                o++;
+                id_nota_1[o] = item.Count();
+            }
+
+            Chart_cliente.Series["Series1"].Points.DataBindXY(id_nota_0, id_nota_1);
+        }
     }
 }

@@ -290,7 +290,7 @@ namespace DynaIT.app.forms
 
         protected void listar_adjuntos(string ruta_adjuntos)
         {
-
+            
             DirectoryInfo di = new DirectoryInfo(ruta_adjuntos);  /*se carga la variable di con la ruta que se trae de la base de datos atravez del parametro */
             FileInfo[] files = di.GetFiles();   /*trae la lista de nombres de los archivos almacenados en la ruta de la linea anterios */
             foreach (FileInfo file in files)     /*Se realia el arreglo para listar los documentos adjuntos del ticket unicados en la carpeta*/
@@ -315,7 +315,45 @@ namespace DynaIT.app.forms
 
         }
 
+        protected void Tickets_fusionar_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);   //toma el numero de la fila seleccionada y la comvierte en un valor entero
+            int valor = Convert.ToInt32(Tickets_fusionar.DataKeys[index].Value);
 
+
+            if (myValidaciones.Existe_ticket(Convert.ToString(valor)))
+            {
+                Tickets_fusionar.Visible = false;
+                myparametro = gestion_Datos.traer_datos_ticket(valor);
+
+                id_ticket_duscado.Text = Convert.ToString(myparametro.No_ticket);
+                lbl_titulo_t_buscado.Text = myparametro.Resumen;
+                lbl_descripcion_buscado.Text = myparametro.Descripcion;
+                lbl_estado_buscado.Text = myparametro.Estado;
+                Cancerlar_seleccón.Visible = true;
+            }
+            else
+            {
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "Swal.fire(' Numero de ticket no encontrado ');", true);
+            }
+
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cancerlar_seleccón_Click(object sender, EventArgs e)
+        {
+            Tickets_fusionar.Visible = true;
+            id_ticket_duscado.Text = "";
+            lbl_titulo_t_buscado.Text = "";
+            lbl_descripcion_buscado.Text = "";
+            lbl_estado_buscado.Text = "";
+            Cancerlar_seleccón.Visible = false;
+        }
 
         public void agregar_agente_nota()
         {
@@ -806,8 +844,7 @@ namespace DynaIT.app.forms
                             n_horas = Convert.ToInt32(resultado_horas.TotalHours);
 
                             //se notifica el numero de horas que se almacenaron
-                            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('Se agrega la nota, el numero de horas de desarrollo fueron " + n_horas + " y su estado cambia abierto ');", true);
-
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se agrega la nota, el numero de horas de desarrollo fueron " + n_horas + " y su estado cambia abierto ', confirmButtonText: 'Ok' })  ", true);
 
                         }
                         else
@@ -828,7 +865,7 @@ namespace DynaIT.app.forms
 
                                 // se almacena el toal de horas en el contador para almacenarlo
                                 n_horas = Convert.ToInt32(resultado_horas.TotalHours);
-                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('No se cambio el estado del ticket, sigue en proceso y se agrega la nota');", true);
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'No se cambio el estado del ticket, sigue en proceso y se agrega la nota ', confirmButtonText: 'Ok' })  ", true);
 
                             }
                             else
@@ -838,7 +875,7 @@ namespace DynaIT.app.forms
                                     //se notifica el numero de horas que se almacenaron
                                     Fecha_resuelto_ticket = DateTime.Now;
                                     fecha_cierre = fecha_cierre.AddHours(24);
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('Se agrega la nota, el numero de horas de desarrollo fueron " + n_horas + " y el estado cambia a ( Pendiente ) ');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se agrega la nota, el numero de horas de desarrollo fueron " + n_horas + " y el estado cambia a ( Pendiente ) ', confirmButtonText: 'Ok' })  ", true);
 
                                 }
                                 else
@@ -900,7 +937,7 @@ namespace DynaIT.app.forms
                             {
                                 if (List_estados.SelectedValue == "2")
                                 {
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('Se agrega la nota, el ticket cambio de estado cerrado a abierto');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: 'Se agrega la nota, el ticket cambio de estado cerrado a abierto ', confirmButtonText: 'Ok' })  ", true);
                                     fecha_inicio_proceso = lbl_fecha_inicio.Text;
                                 }
                                 else
@@ -909,8 +946,7 @@ namespace DynaIT.app.forms
                                     {
                                         fecha_inicio_proceso = DateTime.Now.ToString();
                                         lbl_fecha_inicio.Text = fecha_inicio_proceso;
-                                        ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('Se agrega la nota e inicio el desarrollo del ticket');", true);
-
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' Se agrega la nota e inicio el desarrollo del ticket ', confirmButtonText: 'Ok' })  ", true);
                                     }
                                     else
                                     {
@@ -918,7 +954,7 @@ namespace DynaIT.app.forms
                                         {
                                             Fecha_resuelto_ticket = DateTime.Now;
                                             fecha_cierre = Fecha_resuelto_ticket.AddHours(24);
-                                            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('Se agrega la nota, el ticket cambio de estado cerrado a resuelto ');", true);
+                                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' Se agrega la nota, el ticket cambio de estado cerrado a resuelto ', confirmButtonText: 'Ok' })  ", true);
                                         }
                                         else
                                         {
@@ -1084,7 +1120,7 @@ namespace DynaIT.app.forms
             Word.Application objetoWord = new Word.Application();
             object objeto = System.Reflection.Missing.Value;
 
-            string ruta = "C:\\Users\\Javier\\Documents\\Prueba\\Plantilla_Acta.doc";
+            string ruta = @"C:\Users\dinac\Desktop\REPOSITORIO CT\Control_tickets\DynaIT\notas_usu\Plantilla_Acta1.doc";
             object parametro = ruta;
             object Fecha_Creacion_acta = "Fecha_Creacion_acta";
             object numero_acta = "numero_acta";
@@ -1240,8 +1276,7 @@ namespace DynaIT.app.forms
 
         protected void List_Usuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' Se ha cambiado el encargado del desarrollo ');", true);
-
+            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' Caso reasignado ', confirmButtonText: 'Ok' })  ", true);
 
 
         }

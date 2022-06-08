@@ -19,7 +19,7 @@ namespace DynaIT.app.forms
         Gestion_Datos gestion_Datos = new Gestion_Datos();
         Clase_Parametros myparametro = new Clase_Parametros();
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
-        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-L5T5BI3";
         perfil_Usuario perfil_Usuario = new perfil_Usuario();
         string correo, Id_Empresa_cliente;
 
@@ -286,7 +286,7 @@ namespace DynaIT.app.forms
                     else
                     {
 
-                        ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ');", true);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ', confirmButtonText: 'Ok' })  ", true);
                     }
 
                 }
@@ -306,9 +306,7 @@ namespace DynaIT.app.forms
                         }
                         else
                         {
-
-
-                            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' La (" + nombre_empresa + ") no tiene tickets en estado  (" + nombre_estado + ") ');", true);
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' La (" + nombre_empresa + ") no tiene tickets en estado  (" + nombre_estado + ") ', confirmButtonText: 'Ok' })  ", true);
                         }
 
                     }
@@ -331,7 +329,7 @@ namespace DynaIT.app.forms
                             }
                             else
                             {
-                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' el cliente (" + nombre_cliente + ") de la empresa  (" + nombre_empresa + ") no tienen tickets registrados');", true);
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: '  el cliente (" + nombre_cliente + ") de la empresa  (" + nombre_empresa + ") no tienen tickets registrados ', confirmButtonText: 'Ok' })  ", true);
                             }
 
                         }
@@ -355,7 +353,7 @@ namespace DynaIT.app.forms
                                 }
                                 else
                                 {
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: '  No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ")  ', confirmButtonText: 'Ok' })  ", true);
                                 }
 
 
@@ -383,7 +381,7 @@ namespace DynaIT.app.forms
                                     }
                                     else
                                     {
-                                        ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ');", true);
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: '  No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ', confirmButtonText: 'Ok' })  ", true);
                                     }
 
 
@@ -438,7 +436,7 @@ namespace DynaIT.app.forms
                                             }
                                             else
                                             {
-                                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ');", true);
+                                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ', confirmButtonText: 'Ok' })  ", true);
                                             }
 
 
@@ -504,7 +502,7 @@ namespace DynaIT.app.forms
                         else
                         {
 
-                            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ');", true);
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ', confirmButtonText: 'Ok' })  ", true);
                         }
 
                     }
@@ -526,7 +524,7 @@ namespace DynaIT.app.forms
                             {
 
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: 'La empresa (" + nombre_empresa + ") no tiene tickets en estado  (" + nombre_estado + ")  ', confirmButtonText: 'Ok' })  ", true);
-                                
+
                             }
 
                         }
@@ -546,7 +544,7 @@ namespace DynaIT.app.forms
                                 }
                                 else
                                 {
-                                    
+
                                     ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' La (" + nombre_estado + ") no tiene tickets en estado  (" + nombre_estado + ") ', confirmButtonText: 'Ok' })  ", true);
                                 }
 
@@ -823,7 +821,7 @@ namespace DynaIT.app.forms
                             }
                             else
                             {
-                                
+
                                 ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' No se encontraron ticket con el estado (" + nombre_estado + "), del cliente (" + nombre_cliente + ")  ', confirmButtonText: 'Ok' })  ", true);
                             }
 
@@ -882,7 +880,7 @@ namespace DynaIT.app.forms
                                     }
                                     else
                                     {
-                                        
+
                                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: ' No se encontraron ticket con el estado (" + nombre_estado + "), del cliente (" + nombre_cliente + ")  ', confirmButtonText: 'Ok' })  ", true);
                                     }
 
@@ -1043,7 +1041,7 @@ namespace DynaIT.app.forms
                     else
                     {
 
-                        
+
                         ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'warning', text: '  No se encontraron ticket en  (" + nombre_estado + ")  ', confirmButtonText: 'Ok' })  ", true);
                     }
 
@@ -1192,7 +1190,7 @@ namespace DynaIT.app.forms
                                             }
                                             else
                                             {
-                                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert('No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ") ');", true);
+                                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket con el estado (" + nombre_estado + "), la empresa (" + nombre_empresa + ") y el cliente (" + nombre_cliente + ")  ', confirmButtonText: 'Ok' })  ", true);
                                             }
 
 
@@ -1237,7 +1235,7 @@ namespace DynaIT.app.forms
                         else
                         {
 
-                            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ');", true);
+                            ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket registrados por la empresa  (" + nombre_empresa + ") ', confirmButtonText: 'Ok' })  ", true);
                         }
 
                     }
@@ -1259,7 +1257,7 @@ namespace DynaIT.app.forms
                             {
 
 
-                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' La empresa (" + nombre_empresa + ") no tiene tickets en estado  (" + nombre_estado + ") ');", true);
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' La empresa (" + nombre_empresa + ") no tiene tickets en estado  (" + nombre_estado + ") ', confirmButtonText: 'Ok' })  ", true);
                             }
 
                         }
@@ -1279,9 +1277,7 @@ namespace DynaIT.app.forms
                                 }
                                 else
                                 {
-
-
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron tickets en estado  (" + nombre_estado + ") ');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: '  No se encontraron tickets en estado  (" + nombre_estado + ") ', confirmButtonText: 'Ok' })  ", true);
                                 }
 
                             }
@@ -1313,8 +1309,7 @@ namespace DynaIT.app.forms
                             }
                             else
                             {
-
-                                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket en  (" + nombre_estado + ") ');", true);
+                                ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket en  (" + nombre_estado + ")  ', confirmButtonText: 'Ok' })  ", true);
                             }
 
 
@@ -1338,7 +1333,7 @@ namespace DynaIT.app.forms
                                 else
                                 {
 
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket en  (" + nombre_estado + ") ');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket en  (" + nombre_estado + ")  ', confirmButtonText: 'Ok' })  ", true);
                                 }
 
 
@@ -1372,7 +1367,7 @@ namespace DynaIT.app.forms
                                 else
                                 {
 
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' No se encontraron ticket en  (" + nombre_estado + ") ');", true);
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "", " Swal.fire({ position: 'top-center', icon: 'success', text: ' No se encontraron ticket en  (" + nombre_estado + ")  ', confirmButtonText: 'Ok' })  ", true);
                                 }
 
 
@@ -1940,8 +1935,9 @@ namespace DynaIT.app.forms
 
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Detalle_ticket", "$('#modal_detalle_ticket').modal();", true);
-            ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(' ventana modal');", true);
+            
+
+            
         }
 
         protected void Grilla_Tickets_generados_usuario_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -2089,32 +2085,32 @@ namespace DynaIT.app.forms
                 {
 
                     int id_ticket_vencido = tickets.N_Ticket;
-                    int id_ticket_grilla = (int)DataBinder.Eval(e.Row.DataItem, "N_Ticket");                  
+                    int id_ticket_grilla = (int)DataBinder.Eval(e.Row.DataItem, "N_Ticket");
 
                     if (id_ticket_vencido == id_ticket_grilla)
                     {
-                        e.Row.BackColor = Color.FromArgb(250, 83, 83);
+                        e.Row.BackColor = Color.FromArgb(249, 30, 30);
                     }
-                    
+
 
                 }
 
                 List<Tickets_con_notas> tickets_con_notas = gestion_Datos.tickets_con_notas();
 
-                foreach(var T_con_notas in tickets_con_notas)
+                foreach (var T_con_notas in tickets_con_notas)
                 {
                     int T_c_nota = T_con_notas.N_Ticket;
                     int N_nota = T_con_notas.N_ultima_nota;
 
-                    if (myValidaciones.Validar_nota(N_nota)==false)
+                    if (myValidaciones.Validar_nota(N_nota) == false)
                     {
                         int Id_ticket_grilla = (int)DataBinder.Eval(e.Row.DataItem, "N_Ticket");
                         if (T_c_nota == Id_ticket_grilla)
                         {
-                            e.Row.BackColor = Color.FromArgb(127, 255, 0);
+                            e.Row.BackColor = Color.FromArgb(23, 192, 241);
                         }
                     }
-                    
+
                 }
             }
         }
@@ -2145,7 +2141,9 @@ namespace DynaIT.app.forms
         }
         protected void Grilla_Tickets_generados_usuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Detalle_ticket", "$('#modal_detalle_ticket').modal();", true);
+            GridViewRow row = Grilla_Tickets_generados_usuario.Rows[e.NewSelectedIndex];
+            MessageLabel.Text = row.Cells[3].Text;
         }
 
         protected void Btn_todos_ticket_Click(object sender, EventArgs e)
@@ -2225,7 +2223,7 @@ namespace DynaIT.app.forms
         }
 
 
-            
+
 
         protected void Timer1_Tick_cierre_caso(object sender, EventArgs e)
         {
