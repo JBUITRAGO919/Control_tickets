@@ -50,10 +50,9 @@ ul li a {
     color: black;
     text-decoration: none;
 }
-.hover_row {
-    background-color: #59abb8;
-    color: black;
-}
+
+
+
 /*se da color y heidin de 100% de acuerdo al dispositivo en los formularios de creacion*/
 .contenidoFormulariosCreacion {
     background-color: aliceblue;
@@ -199,14 +198,97 @@ alinearColumnas {
     display: flex;
 }
 
+.img__logo2 {
+    width: 200px;
+    height: auto;
+    align-content: center;
+    display: flex;
+}
+
 /*Medidas responsive para vistas */
+@media(max-width: 4000px) {
+    .img__logo2 {
+        display: none;
+    }
+}
+
+@media(max-width: 1280px) {
+    .img__logo {
+        width: 180px;
+        height: auto;
+        align-content: center;
+        display: flex;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img__logo2 {
+        display: none;
+    }
+}
+
+
+
 @media(max-width: 1180px) {
-    .menuLateral {
-        background-color: #9dc7ab;
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: block;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .conten__menu {
         font-size: 9px;
+    }
+
+    .img__logo2 {
+        width: 120px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+}
+
+@media(max-width: 970px) {
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+
+    .margenlogo {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .conten__menu {
+        font-size: 9px;
+    }
+
+    .img__logo2 {
+        width: 120px;
+        height: auto;
+        align-content: center;
+        display: block;
     }
 }
 
@@ -219,8 +301,20 @@ alinearColumnas {
         width: 10px;
     }
 
-    .espacio {
-        width: 100%;
+    .img__logo {
+        width: 150px;
+        height: auto;
+        align-content: center;
+        display: none;
+    }
+
+    .img__logo2 {
+        display: block;
+    }
+}
+
+@media(max-width: 400px) {
+    .img__logo2 {
         display: block;
     }
 }

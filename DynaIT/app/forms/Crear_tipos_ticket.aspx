@@ -144,7 +144,7 @@
                                                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
-                                            <asp:SqlDataSource ID="Tipo_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_tipo_Ticket, tipo_Ticket, Tipo_Ticket_Habilitado, H_respuesta_tipo_ticket FROM tipo_ticket WHERE (Tipo_Ticket_Habilitado = @Tipo_Ticket_Habilitado )" DeleteCommand="SELECT * FROM ticket">
+                                            <asp:SqlDataSource ID="Tipo_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_tipo_Ticket, tipo_Ticket, Tipo_Ticket_Habilitado, H_respuesta_tipo_ticket FROM tipo_ticket WHERE (Tipo_Ticket_Habilitado = @Tipo_Ticket_Habilitado )" DeleteCommand="SELECT * FROM ticket">
                                                 <SelectParameters>
                                                     <asp:ControlParameter Name="Tipo_Ticket_Habilitado" ControlID="Lbl_Ver_Eliminados" PropertyName="Text" />
                                                 </SelectParameters>

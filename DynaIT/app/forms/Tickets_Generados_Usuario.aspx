@@ -98,7 +98,7 @@
                                                          <%--   </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_Empresas" runat="server" AutoPostBack="True" DataSourceID="Tabla_empresas" DataTextField="Nombre_Empresa" DataValueField="id_empresa" OnSelectedIndexChanged="List_Empresas_SelectedIndexChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Tabla_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM empresa WHERE empresa_habilitada = 'Si' OR id_empresa = '1'"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_col_cliente" runat="server" class="col-6">
@@ -107,7 +107,7 @@
                                                            <%-- </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_clientes" runat="server" AutoPostBack="True" DataSourceID="Clientes_tabla" DataTextField="nombre_cliente" DataValueField="id_Cliente" OnSelectedIndexChanged="List_clientes_SelectedIndexChanged" OnTextChanged="List_clientes_TextChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Clientes_tabla" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select id_Cliente, nombre_cliente from cliente where cliente.id_Cliente = '1' or cliente.Cliente_Habilitado = 'Si'" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         
@@ -121,7 +121,7 @@
                                                             <%--</div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_estado_ticket" runat="server" DataSourceID="Tabla_estados_ticket" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" AutoPostBack="True" OnSelectedIndexChanged="List_estado_ticket_SelectedIndexChanged" Font-Size="Smaller" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="Tabla_estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                         <div id="div_agente" runat="server" class="col-6">
@@ -130,7 +130,7 @@
                                                            <%-- </div>
                                                             <div>--%>
                                                                 <asp:DropDownList ID="List_Agente" runat="server" AutoPostBack="True" Font-Size="Smaller" DataSourceID="tabla_Agentes" DataTextField="nombre_usuario" DataValueField="id_usuario" OnSelectedIndexChanged="List_Agente_SelectedIndexChanged" BackColor="White" style="border-radius:5px;"></asp:DropDownList>
-                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
+                                                                <asp:SqlDataSource ID="tabla_Agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario"></asp:SqlDataSource>
                                                             </div>
                                                         
                                                         </div>
@@ -197,7 +197,7 @@
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                 </asp:GridView>
 
-                                <asp:Label ID="MessageLabel" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="MessageLabel" runat="server" Text=""></asp:Label>
                             </div>
                             <%--////--%>
                         </div>

@@ -290,7 +290,7 @@ namespace DynaIT.app.forms
 
         protected void listar_adjuntos(string ruta_adjuntos)
         {
-
+            
             DirectoryInfo di = new DirectoryInfo(ruta_adjuntos);  /*se carga la variable di con la ruta que se trae de la base de datos atravez del parametro */
             FileInfo[] files = di.GetFiles();   /*trae la lista de nombres de los archivos almacenados en la ruta de la linea anterios */
             foreach (FileInfo file in files)     /*Se realia el arreglo para listar los documentos adjuntos del ticket unicados en la carpeta*/
@@ -1120,7 +1120,7 @@ namespace DynaIT.app.forms
             Word.Application objetoWord = new Word.Application();
             object objeto = System.Reflection.Missing.Value;
 
-            string ruta = "C:\\Users\\Javier\\Documents\\Prueba\\Plantilla_Acta.doc";
+            string ruta = @"C:\Users\dinac\Desktop\REPOSITORIO CT\Control_tickets\DynaIT\notas_usu\Plantilla_Acta1.doc";
             object parametro = ruta;
             object Fecha_Creacion_acta = "Fecha_Creacion_acta";
             object numero_acta = "numero_acta";

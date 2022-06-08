@@ -16,7 +16,7 @@ namespace DynaIT.app.forms
         Gestion_Datos Gestion_Datos = new Gestion_Datos();
         Clase_Parametros myParametro = new Clase_Parametros();
         //string connectionString = @"server=localhost; userid=root; password=Diamante1020*; database=dynait;";       // cadena de conexion hacia mysql
-        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string connectionString = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-L5T5BI3";
         static DateTime nuevaFecha;
         static string Empresa_cliente, Adjuntos_ticket, nombre_cliente, n_usuario, correo_usuario, nombre_usuario;
 
@@ -289,7 +289,7 @@ namespace DynaIT.app.forms
 
 
 
-                                                var pathCarpetaDestino = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
+                                                var pathCarpetaDestino = System.IO.Path.Combine(@"C:\Users\dinac\Desktop\REPOSITORIO CT\Control_tickets\DynaIT\notas_usu", "" + id_ticket + "");
                                                 var carpetaDestino = new System.IO.DirectoryInfo(pathCarpetaDestino);
                                                 if (!carpetaDestino.Exists)
                                                     carpetaDestino.Create();
@@ -449,7 +449,7 @@ namespace DynaIT.app.forms
 
 
 
-                var pathCarpetaDestino1 = System.IO.Path.Combine("C:\\Users\\Javier\\Documents\\Prueba\\", "" + id_ticket + "");
+                var pathCarpetaDestino1 = System.IO.Path.Combine(@"C:\Users\dinac\Desktop\REPOSITORIO CT\Control_tickets\DynaIT\notas_usu", "" + id_ticket + "");
                 var carpetaDestino1 = new System.IO.DirectoryInfo(pathCarpetaDestino1);
                 if (!carpetaDestino1.Exists)
                     carpetaDestino1.Create();

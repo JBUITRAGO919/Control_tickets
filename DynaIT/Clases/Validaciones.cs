@@ -11,7 +11,7 @@ namespace DynaIT.Clases
         //public MySqlConnection conexion;
         public string error;
         Visualizar_Tickets Visualizar_Tickets = new Visualizar_Tickets();
-        static string conex = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-RU10O30\SQLEXPRESS";
+        static string conex = @"Integrated Security=True;Initial Catalog=DynaIT;Data Source=DESKTOP-L5T5BI3";
         SqlConnection conexion = new SqlConnection(conex);
         public Validaciones()
         {

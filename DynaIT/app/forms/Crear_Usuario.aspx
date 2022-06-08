@@ -21,7 +21,7 @@
             <div class="">
 
                   
-                <asp:SqlDataSource ID="Grupo_Usuarios_Habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_area, area FROM Area WHERE (area_Habilitado = 'Si') OR (id_area = '1')"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="Grupo_Usuarios_Habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_area, area FROM Area WHERE (area_Habilitado = 'Si') OR (id_area = '1')"></asp:SqlDataSource>
                 <!-- Modal para el boton del crear usuario -->
                 <div class="modal fade" id="modal_crear_usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog" role="document">
@@ -175,7 +175,7 @@
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                     
-                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
+                    <asp:SqlDataSource ID="usuario_habilitado_grupos_habilitados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT usuario.id_usuario, usuario.nombre_usuario, usuario.correo_usu, rol.rol, usuario.usuario_Habilitado, Area.area, usuario.prefijo_usuario 
 					 FROM usuario INNER JOIN area ON usuario.area_id = Area.id_area INNER JOIN rol ON rol.id_rol =usuario.rol_id  
 					 WHERE (usuario.Usuario_Habilitado = @Usuario_Habilitado) order by usuario.id_Usuario desc" DeleteCommand="Select * from ticket ">
                        

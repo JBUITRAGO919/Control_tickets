@@ -243,6 +243,7 @@
     <Content Include="app\forms\Tickets_Generados_Usuario.aspx" />
     <Content Include="app\img\dynamics.ico" />
     <Content Include="app\img\dynamics.png" />
+    <Content Include="app\img\help tickets - HT.png" />
     <Content Include="app\img\login.png" />
     <Content Include="app\img\logohelptikets-blanco.png" />
     <Content Include="app\img\logohelptikets-negro.png" />

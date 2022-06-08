@@ -49,7 +49,7 @@
                                             <br />
                                             <asp:DropDownList class="form-control select2" ID="List_TemaConsultoria" runat="server" DataSourceID="TipoTcket" DataTextField="tipo_Ticket" DataValueField="id_tipo_Ticket" AutoPostBack="True">
                                             </asp:DropDownList>
-                                            <asp:SqlDataSource ID="TipoTcket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT id_tipo_Ticket, tipo_Ticket, Tipo_Ticket_Habilitado FROM tipo_ticket WHERE (Tipo_Ticket_Habilitado = 'Si') OR (id_tipo_Ticket = '1')"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="TipoTcket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT id_tipo_Ticket, tipo_Ticket, Tipo_Ticket_Habilitado FROM tipo_ticket WHERE (Tipo_Ticket_Habilitado = 'Si') OR (id_tipo_Ticket = '1')"></asp:SqlDataSource>
                                         </div>
                                     </div>
 
@@ -59,7 +59,7 @@
                                             <asp:DropDownList class="form-control select2" ID="List_Estado" runat="server" AutoPostBack="True" DataSourceID="Estados_ticket" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket">
                                                 <asp:ListItem class="bordesDrop">Abierto</asp:ListItem>
                                             </asp:DropDownList>
-                                            <asp:SqlDataSource ID="Estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket where id_Estado_Ticket = '2'"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="Estados_ticket" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynaitConnectionString.ProviderName %>" SelectCommand="SELECT * FROM estado_ticket where id_Estado_Ticket = '2'"></asp:SqlDataSource>
                                             <asp:Label ID="Lbl_id_ticket" runat="server" Text="Lbl_estado" Visible="False"></asp:Label>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                             <asp:Label class="" ID="lbl_prioridad" runat="server" Text="Prioridad"></asp:Label>
                                             <asp:DropDownList class="form-control select2" ID="List_Prioridad" runat="server" DataSourceID="tabla_prioridad" DataTextField="prioridad" DataValueField="id_prioridad">
                                             </asp:DropDownList>
-                                            <asp:SqlDataSource ID="tabla_prioridad" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select id_prioridad, prioridad from prioridad where prioridad_habilitada = 'Si' or id_prioridad = 1"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="tabla_prioridad" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select id_prioridad, prioridad from prioridad where prioridad_habilitada = 'Si' or id_prioridad = 1"></asp:SqlDataSource>
                                         </div>
                                     </div>
                                 </div>
@@ -158,8 +158,8 @@
                         <%-----------------------------------------%>
 
 
-                        <asp:SqlDataSource ID="NombreEmpresa" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_empresa, nombre_empresa FROM empresa WHERE id_empresa = '1' OR empresa_habilitada = 'Si'"></asp:SqlDataSource>
-                        <asp:SqlDataSource ID="grupo_usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT id_area, area FROM area where area_Habilitado = 'Si' or id_area=1 or id_area=2  "></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="NombreEmpresa" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_empresa, nombre_empresa FROM empresa WHERE id_empresa = '1' OR empresa_habilitada = 'Si'"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="grupo_usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT id_area, area FROM area where area_Habilitado = 'Si' or id_area=1 or id_area=2  "></asp:SqlDataSource>
 
                         <%---------------------------------------%>
                     </div>

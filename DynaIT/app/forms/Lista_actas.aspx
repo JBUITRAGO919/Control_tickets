@@ -80,7 +80,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_empresas" runat="server" DataSourceID="lista_empresas" DataTextField="Nombre_Empresa" DataValueField="id_Empresa" OnSelectedIndexChanged="List_empresas_SelectedIndexChanged" AutoPostBack="True" Font-Size="Medium"></asp:DropDownList>
-                            <asp:SqlDataSource ID="lista_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa where Empresa_Habilitada = 'Si' or id_Empresa = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="lista_empresas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_Empresa, Nombre_Empresa FROM empresa where Empresa_Habilitada = 'Si' or id_Empresa = '1'"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div class="">
@@ -90,7 +90,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_agente" runat="server" DataSourceID="lista_agentes" DataTextField="nombre_usuario" DataValueField="id_usuario" AutoPostBack="True" OnSelectedIndexChanged="List_agente_SelectedIndexChanged" Font-Size="Medium"></asp:DropDownList>
-                            <asp:SqlDataSource ID="lista_agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario where Usuario_Habilitado = 'Si' or id_usuario = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="lista_agentes" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_usuario, nombre_usuario FROM usuario where Usuario_Habilitado = 'Si' or id_usuario = '1'"></asp:SqlDataSource>
 
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                         </div>
                         <div style="">
                             <asp:DropDownList ID="List_estados" runat="server" DataSourceID="Lista_estados" DataTextField="estado_Ticket" DataValueField="id_Estado_Ticket" Font-Size="Medium" AutoPostBack="True" OnSelectedIndexChanged="List_estados_SelectedIndexChanged"></asp:DropDownList>
-                            <asp:SqlDataSource ID="Lista_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket FROM estado_ticket where estado_Habilitado = 'Si' or id_Estado_Ticket = '1'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="Lista_estados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString2.ProviderName %>" SelectCommand="SELECT id_Estado_Ticket, estado_Ticket FROM estado_ticket where estado_Habilitado = 'Si' or id_Estado_Ticket = '1'"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div class="">
@@ -186,7 +186,7 @@
 
 
 
-                          <asp:SqlDataSource ID="tabla_actas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_acta, Numero_Acta, ticket_id, Fecha_crea_acta, ticket.creditos_desarrollo, N_creditos_acta, ticket.Resumen_Problema, empresa.Nombre_Empresa, 
+                          <asp:SqlDataSource ID="tabla_actas" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" ProviderName="<%$ ConnectionStrings:dynamicsitConnectionString.ProviderName %>" SelectCommand="SELECT id_acta, Numero_Acta, ticket_id, Fecha_crea_acta, ticket.creditos_desarrollo, N_creditos_acta, ticket.Resumen_Problema, empresa.Nombre_Empresa, 
 empresa.Representante_empresa, usuario.nombre_usuario, acta.Numero_Factura, ticket.Fecha, ticket.Fecha_cierre_ticket, estado_ticket.estado_Ticket
 FROM acta inner join ticket on ticket.id_ticket = acta.ticket_id
                                  inner join cliente on cliente.id_Cliente = ticket.Cliente_id

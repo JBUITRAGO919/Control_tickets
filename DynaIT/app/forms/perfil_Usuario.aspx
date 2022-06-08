@@ -13,6 +13,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/474279b2ec.js" crossorigin="anonymous"></script>
     <link href="../style/Botones.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            display: block;
+            height: 41px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,14 +28,18 @@
                 <div>
                     <div >
                     <ul style="padding:8px;" class="conten__menu">
-                        <li style="padding-top: 0">
-                            <a>
-                                <img class="img__logo" src="../img/logohelptikets-negro.png" />
-                                <div class="imgLogin">                                 
-                                </div>
-                            </a>
+                        <li class="margenlogo" style="padding: 0; text-align:center; align-items:center;">
+                            <img class="img__logo" src="../img/logohelptikets-negro.png" />
+
+                            <img class="img__logo2" src="../img/help%20tickets%20-%20HT.png" />
+                                <%--<div class="imgLogin">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg>
+                                </div>--%>
                         </li>
-                        
                         <li>  <button type="button" class="btn btn" data-toggle="modal" data-target="#adjuntos_ticket"  style="padding: 0; font-size: 100%;" id="Btn_crear_cliente"> <i class="fa-solid fa-address-card" style="font-size: 15px;margin-right: 5px;"></i><asp:Label ID="lbl_nombre_usuario" Font-Size="Small" runat="server" Text="nombre usuario"></asp:Label></button></li>
                         <li> <asp:Label ID="Lbl_cargo" runat="server" Text="cargo usuario" Font-Size="Small" Visible="false"></asp:Label></li>
                         <li> <i class="fa-solid fa-user-tie" style="font-size: 15px;margin-right: 5px;"></i> <asp:Label ID="Lbl_cargo_tex" runat="server" Text="cargo usuario" Font-Size="Small" ></asp:Label></li>

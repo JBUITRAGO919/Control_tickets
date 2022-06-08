@@ -141,7 +141,7 @@
                                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                                 <SortedDescendingHeaderStyle BackColor="#33276A" />
                                             </asp:GridView>
-                                            <asp:SqlDataSource ID="Grafica_cerrados_agente_grafica" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_cerrados) nombre_usuario, count(id_ticket) as N_Ticket from ticket 
+                                            <asp:SqlDataSource ID="Grafica_cerrados_agente_grafica" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_cerrados) nombre_usuario, count(id_ticket) as N_Ticket from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where estado_id = 5 and fecha_cierre_ticket between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                                 <SelectParameters>
@@ -150,7 +150,7 @@
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" DefaultValue="0" Name="fecha_fin" PropertyName="Text" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                            <asp:SqlDataSource ID="tablas_cerrados_por_consultor_griv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_Ticket from ticket 
+                                            <asp:SqlDataSource ID="tablas_cerrados_por_consultor_griv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_Ticket from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where estado_id = 5 and fecha_cierre_ticket between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                                 <SelectParameters>
@@ -244,7 +244,7 @@
                                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
 
-                                            <asp:SqlDataSource ID="Tickets_creados_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="Tickets_creados_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(id_ticket) as N_tickets from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where Fecha between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                                 <SelectParameters>
@@ -253,7 +253,7 @@
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
 
-                                            <asp:SqlDataSource ID="tickets_creados_y_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_creados) nombre_usuario, count(id_ticket) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="tickets_creados_y_asignados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_creados) nombre_usuario, count(id_ticket) as N_tickets from ticket 
   inner join usuario on usuario.id_usuario = ticket.usuario_id
   where Fecha between @fecha_inicio AND @fecha_fin group by nombre_usuario">
                                                 <SelectParameters>
@@ -327,7 +327,7 @@
                                             </asp:Chart>
 
 
-                                            <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select (@top_trabajados) nombre_usuario, 
+                                            <asp:SqlDataSource ID="tickets_trabajados" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select (@top_trabajados) nombre_usuario, 
 (select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
 from usuario where usuario_Habilitado = 'Si' order by n_ticket desc  ">
                                                 <SelectParameters>
@@ -359,7 +359,7 @@ from usuario where usuario_Habilitado = 'Si' order by n_ticket desc  ">
 
 
 
-                                            <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select nombre_usuario, 
+                                            <asp:SqlDataSource ID="Tickets_trabajados_driv" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select nombre_usuario, 
 (select count(*) from (select DISTINCT ticket_id from acta where fecha_crea_acta between @fecha_inicio and @fecha_fin and acta.fk_usuario_id = usuario.id_usuario )t ) as n_ticket
 from usuario where usuario_Habilitado = 'Si' order by n_ticket desc ">
                                                 <SelectParameters>
@@ -457,7 +457,7 @@ from usuario where usuario_Habilitado = 'Si' order by n_ticket desc ">
                                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
                                             <%--grillaa empresas--%>
-                                            <asp:SqlDataSource ID="tabla_ticket_empresa_graf" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select top (@top_empresas) nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="tabla_ticket_empresa_graf" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select top (@top_empresas) nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
  inner join cliente on cliente.id_Cliente = ticket.cliente_id
  inner join empresa on empresa.id_empresa = cliente.empresa_id 
 where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order by COUNT (2)">
@@ -467,7 +467,7 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" DefaultValue="0" Name="fecha_fin" PropertyName="Text" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                            <asp:SqlDataSource ID="tabla_ticket_empresa_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="tabla_ticket_empresa_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_empresa, COUNT(id_Empresa) as N_tickets from ticket 
  inner join cliente on cliente.id_Cliente = ticket.cliente_id
  inner join empresa on empresa.id_empresa = cliente.empresa_id
  group by nombre_empresa
@@ -546,14 +546,14 @@ where Fecha between @fecha_inicio AND @fecha_fin group by nombre_empresa order b
                                                 <SortedDescendingHeaderStyle BackColor="#820000" />
                                             </asp:GridView>
                                             <%--grillaa estados--%>
-                                            <asp:SqlDataSource ID="ticket_estados_" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="ticket_estados_" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
 inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin group by estado_Ticket order by COUNT (2)">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                            <asp:SqlDataSource ID="ticket_estados_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
+                                            <asp:SqlDataSource ID="ticket_estados_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand=" select  estado_Ticket, COUNT(id_Estado_Ticket) as N_tickets from ticket 
 inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id where Fecha between @fecha_inicio AND @fecha_fin group by estado_Ticket order by COUNT (2)">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DbType="DateTime" DefaultValue="0" Name="fecha_inicio" PropertyName="Text" />
@@ -652,8 +652,8 @@ inner join estado_ticket on estado_ticket.id_Estado_Ticket = ticket.estado_id wh
                                                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
-                                            <asp:SqlDataSource ID="N_creditos_consultor" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="SELECT * FROM [acta]"></asp:SqlDataSource>
-                                            <asp:SqlDataSource ID="N_creditos_consultor2" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets, sum(n_creditos_acta) as N_creditos from acta
+                                            <asp:SqlDataSource ID="N_creditos_consultor" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="SELECT * FROM [acta]"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="N_creditos_consultor2" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="select nombre_usuario, count(ticket.id_ticket) as N_tickets, sum(n_creditos_acta) as N_creditos from acta
 inner join ticket on ticket.id_ticket = acta.ticket_id
 inner join usuario on usuario.id_usuario = acta.fk_usuario_id 
 where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombre_usuario">
@@ -807,7 +807,7 @@ where acta.fecha_crea_acta  between @fecha_inicio AND @fecha_fin  group by nombr
                                                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
-                                            <asp:SqlDataSource ID="informe3" runat="server" ConnectionString="<%$ ConnectionStrings:Myconexion2 %>" SelectCommand="informe3" SelectCommandType="StoredProcedure">
+                                            <asp:SqlDataSource ID="informe3" runat="server" ConnectionString="<%$ ConnectionStrings:Myconect %>" SelectCommand="informe3" SelectCommandType="StoredProcedure">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_ini" DefaultValue="0" DbType="DateTime" Name="fecha_ini" PropertyName="Text" />
                                                     <asp:ControlParameter ControlID="lbl_fecha_dia_hoy_fin" DefaultValue="0" DbType="DateTime" Name="fecha_fin" PropertyName="Text" />
